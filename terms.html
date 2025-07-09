@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Anern Industry Group Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#2563eb',
+                        'anern-dark': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false }">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm border-b border-gray-100">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="block text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="block text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="block text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Terms of Service</h1>
+            <p class="text-xl max-w-3xl mx-auto">Please read these terms carefully before using our services and products.</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="mb-8">
+                    <p class="text-gray-600 mb-4"><strong>Last updated:</strong> January 1, 2025</p>
+                    <p class="text-gray-600">These Terms of Service ("Terms") govern your use of Anern Industry Group Limited's products and services. By accessing or using our services, you agree to be bound by these Terms.</p>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">1. Acceptance of Terms</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        By accessing and using Anern's website, products, or services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                    </p>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">2. Description of Services</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Anern provides solar energy products including lithium batteries, solar panels, inverters, energy storage systems, and related services including consultation, installation, maintenance, and technical support.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Solar battery systems (12V, 24V, 48V LiFePO4)</li>
+                        <li>Solar panels (N-Type, P-Type, Bifacial)</li>
+                        <li>Solar inverters (Hybrid, Off-grid, Grid-tied)</li>
+                        <li>Energy storage systems (ESS)</li>
+                        <li>Complete solar power system solutions</li>
+                        <li>Technical support and maintenance services</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">3. Product Warranties</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Anern provides comprehensive warranty coverage for all products:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>Solar Panels:</strong> 25-year performance warranty, 12-year product warranty</li>
+                        <li><strong>Lithium Batteries:</strong> 8+ year warranty with 6000+ cycle life</li>
+                        <li><strong>Inverters:</strong> 10-year manufacturer warranty</li>
+                        <li><strong>Energy Storage Systems:</strong> 10-year system warranty</li>
+                    </ul>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">4. Use License</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Permission is granted to temporarily download one copy of the materials on Anern's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Modify or copy the materials</li>
+                        <li>Use the materials for any commercial purpose or for any public display</li>
+                        <li>Attempt to reverse engineer any software contained on the website</li>
+                        <li>Remove any copyright or other proprietary notations from the materials</li>
+                    </ul>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">5. Limitation of Liability</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        In no event shall Anern Industry Group Limited or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Anern's website or products, even if Anern or an authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
+                    </p>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">6. Technical Support</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Anern provides 24/7 technical support for all products and systems. Support includes:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Remote monitoring and diagnostics</li>
+                        <li>Troubleshooting assistance</li>
+                        <li>Performance optimization guidance</li>
+                        <li>Maintenance scheduling and support</li>
+                        <li>Warranty claim processing</li>
+                    </ul>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">7. Governing Law</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        These terms and conditions are governed by and construed in accordance with the laws of the People's Republic of China and you irrevocably submit to the exclusive jurisdiction of the courts in that state or location.
+                    </p>
+                </div>
+
+                <!-- Section 8 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">8. Privacy Policy</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Your privacy is important to us. Please review our Privacy Policy, which also governs your use of the website and services, to understand our practices. By using our services, you consent to the collection and use of information as outlined in our <a href="privacy.html" class="text-anern-blue hover:underline">Privacy Policy</a>.
+                    </p>
+                </div>
+
+                <!-- Section 9 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">9. Modifications</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Anern may revise these terms of service for its website and products at any time without notice. By using this website and our products, you are agreeing to be bound by the then current version of these terms of service.
+                    </p>
+                </div>
+
+                <!-- Section 10 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">10. Contact Information</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        If you have any questions about these Terms of Service, please contact us:
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-gray-700"><strong>Anern Industry Group Limited</strong></p>
+                        <p class="text-gray-700">Address: 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                        <p class="text-gray-700">Phone: +86-20-89269660</p>
+                        <p class="text-gray-700">Email: cooperation@anern.com</p>
+                    </div>
+                </div>
+
+                <!-- Agreement Section -->
+                <div class="border-t border-gray-200 pt-8">
+                    <h2 class="text-2xl font-bold text-anern-dark mb-4">Agreement</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        By using our website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please discontinue use of our services immediately.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-anern-dark mb-6">Questions About Our Terms?</h2>
+            <p class="text-xl text-gray-600 mb-8">Our team is ready to help clarify any questions you may have.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-anern-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Contact Legal Team
+                </a>
+                <a href="faq.html" class="border-2 border-anern-blue text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-anern-blue hover:text-white transition-colors">
+                    View FAQ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Legal</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Refund Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Support</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="service.html" class="hover:text-white transition-colors">Technical Support</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Warranty Claims</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors text-white">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

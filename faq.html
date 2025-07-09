@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Anern Industry Group Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#2563eb',
+                        'anern-dark': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false, openFaq: null }">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm border-b border-gray-100">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search FAQ..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="block text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="block text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="block text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
+            <p class="text-xl max-w-3xl mx-auto">Find answers to common questions about our solar products, services, and solutions.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Browse by Category</h2>
+                <p class="text-xl text-gray-600">Quick access to the information you need</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-16">
+                <a href="#products" class="bg-blue-50 p-6 rounded-lg text-center hover:bg-blue-100 transition-colors">
+                    <i class="fas fa-box text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-lg font-bold text-blue-600">Products</h3>
+                    <p class="text-sm text-gray-600 mt-2">Battery, panels, inverters</p>
+                </a>
+                <a href="#installation" class="bg-green-50 p-6 rounded-lg text-center hover:bg-green-100 transition-colors">
+                    <i class="fas fa-tools text-3xl text-green-600 mb-4"></i>
+                    <h3 class="text-lg font-bold text-green-600">Installation</h3>
+                    <p class="text-sm text-gray-600 mt-2">Setup and commissioning</p>
+                </a>
+                <a href="#warranty" class="bg-purple-50 p-6 rounded-lg text-center hover:bg-purple-100 transition-colors">
+                    <i class="fas fa-shield-alt text-3xl text-purple-600 mb-4"></i>
+                    <h3 class="text-lg font-bold text-purple-600">Warranty</h3>
+                    <p class="text-sm text-gray-600 mt-2">Warranty and support</p>
+                </a>
+                <a href="#technical" class="bg-orange-50 p-6 rounded-lg text-center hover:bg-orange-100 transition-colors">
+                    <i class="fas fa-cog text-3xl text-orange-600 mb-4"></i>
+                    <h3 class="text-lg font-bold text-orange-600">Technical</h3>
+                    <p class="text-sm text-gray-600 mt-2">Technical specifications</p>
+                </a>
+            </div>
+
+            <!-- Products FAQ Section -->
+            <div id="products" class="mb-16">
+                <h3 class="text-3xl font-bold text-anern-dark mb-8">Products</h3>
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'p1' ? null : 'p1'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">What types of solar batteries does Anern offer?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'p1' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'p1'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Anern offers a comprehensive range of LiFePO4 lithium batteries including 12V, 24V, and 48V systems. Our batteries feature advanced BMS (Battery Management System) protection, long cycle life (6000+ cycles), and are designed for both residential and commercial solar applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'p2' ? null : 'p2'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">What is the lifespan of Anern solar panels?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'p2' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'p2'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Our solar panels are designed to last 25+ years with minimal degradation. They feature high-efficiency N-Type and P-Type cells with power outputs ranging from 430W to 580W. All panels come with a 25-year performance warranty and 12-year product warranty.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'p3' ? null : 'p3'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">Can I customize products for specific requirements?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'p3' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'p3'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Yes! Anern offers comprehensive OEM/ODM services. Our experienced R&D team can customize products according to your specific voltage, capacity, size, and performance requirements. Contact us to discuss your custom needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation FAQ Section -->
+            <div id="installation" class="mb-16">
+                <h3 class="text-3xl font-bold text-anern-dark mb-8">Installation</h3>
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'i1' ? null : 'i1'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">How long does installation typically take?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'i1' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'i1'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Installation time varies by system size and complexity. Residential systems (1-10kW) typically take 1-3 days, while commercial installations may take 1-2 weeks. Our certified technicians ensure quality installation with minimal disruption to your daily activities.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'i2' ? null : 'i2'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">Do you provide installation services worldwide?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'i2' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'i2'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Anern serves over 200 countries worldwide. We work with certified local installers and provide comprehensive technical support, training, and installation guidelines to ensure consistent quality regardless of location.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'i3' ? null : 'i3'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">What permits are required for solar installation?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'i3' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'i3'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Permit requirements vary by location and system type. Our team assists with permit applications and ensures all installations comply with local building codes and electrical standards. We handle the paperwork to streamline the process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warranty FAQ Section -->
+            <div id="warranty" class="mb-16">
+                <h3 class="text-3xl font-bold text-anern-dark mb-8">Warranty & Support</h3>
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'w1' ? null : 'w1'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">What warranty coverage do you provide?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'w1' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'w1'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">We offer comprehensive warranty coverage: 25-year performance warranty on solar panels, 10-year warranty on inverters, and 8+ year warranty on lithium batteries. All products include technical support and maintenance services.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'w2' ? null : 'w2'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">How do I claim warranty service?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'w2' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'w2'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Contact our 24/7 support team at +86-20-89269660 or cooperation@anern.com. Provide your system details and issue description. We'll arrange remote diagnostics first, followed by on-site service if needed within 24-48 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 'w3' ? null : 'w3'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">Is regular maintenance required?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 'w3' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 'w3'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Solar systems require minimal maintenance. We recommend annual inspections, periodic cleaning, and performance monitoring. Our maintenance packages include preventive services to ensure optimal system performance throughout its lifespan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical FAQ Section -->
+            <div id="technical" class="mb-16">
+                <h3 class="text-3xl font-bold text-anern-dark mb-8">Technical</h3>
+                <div class="space-y-4">
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 't1' ? null : 't1'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">What is the efficiency of Anern solar panels?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 't1' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 't1'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Our solar panels achieve up to 22% efficiency with advanced N-Type and bifacial technology. The high-efficiency design maximizes power generation even in limited space, making them ideal for both residential and commercial applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 't2' ? null : 't2'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">Can the system work during power outages?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 't2' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 't2'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Yes, with our hybrid inverters and battery storage systems. During grid outages, the system automatically switches to battery power, providing uninterrupted electricity to essential loads. Our smart systems can prioritize critical appliances automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg">
+                        <button @click="openFaq = openFaq === 't3' ? null : 't3'" class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50">
+                            <span class="font-semibold">How do I monitor system performance?</span>
+                            <i class="fas fa-chevron-down transform transition-transform" :class="openFaq === 't3' ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="openFaq === 't3'" x-transition class="px-6 pb-6">
+                            <p class="text-gray-600">Our systems include WiFi monitoring capabilities with mobile app access. You can track real-time performance, energy production, consumption patterns, and receive alerts for any issues. Remote monitoring also enables our support team to provide proactive assistance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-anern-dark mb-6">Still have questions?</h2>
+            <p class="text-xl text-gray-600 mb-8">Our expert team is here to help you find the answers you need.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-anern-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Contact Support
+                </a>
+                <a href="tel:+86-20-89269660" class="border-2 border-anern-blue text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-anern-blue hover:text-white transition-colors">
+                    Call +86-20-89269660
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Quick FAQ -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick FAQ</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#products" class="hover:text-white transition-colors">Product Questions</a></li>
+                        <li><a href="#installation" class="hover:text-white transition-colors">Installation Guide</a></li>
+                        <li><a href="#warranty" class="hover:text-white transition-colors">Warranty Info</a></li>
+                        <li><a href="#technical" class="hover:text-white transition-colors">Technical Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Support</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="service.html" class="hover:text-white transition-colors">Technical Support</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Download Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">User Manuals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="solutions.html" class="hover:text-white transition-colors">Solutions</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

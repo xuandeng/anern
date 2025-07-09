@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Anern Industry Group Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#2563eb',
+                        'anern-dark': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false, selectedCategory: 'all' }">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm border-b border-gray-100">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search projects..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="text-anern-blue py-2 font-medium">Projects</a>
+                    <a href="service.html" class="text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="block text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="block text-anern-blue py-2 font-medium">Projects</a>
+                    <a href="service.html" class="block text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Our Projects</h1>
+            <p class="text-xl max-w-3xl mx-auto">Showcasing our successful solar installations across 200+ countries worldwide. From small residential systems to large commercial installations.</p>
+        </div>
+    </section>
+
+    <!-- Project Categories Filter -->
+    <section class="py-8 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button @click="selectedCategory = 'all'" :class="selectedCategory === 'all' ? 'bg-anern-blue text-white' : 'bg-white text-gray-700 hover:bg-gray-100'" class="px-6 py-3 rounded-full border transition-colors">
+                    All Projects
+                </button>
+                <button @click="selectedCategory = 'residential'" :class="selectedCategory === 'residential' ? 'bg-anern-blue text-white' : 'bg-white text-gray-700 hover:bg-gray-100'" class="px-6 py-3 rounded-full border transition-colors">
+                    Residential
+                </button>
+                <button @click="selectedCategory = 'commercial'" :class="selectedCategory === 'commercial' ? 'bg-anern-blue text-white' : 'bg-white text-gray-700 hover:bg-gray-100'" class="px-6 py-3 rounded-full border transition-colors">
+                    Commercial
+                </button>
+                <button @click="selectedCategory = 'industrial'" :class="selectedCategory === 'industrial' ? 'bg-anern-blue text-white' : 'bg-white text-gray-700 hover:bg-gray-100'" class="px-6 py-3 rounded-full border transition-colors">
+                    Industrial
+                </button>
+                <button @click="selectedCategory = 'off-grid'" :class="selectedCategory === 'off-grid' ? 'bg-anern-blue text-white' : 'bg-white text-gray-700 hover:bg-gray-100'" class="px-6 py-3 rounded-full border transition-colors">
+                    Off-Grid
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Featured Projects</h2>
+                <p class="text-xl text-gray-600">Highlighting our most successful and innovative solar installations</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 mb-20">
+                <!-- Project 1 -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'commercial'" x-transition class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center relative">
+                        <i class="fas fa-industry text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full text-white text-sm">
+                            Commercial
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">Afghan Wholesaler EVO Inverter Project</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div><span class="font-semibold">Location:</span> Afghanistan</div>
+                            <div><span class="font-semibold">Date:</span> June 2023</div>
+                            <div><span class="font-semibold">Capacity:</span> 350 Units</div>
+                            <div><span class="font-semibold">Type:</span> EVO Inverter</div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Major wholesale project featuring 350 sets of our advanced EVO inverters, providing reliable solar power solutions for Afghanistan's growing renewable energy market.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-600 font-semibold">Project Completed</span>
+                            <button class="text-anern-blue hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'off-grid'" x-transition class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative">
+                        <i class="fas fa-home text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full text-white text-sm">
+                            Off-Grid
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">Uganda Off-Grid Solar System</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div><span class="font-semibold">Location:</span> Uganda</div>
+                            <div><span class="font-semibold">Date:</span> Sep 2021</div>
+                            <div><span class="font-semibold">Capacity:</span> 10 x 8KW</div>
+                            <div><span class="font-semibold">Type:</span> Off-Grid System</div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Complete off-grid solar power system installation providing reliable electricity to remote areas in Uganda, featuring 10 sets of 8KW systems with battery storage.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-600 font-semibold">Project Completed</span>
+                            <button class="text-anern-blue hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'commercial'" x-transition class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center relative">
+                        <i class="fas fa-building text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full text-white text-sm">
+                            Commercial
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">Ukraine Solar Inverter Wholesale Project</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div><span class="font-semibold">Location:</span> Ukraine</div>
+                            <div><span class="font-semibold">Date:</span> Dec 2022</div>
+                            <div><span class="font-semibold">Capacity:</span> Large Scale</div>
+                            <div><span class="font-semibold">Type:</span> Solar Inverter</div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Large-scale wholesale solar inverter project for commercial use, supporting Ukraine's renewable energy infrastructure development during challenging times.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-600 font-semibold">Project Completed</span>
+                            <button class="text-anern-blue hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div x-show="selectedCategory === 'all' || selectedCategory === 'residential'" x-transition class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center relative">
+                        <i class="fas fa-solar-panel text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full text-white text-sm">
+                            Residential
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3">European Residential Solar Installation</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div><span class="font-semibold">Location:</span> Germany</div>
+                            <div><span class="font-semibold">Date:</span> Aug 2023</div>
+                            <div><span class="font-semibold">Capacity:</span> 5KW</div>
+                            <div><span class="font-semibold">Type:</span> Grid-Tied</div>
+                        </div>
+                        <p class="text-gray-600 mb-6">Modern residential solar installation featuring our high-efficiency panels and hybrid inverters, providing clean energy and grid independence for European homes.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-600 font-semibold">Project Completed</span>
+                            <button class="text-anern-blue hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Statistics -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Project Impact</h2>
+                <p class="text-xl text-gray-600">Making a difference worldwide through renewable energy</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-anern-blue mb-4">200+</div>
+                    <h3 class="text-xl font-semibold mb-2">Countries Served</h3>
+                    <p class="text-gray-600">Global reach with local support</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-anern-blue mb-4">10,000+</div>
+                    <h3 class="text-xl font-semibold mb-2">Projects Completed</h3>
+                    <p class="text-gray-600">Successful installations worldwide</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-anern-blue mb-4">500MW+</div>
+                    <h3 class="text-xl font-semibold mb-2">Total Capacity</h3>
+                    <p class="text-gray-600">Clean energy generated</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-anern-blue mb-4">16</div>
+                    <h3 class="text-xl font-semibold mb-2">Years Experience</h3>
+                    <p class="text-gray-600">Industry expertise and trust</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-anern-blue to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of satisfied customers worldwide who trust Anern for their solar energy needs.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Start Your Project
+                </a>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-anern-blue transition-colors">
+                    Download Case Studies
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Project Types</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Residential Projects</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Commercial Projects</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Industrial Projects</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Off-Grid Projects</a></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Solutions</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="solutions.html" class="hover:text-white transition-colors">Solar Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Energy Storage</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Off-Grid Systems</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Hybrid Systems</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

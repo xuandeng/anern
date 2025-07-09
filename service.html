@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service - Anern Industry Group Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#2563eb',
+                        'anern-dark': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false }">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm border-b border-gray-100">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search services..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="text-anern-blue py-2 font-medium">Service</a>
+                    <a href="about.html" class="text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="block text-gray-700 hover:text-anern-blue py-2">Solutions</a>
+                    <a href="projects.html" class="block text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="block text-anern-blue py-2 font-medium">Service</a>
+                    <a href="about.html" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Our Services</h1>
+            <p class="text-xl max-w-3xl mx-auto">Comprehensive support from consultation to installation and beyond. We're committed to your solar energy success.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Complete Service Portfolio</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From initial consultation to ongoing maintenance, we provide end-to-end services to ensure your solar investment delivers maximum value.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <!-- Consultation & Design -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-drafting-compass text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Consultation & Design</h3>
+                    <p class="text-gray-600 mb-4">Expert consultation and custom system design tailored to your specific energy needs and site conditions.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Site assessment and analysis</li>
+                        <li>• Energy consumption evaluation</li>
+                        <li>• Custom system design</li>
+                        <li>• ROI calculations</li>
+                        <li>• Permit assistance</li>
+                    </ul>
+                </div>
+
+                <!-- Installation Services -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Installation Services</h3>
+                    <p class="text-gray-600 mb-4">Professional installation by certified technicians with quality workmanship and safety standards.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Certified installation teams</li>
+                        <li>• Quality control inspections</li>
+                        <li>• Safety compliance</li>
+                        <li>• Grid connection setup</li>
+                        <li>• System commissioning</li>
+                    </ul>
+                </div>
+
+                <!-- Technical Support -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Technical Support</h3>
+                    <p class="text-gray-600 mb-4">24/7 technical support and troubleshooting to keep your system running at peak performance.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• 24/7 support hotline</li>
+                        <li>• Remote monitoring</li>
+                        <li>• Troubleshooting assistance</li>
+                        <li>• Performance optimization</li>
+                        <li>• Technical documentation</li>
+                    </ul>
+                </div>
+
+                <!-- Maintenance Services -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-wrench text-2xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Maintenance Services</h3>
+                    <p class="text-gray-600 mb-4">Preventive maintenance and regular inspections to ensure long-term system reliability.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Scheduled maintenance</li>
+                        <li>• Component inspections</li>
+                        <li>• Performance testing</li>
+                        <li>• Cleaning services</li>
+                        <li>• Replacement parts</li>
+                    </ul>
+                </div>
+
+                <!-- Training & Education -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Training & Education</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive training programs for installers, technicians, and end users.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Installer certification</li>
+                        <li>• Technical training courses</li>
+                        <li>• User operation guides</li>
+                        <li>• Safety training</li>
+                        <li>• Ongoing education</li>
+                    </ul>
+                </div>
+
+                <!-- OEM/ODM Services -->
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">OEM/ODM Services</h3>
+                    <p class="text-gray-600 mb-4">Custom manufacturing and design services for unique project requirements.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Custom product design</li>
+                        <li>• Private labeling</li>
+                        <li>• Specification modifications</li>
+                        <li>• Prototype development</li>
+                        <li>• Volume manufacturing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Our Service Process</h2>
+                <p class="text-xl text-gray-600">Streamlined process ensuring quality and efficiency at every step</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-anern-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Initial Consultation</h3>
+                    <p class="text-gray-600 text-sm">Free consultation to understand your energy needs and requirements</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-anern-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Site Assessment</h3>
+                    <p class="text-gray-600 text-sm">Detailed site evaluation and feasibility study</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-anern-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Custom Design</h3>
+                    <p class="text-gray-600 text-sm">Tailored system design and proposal preparation</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-anern-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">4</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Installation</h3>
+                    <p class="text-gray-600 text-sm">Professional installation and system commissioning</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-anern-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-white">5</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Ongoing Support</h3>
+                    <p class="text-gray-600 text-sm">Continuous monitoring and maintenance support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Guarantees -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Our Service Guarantees</h2>
+                <p class="text-xl text-gray-600">Quality commitments that give you peace of mind</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality Warranty</h3>
+                    <p class="text-gray-600">25-year product warranty and performance guarantee on all major components.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Timely Response</h3>
+                    <p class="text-gray-600">24-hour response time for technical support and emergency services.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Certified Technicians</h3>
+                    <p class="text-gray-600">All installations performed by certified and experienced professionals.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-thumbs-up text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Satisfaction Guarantee</h3>
+                    <p class="text-gray-600">100% customer satisfaction guarantee with comprehensive support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-anern-blue to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Experience Our Service Excellence?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Contact our service team today and discover why thousands of customers worldwide trust Anern for their solar energy needs.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Contact Service Team
+                </a>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-anern-blue transition-colors">
+                    Schedule Service Call
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Consultation & Design</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Installation Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Technical Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Maintenance Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Support</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">24/7 Technical Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Training Programs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">OEM/ODM Services</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
