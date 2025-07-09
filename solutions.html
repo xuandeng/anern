@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Solutions - Anern Industry Group Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#2563eb',
+                        'anern-dark': '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false }">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm border-b border-gray-100">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search solutions..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="text-anern-blue py-2 font-medium">Solutions</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="products.html" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="solutions.html" class="block text-anern-blue py-2 font-medium">Solutions</a>
+                    <a href="projects.html" class="block text-gray-700 hover:text-anern-blue py-2">Projects</a>
+                    <a href="service.html" class="block text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="about.html" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-50 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <a href="index.html" class="hover:text-anern-blue">Home</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-anern-blue">Solutions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Solar Solutions</h1>
+            <p class="text-xl max-w-3xl mx-auto">Comprehensive solar energy solutions tailored for residential, commercial, and industrial applications. From off-grid systems to large-scale installations.</p>
+        </div>
+    </section>
+
+    <!-- Solutions Overview -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Complete Solar Energy Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From design to installation, Anern provides end-to-end solar solutions that maximize energy efficiency and return on investment.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Residential Solutions -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
+                        <i class="fas fa-home text-8xl text-white"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Residential Solutions</h3>
+                        <p class="text-gray-600 mb-6">Perfect solar solutions for homes, from small off-grid cabins to large residential properties. Our systems provide reliable, clean energy with minimal maintenance.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Off-grid home systems (1-10kW)</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Grid-tied residential systems</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Backup power solutions</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Smart energy management</li>
+                        </ul>
+                        <a href="residential-solutions.html" class="bg-anern-blue text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Commercial Solutions -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-building text-8xl text-white"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Commercial Solutions</h3>
+                        <p class="text-gray-600 mb-6">Scalable solar solutions for businesses, factories, and industrial facilities. Reduce operating costs and achieve sustainability goals with our commercial systems.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Large-scale installations (50kW+)</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Industrial energy storage</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Peak shaving solutions</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 24/7 monitoring systems</li>
+                        </ul>
+                        <a href="commercial-solutions.html" class="bg-anern-blue text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Solution Categories</h2>
+                <p class="text-xl text-gray-600">Specialized solutions for every application</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <!-- Off-Grid Solutions -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-battery-full text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Off-Grid Solutions</h3>
+                    <p class="text-gray-600 mb-4">Complete independence from the electrical grid with our reliable off-grid solar systems including batteries, inverters, and monitoring.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Remote area power supply</li>
+                        <li>• Island installations</li>
+                        <li>• Emergency backup systems</li>
+                        <li>• Rural electrification</li>
+                    </ul>
+                </div>
+
+                <!-- Grid-Tied Solutions -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-plug text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Grid-Tied Solutions</h3>
+                    <p class="text-gray-600 mb-4">Reduce electricity bills and sell excess power back to the grid with our efficient grid-tied solar systems.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Net metering systems</li>
+                        <li>• Feed-in tariff optimization</li>
+                        <li>• Grid synchronization</li>
+                        <li>• Real-time monitoring</li>
+                    </ul>
+                </div>
+
+                <!-- Hybrid Solutions -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-sync-alt text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Hybrid Solutions</h3>
+                    <p class="text-gray-600 mb-4">Best of both worlds - grid connection with battery backup for maximum reliability and energy security.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Grid backup capability</li>
+                        <li>• Load prioritization</li>
+                        <li>• Time-of-use optimization</li>
+                        <li>• Seamless switching</li>
+                    </ul>
+                </div>
+
+                <!-- Energy Storage Solutions -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-warehouse text-2xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Energy Storage Solutions</h3>
+                    <p class="text-gray-600 mb-4">Advanced battery storage systems for maximum energy utilization and grid stability.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Peak shaving systems</li>
+                        <li>• Load balancing</li>
+                        <li>• Frequency regulation</li>
+                        <li>• Demand response</li>
+                    </ul>
+                </div>
+
+                <!-- Smart Monitoring -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Smart Monitoring</h3>
+                    <p class="text-gray-600 mb-4">Real-time monitoring and optimization systems for maximum performance and early fault detection.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Remote monitoring</li>
+                        <li>• Performance analytics</li>
+                        <li>• Predictive maintenance</li>
+                        <li>• Mobile app control</li>
+                    </ul>
+                </div>
+
+                <!-- Custom Solutions -->
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Custom Solutions</h3>
+                    <p class="text-gray-600 mb-4">Tailored solar solutions designed specifically for unique requirements and challenging environments.</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• OEM/ODM services</li>
+                        <li>• Special applications</li>
+                        <li>• Prototype development</li>
+                        <li>• Technical consulting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Solutions -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-6">Why Choose Anern Solutions?</h2>
+                <p class="text-xl text-gray-600">16 years of experience delivering reliable solar solutions worldwide</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Proven Track Record</h3>
+                    <p class="text-gray-600">Over 16 years of experience with thousands of successful installations across 200+ countries.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">End-to-End Service</h3>
+                    <p class="text-gray-600">From initial consultation to installation and maintenance, we provide complete project management.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
+                    <p class="text-gray-600">All our solutions come with comprehensive warranties and are built to last 25+ years.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">24/7 Support</h3>
+                    <p class="text-gray-600">Round-the-clock technical support and monitoring to ensure optimal system performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-anern-blue to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Design Your Solar Solution?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Our expert team is ready to help you design and implement the perfect solar solution for your specific needs and budget.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Get Free Consultation
+                </a>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-anern-blue transition-colors">
+                    Download Solutions Guide
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Solutions</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="residential-solutions.html" class="hover:text-white transition-colors">Residential Solutions</a></li>
+                        <li><a href="commercial-solutions.html" class="hover:text-white transition-colors">Commercial Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Off-Grid Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Energy Storage Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Products</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="products.html" class="hover:text-white transition-colors">Solar Battery</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Solar Panel</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Solar Inverter</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Solar Storage System</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
