@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ mobileMenuOpen: false, searchOpen: false, cartOpen: false }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Anern - Your Trusted Partner in Solar Energy Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'anern-blue': '#1e40af',
+                        'anern-light-blue': '#3b82f6',
+                        'anern-dark': '#1f2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+
+    <!-- Top Banner -->
+    <div class="bg-anern-blue text-white text-center py-2 text-sm">
+        <div class="container mx-auto px-4">
+            Welcome to Anern - Partner with Us for Custom Solar + Battery Systems, We will contact you within 24 hours
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Top Header -->
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                <div class="flex items-center space-x-4 text-sm text-gray-600">
+                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
+                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
+                            <input type="text" placeholder="Search products..." class="w-full px-3 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <button class="text-gray-600 hover:text-anern-blue">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-anern-blue">ANERN</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
+                            Lithium Battery <i class="fas fa-chevron-down ml-1"></i>
+                        </a>
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <div class="p-4">
+                                <a href="#" class="block py-2 hover:text-anern-blue">12V Lithium Battery</a>
+                                <a href="#" class="block py-2 hover:text-anern-blue">24V 48V Lithium Battery</a>
+                                <a href="#" class="block py-2 hover:text-anern-blue">C&I BESS</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
+                            Solar Solutions <i class="fas fa-chevron-down ml-1"></i>
+                        </a>
+                        <div class="absolute top-full left-0 w-80 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <div class="p-4">
+                                <a href="#" class="block py-2 hover:text-anern-blue">Residential Off-grid Solar Power System Solutions</a>
+                                <a href="#" class="block py-2 hover:text-anern-blue">Commercial Off-grid Solar Power System Solutions</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2">ESS Solar Storage</a>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2">Solar Inverter</a>
+                    <a href="about.html" class="text-anern-blue py-2">About Anern</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-anern-blue py-2">Support</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
+                <nav class="space-y-4">
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Lithium Battery</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Solar Solutions</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue">ESS Solar Storage</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Solar Inverter</a>
+                    <a href="about.html" class="block text-anern-blue">About Anern</a>
+                    <a href="contact.html" class="block text-gray-700 hover:text-anern-blue">Support</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">About Anern</h1>
+            <p class="text-xl max-w-3xl mx-auto">Your trusted partner in solar energy solutions with over 16 years of industry expertise</p>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-anern-dark mb-6">Anern Industry Group Limited</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        As one of the world's leading suppliers of integrated solar products, Anern focuses on the development and manufacturing of solar products to continuously improve product quality and performance. Our products can meet a variety of applications in the field of solar energy, such as solar panels, solar inverters, solar batteries, solar storage systems and so on.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        At present, Anern has been designated as an excellent brand in many countries. Anern's products have been successfully installed in hundreds of countries and regions, serving customers worldwide with reliable and efficient energy solutions.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-anern-blue mb-2">16+</div>
+                            <div class="text-gray-600">Years of Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-anern-blue mb-2">200+</div>
+                            <div class="text-gray-600">Countries Served</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gray-200 h-96 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-industry text-6xl text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Our Mission & Vision</h2>
+                <p class="text-xl text-gray-600">Driving the global transition to sustainable energy solutions</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To provide reliable, scalable energy solutions tailored to our customers' solar projects. We are committed to delivering high-quality lithium batteries, energy storage systems, and integrated ESS development from product design to mass production.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To be the world's leading provider of solar energy solutions, enabling a sustainable future through innovative technology and exceptional service. We envision a world powered by clean, renewable energy accessible to everyone.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Our Core Values</h2>
+                <p class="text-xl text-gray-600">The principles that guide everything we do</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Innovation</h3>
+                    <p class="text-gray-600">Continuously advancing solar technology through research and development to provide cutting-edge solutions.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sustainability</h3>
+                    <p class="text-gray-600">Committed to environmental responsibility and promoting clean energy for a better planet.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Reliability</h3>
+                    <p class="text-gray-600">Delivering consistent, high-quality products and services that our customers can depend on.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Customer Focus</h3>
+                    <p class="text-gray-600">Prioritizing customer satisfaction through personalized service and comprehensive support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Our Journey</h2>
+                <p class="text-xl text-gray-600">16+ years of innovation and growth in the solar industry</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-anern-blue h-full"></div>
+                
+                <div class="space-y-12">
+                    <!-- Timeline Item -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-bold mb-2">2008 - Company Founded</h3>
+                            <p class="text-gray-600">Anern was established with a vision to revolutionize the solar energy industry through innovative battery and storage solutions.</p>
+                        </div>
+                        <div class="relative z-10 w-4 h-4 bg-anern-blue rounded-full border-4 border-white"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Timeline Item -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="relative z-10 w-4 h-4 bg-anern-blue rounded-full border-4 border-white"></div>
+                        <div class="w-1/2 pl-8">
+                            <h3 class="text-xl font-bold mb-2">2012 - First International Expansion</h3>
+                            <p class="text-gray-600">Successfully expanded operations to serve customers across multiple countries, establishing our global presence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-bold mb-2">2016 - Advanced R&D Center</h3>
+                            <p class="text-gray-600">Established state-of-the-art research and development facilities to drive innovation in lithium battery technology.</p>
+                        </div>
+                        <div class="relative z-10 w-4 h-4 bg-anern-blue rounded-full border-4 border-white"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Timeline Item -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="relative z-10 w-4 h-4 bg-anern-blue rounded-full border-4 border-white"></div>
+                        <div class="w-1/2 pl-8">
+                            <h3 class="text-xl font-bold mb-2">2020 - ESS Innovation</h3>
+                            <p class="text-gray-600">Launched next-generation Energy Storage Systems with advanced BMS technology and smart grid integration capabilities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item -->
+                    <div class="flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <h3 class="text-xl font-bold mb-2">2024 - Global Leadership</h3>
+                            <p class="text-gray-600">Achieved recognition as one of the world's leading suppliers of integrated solar products, serving 200+ countries worldwide.</p>
+                        </div>
+                        <div class="relative z-10 w-4 h-4 bg-green-600 rounded-full border-4 border-white"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Excellence -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Manufacturing Excellence</h2>
+                <p class="text-xl text-gray-600">State-of-the-art facilities and quality assurance</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Advanced Production</h3>
+                    <p class="text-gray-600 mb-4">Modern manufacturing facilities equipped with automated production lines and precision quality control systems.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Automated assembly lines</li>
+                        <li>• ISO 9001 certified</li>
+                        <li>• 24/7 quality monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microscope text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">R&D Innovation</h3>
+                    <p class="text-gray-600 mb-4">Dedicated research and development team of 100+ engineers working on next-generation solar technologies.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• 100+ R&D engineers</li>
+                        <li>• Advanced testing labs</li>
+                        <li>• Continuous innovation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-award text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
+                    <p class="text-gray-600 mb-4">Rigorous testing and certification processes ensuring products meet international standards and customer expectations.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Multiple certifications</li>
+                        <li>• Comprehensive testing</li>
+                        <li>• Global standards compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence -->
+    <section class="py-20 bg-anern-blue text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Global Presence</h2>
+                <p class="text-xl opacity-90">Serving customers worldwide with local support</p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold mb-2">200+</div>
+                    <div class="text-lg opacity-90">Countries & Regions</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">1000+</div>
+                    <div class="text-lg opacity-90">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-lg opacity-90">Distribution Partners</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">24/7</div>
+                    <div class="text-lg opacity-90">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Our Leadership Team</h2>
+                <p class="text-xl text-gray-600">Experienced professionals driving our success</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-2">Chief Executive Officer</h3>
+                        <p class="text-anern-blue mb-3">Executive Leadership</p>
+                        <p class="text-gray-600">Leading the company's strategic vision and global expansion initiatives.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user-cog text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-2">Chief Technology Officer</h3>
+                        <p class="text-anern-blue mb-3">Technology Innovation</p>
+                        <p class="text-gray-600">Driving technological advancement and product development initiatives.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user-friends text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-2">VP of Global Sales</h3>
+                        <p class="text-anern-blue mb-3">Market Expansion</p>
+                        <p class="text-gray-600">Managing international partnerships and market development strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-anern-blue to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Partner with Us?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of satisfied customers worldwide who trust Anern for their solar energy solutions.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Contact Our Team
+                </button>
+                <button class="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-anern-blue transition-colors">
+                    Download Company Profile
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-anern-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
+                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
+                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Products</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Solar Battery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Commercial Solar Power System</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Residential Solar Power System</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">ESS Solar Storage</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Solar Inverter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Anern Group</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hot Products -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Hot Products</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">12V Lithium Battery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">24V Lithium Ion Battery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">48 volt lithium battery</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Commercial BESS</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Anern</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025, Anern.</p>
+                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
+                        <a href="#" class="hover:text-white transition-colors">Privacy policy</a>
+                        <a href="#" class="hover:text-white transition-colors">Terms of service</a>
+                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
