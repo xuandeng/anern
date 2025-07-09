@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anern - Solar Battery, Solar Panel, Solar Inverter, Solar Power System</title>
+    <title>Solar Battery, Solar Panel, Solar Inverter, Solar Power System - Anern</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,9 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'anern-blue': '#1e40af',
+                        'anern-blue': '#1e3a8a',
                         'anern-light-blue': '#3b82f6',
-                        'anern-dark': '#1f2937',
+                        'anern-dark': '#111827',
+                        'anern-green': '#059669',
                     }
                 }
             }
@@ -23,163 +24,156 @@
 </head>
 <body class="font-sans">
 
-    <!-- Top Banner -->
-    <div class="bg-anern-blue text-white text-center py-2 text-sm">
-        <div class="container mx-auto px-4">
-            Welcome to Anern - Partner with Us for Custom Solar + Battery Systems, We will contact you within 24 hours
+    <!-- Top Info Bar -->
+    <div class="bg-gray-800 text-white py-2 text-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fas fa-phone mr-2"></i>+86-8620-89269660</span>
+                <span><i class="fas fa-envelope mr-2"></i>g-ad@anern.com</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <select class="bg-transparent border-none text-white text-sm">
+                    <option>English</option>
+                    <option>中文</option>
+                    <option>Français</option>
+                    <option>Español</option>
+                </select>
+                <div class="flex space-x-2">
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Main Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <!-- Top Header -->
-            <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                <div class="flex items-center space-x-4 text-sm text-gray-600">
-                    <span><i class="fas fa-phone"></i> +86-20-89269660</span>
-                    <span><i class="fas fa-envelope"></i> cooperation@anern.com</span>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <button @click="searchOpen = !searchOpen" class="text-gray-600 hover:text-anern-blue">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div x-show="searchOpen" x-transition class="absolute right-0 top-8 w-64 bg-white border rounded-lg shadow-lg p-4">
-                            <input type="text" placeholder="Search products..." class="w-full px-3 py-2 border rounded-lg">
-                        </div>
-                    </div>
-                    <button class="text-gray-600 hover:text-anern-blue">
-                        <i class="fas fa-user"></i> Login
-                    </button>
-                    <button @click="cartOpen = !cartOpen" class="text-gray-600 hover:text-anern-blue relative">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Main Header -->
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <div class="text-2xl font-bold text-anern-blue">ANERN</div>
+                    <h1 class="text-3xl font-bold text-anern-blue">Anern Industry Group Limited</h1>
                 </div>
 
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-8">
-                    <div class="relative group">
-                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
-                            Lithium Battery <i class="fas fa-chevron-down ml-1"></i>
-                        </a>
-                        <div class="absolute top-full left-0 w-64 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <div class="p-4">
-                                <a href="#" class="block py-2 hover:text-anern-blue">12V Lithium Battery</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">24V 48V Lithium Battery</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">C&I BESS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
-                            Solar Solutions <i class="fas fa-chevron-down ml-1"></i>
-                        </a>
-                        <div class="absolute top-full left-0 w-80 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <div class="p-4">
-                                <a href="#" class="block py-2 hover:text-anern-blue">Residential Off-grid Solar Power System Solutions</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">Commercial Off-grid Solar Power System Solutions</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2">ESS Solar Storage</a>
-                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2">Solar Inverter</a>
-                    <div class="relative group">
-                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
-                            About Anern <i class="fas fa-chevron-down ml-1"></i>
-                        </a>
-                        <div class="absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <div class="p-4">
-                                <a href="#" class="block py-2 hover:text-anern-blue">About Anern</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 flex items-center">
-                            Support <i class="fas fa-chevron-down ml-1"></i>
-                        </a>
-                        <div class="absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <div class="p-4">
-                                <a href="#" class="block py-2 hover:text-anern-blue">Contact Us</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">Download</a>
-                                <a href="#" class="block py-2 hover:text-anern-blue">FAQ</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                <!-- Search Bar -->
+                <div class="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2 max-w-md flex-1 mx-8">
+                    <input type="text" placeholder="What are you looking for?" class="bg-transparent flex-1 outline-none text-sm">
+                    <button class="text-anern-blue ml-2">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
 
-                <!-- Mobile Menu Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+                <!-- Right Side -->
+                <div class="flex items-center space-x-4">
+                    <button class="bg-anern-blue text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors">
+                        Get A Quote
+                    </button>
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
+
+            <!-- Navigation -->
+            <nav class="hidden lg:flex border-t border-gray-200 py-4">
+                <div class="flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">Home</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium flex items-center">
+                            Products <i class="fas fa-chevron-down ml-1"></i>
+                        </a>
+                        <div class="absolute top-full left-0 w-96 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border">
+                            <div class="p-6 grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-semibold text-anern-blue mb-3">Solar Battery</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><a href="#" class="hover:text-anern-blue">25.6V 51.2V LiFePO4 Lithium Solar Battery</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">Anti-corrosive Lithium Battery Rack</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">Energy Storage Solar Battery 12V</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-anern-blue mb-3">Solar Panel</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><a href="#" class="hover:text-anern-blue">580W N-Type Bifacial Solar Panel</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">430W N-Type Dual Glass Solar Panel</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">550W P-Type Half-Cut Solar Cell</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-anern-blue mb-3">Hybrid Solar Inverter</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><a href="#" class="hover:text-anern-blue">10.2KW Hybrid Solar Inverter</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">Intelligent Hybrid Solar Inverter 2KW&3.2KW</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">4.2KW 6.2KW Dual AC Output</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-anern-blue mb-3">Solar Power System</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><a href="#" class="hover:text-anern-blue">Off Grid Lithium Battery System</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">Commercial Solar System</a></li>
+                                        <li><a href="#" class="hover:text-anern-blue">Solar Storage System</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">About Anern</a>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">Solution</a>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">Project</a>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">Service</a>
+                    <a href="#" class="text-gray-700 hover:text-anern-blue py-2 font-medium">Contact us</a>
+                </div>
+            </nav>
 
             <!-- Mobile Navigation -->
             <div x-show="mobileMenuOpen" x-transition class="lg:hidden border-t border-gray-200 py-4">
                 <nav class="space-y-4">
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Lithium Battery</a>
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Solar Solutions</a>
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">ESS Solar Storage</a>
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Solar Inverter</a>
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">About Anern</a>
-                    <a href="#" class="block text-gray-700 hover:text-anern-blue">Support</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Home</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Products</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">About Anern</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Solution</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Project</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Service</a>
+                    <a href="#" class="block text-gray-700 hover:text-anern-blue py-2">Contact us</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Cart Sidebar -->
-    <div x-show="cartOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-black bg-opacity-50 z-50">
-        <div x-show="cartOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full" class="fixed right-0 top-0 h-full w-96 bg-white shadow-lg">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-lg font-semibold">Your Cart</h3>
-                    <button @click="cartOpen = false" class="text-gray-400 hover:text-gray-600">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="text-center text-gray-500 py-8">
-                    <p class="text-xl mb-2">0</p>
-                    <p>Your cart is empty</p>
-                    <button class="mt-4 bg-anern-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700">Continue shopping</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-        <div class="container mx-auto px-4 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-5xl font-bold mb-6">High-Performance Lithium Batteries Meet Your Needs</h1>
-                    <p class="text-xl mb-8">Powering Smarter Solar Futures with Custom ESS & Lithium Batteries</p>
-                    <button class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-                        Learn more
-                    </button>
-                    <div class="flex items-center space-x-4 mt-8 text-sm">
-                        <span>Energy storage:</span>
-                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded">2.56Kwh</span>
-                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded">5.12KWh</span>
-                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded">10.24KWh</span>
-                        <span class="bg-white bg-opacity-20 px-3 py-1 rounded">15.36KWh</span>
+    <!-- Hero Banner Slider -->
+    <section class="relative overflow-hidden">
+        <div class="bg-gradient-to-r from-anern-blue to-blue-600 text-white py-20">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-5xl font-bold mb-6">Solar System Solutions</h2>
+                        <p class="text-xl mb-8 leading-relaxed">
+                            From commercial office buildings, to industrial parks and rural areas, PV commercial and industrial solutions are able to realize energy supply in various fields. With the continuous promotion of technological innovation and policy support, PV industrial and commercial solutions have been further developed, Anern will be able to provide more stable and efficient energy solutions for enterprises and residents.
+                        </p>
+                        <button class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Read More
+                        </button>
                     </div>
-                </div>
-                <div class="relative">
-                    <div class="bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-gray-200 h-32 rounded-lg"></div>
-                            <div class="bg-gray-200 h-32 rounded-lg"></div>
-                            <div class="bg-gray-200 h-32 rounded-lg"></div>
-                            <div class="bg-gray-200 h-32 rounded-lg"></div>
+                    <div class="relative">
+                        <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-300 h-32 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-solar-panel text-3xl text-anern-blue"></i>
+                                </div>
+                                <div class="bg-gray-300 h-32 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-battery-full text-3xl text-anern-blue"></i>
+                                </div>
+                                <div class="bg-gray-300 h-32 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-bolt text-3xl text-anern-blue"></i>
+                                </div>
+                                <div class="bg-gray-300 h-32 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-home text-3xl text-anern-blue"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -187,188 +181,324 @@
         </div>
     </section>
 
-    <!-- Secondary Hero -->
-    <section class="bg-gradient-to-r from-green-700 to-green-500 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4">High-Performance 24V & 48V Lithium Batteries for Solar and Storage Systems</h2>
-            <p class="text-xl mb-8">16+ years of professional manufacturing experience</p>
-            <p class="text-lg mb-8">"Solar Supplier: Batteries • Inverters • ESS • Systems"</p>
-            <button class="bg-white text-green-700 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-                Learn More
-            </button>
+    <!-- Key Features -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">01</h3>
+                    <h4 class="text-xl font-semibold mb-3">Diversified Products</h4>
+                    <p class="text-gray-600">Anern's solar PV products include a wide range of solar inverters, solar batteries, solar panels, off-grid/on-grid solar systems and solar energy storage system.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-industry text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">02</h3>
+                    <h4 class="text-xl font-semibold mb-3">Industrialised Layout</h4>
+                    <p class="text-gray-600">Anern is market-oriented, and has continuously promoted product development and factory construction.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">03</h3>
+                    <h4 class="text-xl font-semibold mb-3">16 Years of Industry Experience</h4>
+                    <p class="text-gray-600">Anern has a wealth of overseas project cooperation experience, and its products serve more than 200 countries, committed to serving the world.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">04</h3>
+                    <h4 class="text-xl font-semibold mb-3">Optimised Return on Investment</h4>
+                    <p class="text-gray-600">Anern offers the best solutions with high yields and short payback periods to optimize your return on investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Products</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Solar Battery -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                            <i class="fas fa-battery-full text-6xl text-anern-blue"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-anern-blue">Solar Battery</h3>
+                            <h4 class="text-lg font-semibold mb-3">25.6V 51.2V LiFePO4 Lithium Solar Battery</h4>
+                            <p class="text-gray-600 mb-4">As part of the solar power system, solar lithium batteries play an important role in energy storage, emergency backup and environmental protection. Anern solar lithium battery modular design, small size, light weight.</p>
+                            <a href="#" class="text-anern-blue font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Panel -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <i class="fas fa-solar-panel text-6xl text-anern-green"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-anern-green">Solar Panel</h3>
+                            <h4 class="text-lg font-semibold mb-3">580W N-Type Bifacial Solar Panel</h4>
+                            <p class="text-gray-600 mb-4">Solar panels are the core component of the solar power system, N-Type series solar panels, The combination of half-cut cell technology and bifacial module can amplify the gain over the effect of current-reduction.</p>
+                            <a href="#" class="text-anern-green font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hybrid Solar Inverter -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                            <i class="fas fa-microchip text-6xl text-purple-600"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-purple-600">Hybrid Solar Inverter</h3>
+                            <h4 class="text-lg font-semibold mb-3">10.2KW Hybrid Solar Inverter</h4>
+                            <p class="text-gray-600 mb-4">AN-SCI-EVO 10200 series hybrid solar inverters It has dual PV inputs and dual AC outputs function to ensure the stability of the load. WIFI Communication, Remote monitoring of the operating status.</p>
+                            <a href="#" class="text-purple-600 font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Storage System -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-warehouse text-6xl text-orange-600"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-orange-600">Solar Storage System</h3>
+                            <h4 class="text-lg font-semibold mb-3">Lithium Battery Solar System</h4>
+                            <p class="text-gray-600 mb-4">Anern's All-in-one solar lithium battery storage system. Hardware, software comprehensive upgrade, better stability, Just connect the solar panels to power the load.</p>
+                            <a href="#" class="text-orange-600 font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Power System -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center">
+                            <i class="fas fa-home text-6xl text-red-600"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-red-600">Solar Power System</h3>
+                            <h4 class="text-lg font-semibold mb-3">Off Grid Lithium Battery Commercial Solar System</h4>
+                            <p class="text-gray-600 mb-4">The off-grid commercial solar system refers to a large lithium battery energy storage system used in the commercial sector. With high capacity and large electrical energy storage capability.</p>
+                            <a href="#" class="text-red-600 font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar Controller -->
+                <div class="group">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <div class="h-48 bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center">
+                            <i class="fas fa-sliders-h text-6xl text-teal-600"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-teal-600">Solar Controller</h3>
+                            <h4 class="text-lg font-semibold mb-3">20A 30A 40A 60A Mppt Solar Controller</h4>
+                            <p class="text-gray-600 mb-4">MPPT solar controller adopts maximum power point tracking technology. Anern's new generation controllers, the MSC series, are solar controllers that adopts our own technology.</p>
+                            <a href="#" class="text-teal-600 font-semibold hover:underline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-anern-dark mb-4">ANERN</h2>
-                <h3 class="text-2xl font-semibold text-anern-blue mb-6">Your Trusted Partner in Lithium Battery & ESS</h3>
-                <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    With over 16 years of solar industry experience, Anern specializes in lithium battery manufacturing、energy storage systems and integrated ESS development. From product design to mass production, we provide reliable, scalable energy solutions tailored to your solar projects.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-battery-full text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Lithium battery</h4>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-anern-dark mb-6">Who We Are</h2>
+                    <h3 class="text-2xl font-semibold text-anern-blue mb-6">Anern Industry Group Limited</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        As one of the world's leading suppliers of integrated solar products, Anern focuses on the development and manufacturing of solar products to continuously improve product quality and performance. Our products can meet a variety of applications in the field of solar energy, such as solar panels, solar inverters, solar batteries, solar storage systems and so on.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        At present, Anern has been designated as an excellent brand in many countries. Anern's products have been successfully installed in hundreds of countries and regions.
+                    </p>
+                    <button class="bg-anern-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors">
+                        Read More
+                    </button>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-warehouse text-2xl"></i>
+                <div class="relative">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="text-center mb-8">
+                            <div class="text-6xl font-bold text-anern-blue mb-2">16 +</div>
+                            <div class="text-xl text-gray-600">Years Of Experience</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-anern-blue mb-1">200+</div>
+                                <div class="text-sm text-gray-600">Countries Served</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-anern-blue mb-1">30,000+</div>
+                                <div class="text-sm text-gray-600">m² Factory</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-anern-blue mb-1">50+</div>
+                                <div class="text-sm text-gray-600">Patents</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-anern-blue mb-1">100,000+</div>
+                                <div class="text-sm text-gray-600">Monthly Output</div>
+                            </div>
+                        </div>
                     </div>
-                    <h4 class="text-lg font-semibold mb-2">ESS</h4>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-solar-panel text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Solar Storage</h4>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-home text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Solar Power System</h4>
-                </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <div class="bg-anern-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-plug text-2xl"></i>
-                    </div>
-                    <h4 class="text-lg font-semibold mb-2">Solar Inverter</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Latest Projects -->
     <section class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-anern-dark mb-4">About Lithium Ion Battery</h2>
-                <p class="text-xl text-gray-600">High-performance lithium batteries engineered for solar energy storage and off-grid applications.</p>
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">Latest Projects</h2>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <i class="fas fa-solar-panel text-4xl text-anern-blue"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Safe LiFePO4 chemistry with 6000+ cycles</h3>
-                    <p class="text-gray-600 mb-6">Engineered for longevity, our batteries deliver over 6000 cycles at 80% DoD, providing years of dependable service.</p>
-                    <a href="#" class="text-anern-blue font-semibold hover:underline">Read more</a>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">350 Sets Of EVO Inverter In Afghanistan</h3>
+                        <p class="text-gray-600 mb-4">Project Name: Afghan wholesaler purchases 350 sets of EVO inverter project. Date: June 5, 2023. Project Site: Afghanistan. Quantity and Specific Configuration: 350 sets of EVO inverter.</p>
+                        <a href="#" class="text-anern-blue font-semibold hover:underline">Read More</a>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-microchip text-2xl text-blue-600"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <i class="fas fa-battery-full text-4xl text-anern-green"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Smart BMS Protection</h3>
-                    <p class="text-gray-600 mb-6">Advanced Battery Management System ensures safety with overcharge/discharge protection, temperature control, and cell balancing for maximum reliability.</p>
-                    <a href="#" class="text-anern-blue font-semibold hover:underline">Read more</a>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Anern 10 Sets 8KW Off-grid Solar Power System in Uganda</h3>
+                        <p class="text-gray-600 mb-4">Project Name：Anern 10 Sets 8KW Off-grid Solar Power System in Uganda. Date：Sep. 2021. Project Type：Off-grid Solar Power System Commercial Project.</p>
+                        <a href="#" class="text-anern-green font-semibold hover:underline">Read More</a>
+                    </div>
                 </div>
 
-                <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-bolt text-2xl text-purple-600"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                        <i class="fas fa-microchip text-4xl text-purple-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Multiple Voltage Options</h3>
-                    <p class="text-gray-600 mb-6">Flexible 24V, 48V, and 51.2V configurations to fit diverse applications—from solar storage to industrial power systems.</p>
-                    <a href="#" class="text-anern-blue font-semibold hover:underline">Read more</a>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Wholesale solar inverter project in Ukraine</h3>
+                        <p class="text-gray-600 mb-4">Project Type: Commercial Use. Installation Site: Ukraine. Installation Date: December 2022. System components: Wholesale solar inverter project in Ukraine.</p>
+                        <a href="#" class="text-purple-600 font-semibold hover:underline">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-20 bg-anern-blue text-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-5xl font-bold mb-2">100+</div>
-                    <div class="text-xl">Experienced R&D team</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold mb-2">16+</div>
-                    <div class="text-xl">Years in solar industry</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold mb-2">OEM & ODM</div>
-                    <div class="text-xl">Customer service</div>
-                </div>
-                <div>
-                    <div class="text-5xl font-bold mb-2">200+</div>
-                    <div class="text-xl">Countries Served</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
+    <!-- News Section -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-anern-dark mb-4">Latest News & Blogs</h2>
-                <a href="#" class="text-anern-blue font-semibold hover:underline">View all</a>
+                <h2 class="text-4xl font-bold text-anern-dark mb-4">News</h2>
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="text-anern-blue font-semibold hover:underline">Company News</a>
+                    <a href="#" class="text-anern-blue font-semibold hover:underline">Blog Center</a>
+                </div>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gray-200"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">Three-Phase Solar in Healthcare: A Bright Future for Medical Facilities</h3>
-                        <p class="text-gray-600 mb-4">In an era where sustainable energy solutions are gaining paramount importance, the healthcare industry is stepping into the spotlight as a sector that can significantly benefit from the integration...</p>
-                        <div class="text-sm text-gray-500">Jul 9, 2025</div>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <i class="fas fa-newspaper text-4xl text-anern-blue"></i>
                     </div>
-                </article>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">03 2025.04</div>
+                        <h3 class="text-xl font-bold mb-3">Anern Showcases Latest Solar Products At PhilEnergy</h3>
+                        <p class="text-gray-600">Anern showcases latest solar products at PhilEnergy exhibition, demonstrating our commitment to innovation and quality.</p>
+                    </div>
+                </div>
 
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gray-200"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">How to View the Development Prospect of Solar Energy Inverter Industry?</h3>
-                        <p class="text-gray-600 mb-4">This article explores the promising future of the solar energy inverter industry, highlighting its growth driven by increasing renewable energy demand, technological advancements, and supportive po...</p>
-                        <div class="text-sm text-gray-500">Jul 7, 2025</div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-4xl text-anern-green"></i>
                     </div>
-                </article>
-
-                <article class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="h-48 bg-gray-200"></div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3">How to Install a Solar Energy Inverter for Maximum Power?</h3>
-                        <p class="text-gray-600 mb-4">Nowadays, many families consider installing solar electric inverters, because after installing a solar electric inverter, not only can they use environmentally friendly electric energy, but they ca...</p>
-                        <div class="text-sm text-gray-500">Jul 7, 2025</div>
+                        <div class="text-sm text-gray-500 mb-2">19 2024.07</div>
+                        <h3 class="text-xl font-bold mb-3">What are the Benefits of using N Type Solar Panels?</h3>
+                        <p class="text-gray-600">Exploring the advantages of N-Type solar panels and their superior performance in various applications.</p>
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-anern-blue to-blue-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-6">Your Best Solar Supplier</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Discover Anern's customized lithium battery and ESS solutions for residential and commercial solar systems. Reliable, efficient, and built for smarter energy storage.</p>
-            <button class="bg-white text-anern-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-                Contact Us
-            </button>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="py-16 bg-gray-100">
+    <!-- Contact Section -->
+    <section class="py-20 bg-anern-blue text-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto text-center">
-                <h3 class="text-2xl font-bold mb-4">Stay Updated with the Latest in Solar & Energy Storage</h3>
-                <p class="text-gray-600 mb-8">Join thousands of professionals who receive exclusive updates, product news, case studies, and special offers from Anern.</p>
-                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="E-mail" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-anern-blue">
-                    <button class="bg-anern-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                        Subscribe Now
-                    </button>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Get In Touch</h2>
+                    <p class="text-xl mb-8">Contact us for a free quote with specific details</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-4 text-2xl"></i>
+                            <div>
+                                <div class="font-semibold">Email Address</div>
+                                <div>g-ad@anern.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-2xl"></i>
+                            <div>
+                                <div class="font-semibold">Phone</div>
+                                <div>+86-8620-89269660</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-4 text-2xl"></i>
+                            <div>
+                                <div class="font-semibold">Address</div>
+                                <div>5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-anern-blue py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Submit
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -378,90 +508,72 @@
     <footer class="bg-anern-dark text-white py-16">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-                <!-- Company Info -->
                 <div>
-                    <h3 class="text-xl font-bold mb-6">ANERN</h3>
-                    <p class="text-gray-300 mb-4">Your Trusted Partner in Lithium Battery & ESS</p>
+                    <h3 class="text-xl font-bold mb-6">Anern Industry Group Limited</h3>
                     <div class="space-y-2 text-sm text-gray-400">
-                        <p><i class="fas fa-phone mr-2"></i> +86-20-89269660</p>
-                        <p><i class="fas fa-envelope mr-2"></i> cooperation@anern.com</p>
+                        <p><i class="fas fa-envelope mr-2"></i> g-ad@anern.com</p>
+                        <p><i class="fas fa-phone mr-2"></i> +86-8620-89269660</p>
                         <p><i class="fas fa-map-marker-alt mr-2"></i> 5th Floor, Building B, No.2817 Kaichuang Avenue, Science Zone, Huangpu District, Guangzhou, China</p>
+                    </div>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
 
-                <!-- Products -->
                 <div>
                     <h4 class="text-lg font-semibold mb-6">Products</h4>
                     <ul class="space-y-3 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">Solar Battery</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Commercial Solar Power System</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Residential Solar Power System</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">ESS Solar Storage</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Solar Inverter</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Anern Group</a></li>
+                        <li><a href="#" class="hover:text-white">Solar Battery</a></li>
+                        <li><a href="#" class="hover:text-white">Solar Panel</a></li>
+                        <li><a href="#" class="hover:text-white">Hybrid Solar Inverter</a></li>
+                        <li><a href="#" class="hover:text-white">Low Frequency Solar Inverter</a></li>
+                        <li><a href="#" class="hover:text-white">Solar Storage System</a></li>
+                        <li><a href="#" class="hover:text-white">Solar Power System</a></li>
                     </ul>
                 </div>
 
-                <!-- Hot Products -->
                 <div>
                     <h4 class="text-lg font-semibold mb-6">Hot Products</h4>
                     <ul class="space-y-3 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">12V Lithium Battery</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">24V Lithium Ion Battery</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">48 volt lithium battery</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Commercial BESS</a></li>
+                        <li><a href="#" class="hover:text-white">25.6V 51.2V LiFePO4 Lithium Solar Battery</a></li>
+                        <li><a href="#" class="hover:text-white">Intelligent Hybrid Solar Inverter 2KW&3.2KW</a></li>
+                        <li><a href="#" class="hover:text-white">550W P-Type Half-Cut Solar Cell</a></li>
+                        <li><a href="#" class="hover:text-white">4.2KW 6.2KW Dual AC Output Hybrid Solar Inverter</a></li>
+                        <li><a href="#" class="hover:text-white">4-10KW Off-Grid Lithium Battery Home Solar System</a></li>
+                        <li><a href="#" class="hover:text-white">Off Grid Lithium Battery Commercial Solar System</a></li>
                     </ul>
                 </div>
 
-                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-6">Follow Us</h4>
                     <ul class="space-y-3 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">About Anern</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">C&I Solar Systems</a></li>
+                        <li><a href="#" class="hover:text-white">Residential Solar Systems</a></li>
+                        <li><a href="#" class="hover:text-white">Video</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Document Download</a></li>
+                        <li><a href="#" class="hover:text-white">Anern Solar Store</a></li>
+                        <li><a href="#" class="hover:text-white">Sitemap</a></li>
                     </ul>
-
-                    <!-- Newsletter -->
-                    <div class="mt-8">
-                        <h5 class="font-semibold mb-4">Learn more about what's new at Anern! Sign up for our newsletter.</h5>
-                        <div class="flex">
-                            <input type="email" placeholder="E-mail" class="flex-1 px-3 py-2 text-gray-900 rounded-l-lg focus:outline-none">
-                            <button class="bg-anern-blue px-4 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Bottom Footer -->
-            <div class="border-t border-gray-700 mt-12 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400">© 2025, Anern.</p>
-                    <div class="flex space-x-6 text-gray-400 mt-4 md:mt-0">
-                        <a href="#" class="hover:text-white transition-colors">Refund policy</a>
-                        <a href="#" class="hover:text-white transition-colors">Privacy policy</a>
-                        <a href="#" class="hover:text-white transition-colors">Terms of service</a>
-                        <a href="#" class="hover:text-white transition-colors">Shipping policy</a>
-                    </div>
-                </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>Anern Industry Group Limited All Rights Reserved. | Privacy Policy | Network Supported</p>
             </div>
         </div>
     </footer>
 
-    <!-- Cookie Notice -->
-    <div x-data="{ cookieNotice: true }" x-show="cookieNotice" x-transition class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col sm:flex-row justify-between items-center">
-                <p class="text-sm text-gray-600 mb-4 sm:mb-0">We use cookies and similar technologies to provide the best experience on our website. Refer to our Privacy Policy for more information.</p>
-                <div class="space-x-4">
-                    <button @click="cookieNotice = false" class="bg-anern-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition-colors">Accept</button>
-                    <button @click="cookieNotice = false" class="text-gray-600 px-4 py-2 rounded text-sm hover:bg-gray-100 transition-colors">Decline</button>
-                </div>
-            </div>
-        </div>
+    <!-- Fixed Quote Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button class="bg-anern-blue text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-800 transition-colors">
+            <i class="fas fa-quote-left mr-2"></i>Click Here To Get Free Quote
+        </button>
     </div>
 
 </body>
