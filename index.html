@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="{ 
+  currentLang: 'zh',
+  showSearch: false,
+  showMobileMenu: false,
+  currentSlide: 0,
+  totalSlides: 3,
+  showBackToTop: false
+}" x-init="
+  // 自动轮播
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+  }, 5000);
+  
+  // 监听滚动显示返回顶部按钮
+  window.addEventListener('scroll', () => {
+    showBackToTop = window.scrollY > window.innerHeight;
+  });
+  
+  // 动画观察器
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in');
+      }
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  });
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BX机械设备制造有限公司 - 专业机械设备制造商</title>
+    <meta name="description" content="BX机械设备制造有限公司是专业的机械设备制造商，提供高质量的工业设备解决方案">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .hero-overlay { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Cookie弹窗 - 仅英文站显示 -->
+    <div x-show="currentLang === 'en'" x-data="{ showCookies: true }" x-show="showCookies" 
+         class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <p class="text-sm mb-4 sm:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            </p>
+            <div class="flex space-x-3">
+                <button @click="showCookies = false" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm">
+                    Accept
+                </button>
+                <button @click="showCookies = false" class="border border-gray-400 hover:bg-gray-700 px-4 py-2 rounded text-sm">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-cogs mr-2"></i>BX机械
+                    </a>
+                </div>
+
+                <!-- 桌面导航 -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-800 hover:text-blue-600 font-medium">首页</a>
+                    
+                    <!-- 产品中心 - 下拉菜单 -->
+                    <div class="relative group">
+                        <a href="products.html" class="text-gray-800 hover:text-blue-600 font-medium flex items-center">
+                            产品中心 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="products.html?category=roll-forming" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">轧制成型设备</a>
+                            <a href="products.html?category=cutting" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">切割设备</a>
+                            <a href="products.html?category=processing" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">加工设备</a>
+                            <a href="products.html?category=auxiliary" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">辅助设备</a>
+                        </div>
+                    </div>
+
+                    <!-- 新闻中心 - 下拉菜单 -->
+                    <div class="relative group">
+                        <a href="news.html" class="text-gray-800 hover:text-blue-600 font-medium flex items-center">
+                            新闻中心 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="news.html?category=company" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">公司新闻</a>
+                            <a href="news.html?category=industry" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">行业动态</a>
+                            <a href="news.html?category=tech" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">技术资讯</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="text-gray-800 hover:text-blue-600 font-medium">关于我们</a>
+                    <a href="contact.html" class="text-gray-800 hover:text-blue-600 font-medium">联系我们</a>
+
+                    <!-- 搜索按钮 -->
+                    <button @click="showSearch = true" class="text-gray-800 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <!-- 语言切换 -->
+                    <div class="relative group">
+                        <button class="text-gray-800 hover:text-blue-600 font-medium flex items-center">
+                            <i class="fas fa-globe mr-2"></i>
+                            <span x-text="currentLang === 'zh' ? '中文' : 'English'"></span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute top-full right-0 bg-white shadow-lg rounded-lg py-2 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <button @click="currentLang = 'zh'" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">中文</button>
+                            <button @click="currentLang = 'en'" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">English</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 移动端菜单按钮 -->
+                <button @click="showMobileMenu = !showMobileMenu" class="lg:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- 移动端导航 -->
+            <div x-show="showMobileMenu" x-transition class="lg:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-800 hover:text-blue-600">首页</a>
+                <a href="products.html" class="block py-2 text-gray-800 hover:text-blue-600">产品中心</a>
+                <a href="news.html" class="block py-2 text-gray-800 hover:text-blue-600">新闻中心</a>
+                <a href="about.html" class="block py-2 text-gray-800 hover:text-blue-600">关于我们</a>
+                <a href="contact.html" class="block py-2 text-gray-800 hover:text-blue-600">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 搜索弹窗 -->
+    <div x-show="showSearch" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">搜索产品</h3>
+                <button @click="showSearch = false" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form>
+                <input type="text" placeholder="请输入产品名称或关键词..." 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button type="submit" class="w-full mt-3 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                    <i class="fas fa-search mr-2"></i>搜索
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 轮播Banner -->
+    <section class="relative h-96 lg:h-[600px] overflow-hidden">
+        <div class="absolute inset-0 flex transition-transform duration-500 ease-in-out" 
+             :style="`transform: translateX(-${currentSlide * 100}%)`">
+            <!-- Banner 1 -->
+            <div class="w-full flex-shrink-0 relative">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                     alt="工业设备制造" class="w-full h-full object-cover">
+                <div class="hero-overlay absolute inset-0"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+                    <div class="max-w-4xl px-4">
+                        <h1 class="text-3xl lg:text-6xl font-bold mb-6">专业机械设备制造商</h1>
+                        <p class="text-lg lg:text-xl mb-8 opacity-90">提供高质量的工业设备解决方案，服务全球客户</p>
+                        <div class="space-x-4">
+                            <a href="products.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition">
+                                查看产品
+                            </a>
+                            <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-medium transition">
+                                联系我们
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner 2 -->
+            <div class="w-full flex-shrink-0 relative">
+                <img src="https://images.unsplash.com/photo-1565087389652-0a7b339b3081?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                     alt="精密加工设备" class="w-full h-full object-cover">
+                <div class="hero-overlay absolute inset-0"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+                    <div class="max-w-4xl px-4">
+                        <h1 class="text-3xl lg:text-6xl font-bold mb-6">精密加工技术</h1>
+                        <p class="text-lg lg:text-xl mb-8 opacity-90">先进的生产工艺，确保产品质量和精度</p>
+                        <div class="space-x-4">
+                            <a href="products.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition">
+                                了解更多
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner 3 -->
+            <div class="w-full flex-shrink-0 relative">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                     alt="工业自动化" class="w-full h-full object-cover">
+                <div class="hero-overlay absolute inset-0"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+                    <div class="max-w-4xl px-4">
+                        <h1 class="text-3xl lg:text-6xl font-bold mb-6">智能自动化解决方案</h1>
+                        <p class="text-lg lg:text-xl mb-8 opacity-90">引领工业4.0时代，提升生产效率</p>
+                        <div class="space-x-4">
+                            <a href="about.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition">
+                                关于我们
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 轮播指示器 -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+            <template x-for="i in totalSlides" :key="i">
+                <button @click="currentSlide = i - 1" 
+                        :class="currentSlide === i - 1 ? 'bg-white' : 'bg-white bg-opacity-50'"
+                        class="w-3 h-3 rounded-full transition"></button>
+            </template>
+        </div>
+
+        <!-- 轮播控制按钮 -->
+        <button @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1" 
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-3 rounded-full transition">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button @click="currentSlide = (currentSlide + 1) % totalSlides" 
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 text-white p-3 rounded-full transition">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">精品设备展示</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">我们提供全系列的机械设备解决方案，满足不同行业的生产需求</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品卡片1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="轧制成型机" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">轧制成型机</h3>
+                        <p class="text-gray-600 mb-4">高精度轧制成型设备，适用于各种金属材料加工</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-semibold">¥45,000起</span>
+                            <a href="product_tpl.html?id=1" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品卡片2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1565087389652-0a7b339b3081?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="切割设备" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">精密切割设备</h3>
+                        <p class="text-gray-600 mb-4">数控切割技术，确保切割精度和效率</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-semibold">¥28,000起</span>
+                            <a href="product_tpl.html?id=2" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品卡片3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="自动化设备" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">自动化生产线</h3>
+                        <p class="text-gray-600 mb-4">智能化生产解决方案，提升生产效率</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-semibold">¥120,000起</span>
+                            <a href="product_tpl.html?id=3" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="products.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+                    查看全部产品
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司优势 -->
+    <section class="py-16 lg:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">我们的优势</h2>
+                <p class="text-lg text-gray-600">专业技术，品质保证，服务全球</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">20年经验</h3>
+                    <p class="text-gray-600">专业的机械设备制造经验，技术成熟可靠</p>
+                </div>
+
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">全球服务</h3>
+                    <p class="text-gray-600">产品销往50多个国家和地区，服务全球客户</p>
+                </div>
+
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">定制服务</h3>
+                    <p class="text-gray-600">根据客户需求提供个性化定制解决方案</p>
+                </div>
+
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">24/7支持</h3>
+                    <p class="text-gray-600">全天候技术支持和售后服务保障</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">合作伙伴</h2>
+                <p class="text-lg text-gray-600">信赖我们的全球知名企业</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner1" alt="合作伙伴1" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner2" alt="合作伙伴2" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner3" alt="合作伙伴3" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner4" alt="合作伙伴4" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner5" alt="合作伙伴5" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/120x60/E5E7EB/9CA3AF?text=Partner6" alt="合作伙伴6" class="mx-auto grayscale hover:grayscale-0 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻模块 -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">最新动态</h2>
+                <p class="text-lg text-gray-600">了解我们的最新产品和行业资讯</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="新闻1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-blue-600 mb-2">2024-01-15</div>
+                        <h3 class="text-xl font-semibold mb-3">新型轧制成型设备正式投产</h3>
+                        <p class="text-gray-600 mb-4">我公司自主研发的新型轧制成型设备经过长期测试，正式投入生产，将大幅提升生产效率...</p>
+                        <a href="article_tpl.html?id=1" class="text-blue-600 hover:text-blue-700 font-medium">阅读更多 →</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1565087389652-0a7b339b3081?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="新闻2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-blue-600 mb-2">2024-01-10</div>
+                        <h3 class="text-xl font-semibold mb-3">参展2024年工业装备博览会</h3>
+                        <p class="text-gray-600 mb-4">我们将携最新产品参加即将举办的工业装备博览会，展示我们在机械制造领域的最新成果...</p>
+                        <a href="article_tpl.html?id=2" class="text-blue-600 hover:text-blue-700 font-medium">阅读更多 →</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden card-hover animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="新闻3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-blue-600 mb-2">2024-01-05</div>
+                        <h3 class="text-xl font-semibold mb-3">智能制造技术应用案例分享</h3>
+                        <p class="text-gray-600 mb-4">通过引入智能制造技术，我们帮助客户实现了生产效率提升30%，成本降低20%的显著效果...</p>
+                        <a href="article_tpl.html?id=3" class="text-blue-600 hover:text-blue-700 font-medium">阅读更多 →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="news.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+                    查看更多新闻
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section class="py-16 lg:py-24 bg-blue-600">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 text-white animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6">联系我们</h2>
+                <p class="text-lg opacity-90">获取专业的设备解决方案咨询</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <form class="bg-white rounded-lg p-8 shadow-lg animate-on-scroll">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">姓名 *</label>
+                            <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">电话 *</label>
+                            <input type="tel" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">邮箱 *</label>
+                        <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">产品需求</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">请选择产品类型</option>
+                            <option value="roll-forming">轧制成型设备</option>
+                            <option value="cutting">切割设备</option>
+                            <option value="processing">加工设备</option>
+                            <option value="auxiliary">辅助设备</option>
+                            <option value="custom">定制设备</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">详细需求 *</label>
+                        <textarea required rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+                        提交咨询
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-cogs mr-2"></i>BX机械
+                    </h3>
+                    <p class="text-gray-400 mb-4">专业的机械设备制造商，为全球客户提供高质量的工业设备解决方案。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 快速链接 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">首页</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition">产品中心</a></li>
+                        <li><a href="news.html" class="text-gray-400 hover:text-white transition">新闻中心</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">关于我们</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <!-- 产品分类 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">产品分类</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html?category=roll-forming" class="text-gray-400 hover:text-white transition">轧制成型设备</a></li>
+                        <li><a href="products.html?category=cutting" class="text-gray-400 hover:text-white transition">切割设备</a></li>
+                        <li><a href="products.html?category=processing" class="text-gray-400 hover:text-white transition">加工设备</a></li>
+                        <li><a href="products.html?category=auxiliary" class="text-gray-400 hover:text-white transition">辅助设备</a></li>
+                    </ul>
+                </div>
+
+                <!-- 联系信息 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">河北省沧州市泊头工业区</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">+86 317 8312992</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">info@bxenda.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-400 mr-3"></i>
+                            <span class="text-gray-400">24小时在线服务</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 BX机械设备制造有限公司. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button x-show="showBackToTop" @click="window.scrollTo({ top: 0, behavior: 'smooth' })" 
+            x-transition.opacity
+            class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition z-30">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
