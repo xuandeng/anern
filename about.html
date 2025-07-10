@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ 
+    mobileMenu: false, 
+    cartOpen: false,
+    activeTimelineItem: 0,
+    timelineItems: [
+        { year: '1985', title: 'Foundation', description: 'Eona was founded with a vision to create timeless fashion that celebrates the modern woman.' },
+        { year: '1992', title: 'First Boutique', description: 'Opened our flagship store in the heart of New York\'s fashion district.' },
+        { year: '2001', title: 'International Expansion', description: 'Expanded to Europe with boutiques in Paris, Milan, and London.' },
+        { year: '2010', title: 'Sustainable Fashion', description: 'Launched our sustainable fashion initiative, focusing on eco-friendly materials and ethical production.' },
+        { year: '2018', title: 'Digital Revolution', description: 'Embraced digital transformation with our e-commerce platform and virtual styling services.' },
+        { year: '2024', title: 'Global Presence', description: 'Now serving customers worldwide with 50+ boutiques and a strong online presence.' }
+    ],
+    teamMembers: [
+        {
+            name: 'Isabella Chen',
+            role: 'Creative Director',
+            image: 'https://images.unsplash.com/photo-1494790108755-2616b612b765?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            bio: 'With over 15 years in fashion design, Isabella brings a unique vision that blends contemporary trends with timeless elegance.'
+        },
+        {
+            name: 'Marcus Laurent',
+            role: 'Head of Design',
+            image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            bio: 'Marcus oversees our design team, ensuring every piece meets our high standards of quality and sophistication.'
+        },
+        {
+            name: 'Sophia Rodriguez',
+            role: 'Sustainability Director',
+            image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            bio: 'Leading our commitment to sustainable fashion, Sophia ensures our practices are environmentally responsible.'
+        },
+        {
+            name: 'David Thompson',
+            role: 'Brand Manager',
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+            bio: 'David manages our brand strategy and ensures our message of elegance and sophistication reaches our global audience.'
+        }
+    ],
+    cart: [],
+    get cartCount() {
+        return this.cart.reduce((total, item) => total + item.quantity, 0);
+    }
+}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Eona Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'sand': '#F5F2ED',
+                        'cream': '#FAF8F5',
+                        'beige': '#E8DDD4',
+                        'warm-gray': '#8B7968',
+                        'deep-brown': '#3A312A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #3A312A 0%, #E8DDD4 50%, #3A312A 100%);
+        }
+        
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-dot.active {
+            background: #3A312A;
+            transform: scale(1.2);
+        }
+        
+        .stats-counter {
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-inter text-deep-brown bg-cream">
+    <!-- Header -->
+    <header class="relative z-50 bg-white/95 backdrop-blur-sm border-b border-beige/30">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-playfair text-2xl lg:text-3xl font-bold text-deep-brown">Eona</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Home</a>
+                    <a href="collection.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Collection</a>
+                    <a href="lookbook.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Lookbook</a>
+                    <a href="about.html" class="text-sm font-medium text-deep-brown border-b-2 border-deep-brown">About</a>
+                    <a href="journal.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Journal</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden lg:block text-sm font-medium hover:text-warm-gray transition-colors">Search</button>
+                    <button @click="cartOpen = true" class="relative p-2 hover:text-warm-gray transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
+                        </svg>
+                        <span x-show="cartCount > 0" x-text="cartCount" class="absolute -top-1 -right-1 bg-deep-brown text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"></span>
+                    </button>
+                    <button @click="mobileMenu = true" class="lg:hidden p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenu" x-transition class="fixed inset-0 z-50 lg:hidden">
+        <div class="fixed inset-0 bg-black/50" @click="mobileMenu = false"></div>
+        <div class="fixed right-0 top-0 h-full w-80 bg-white p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-playfair text-xl font-bold">Menu</h2>
+                <button @click="mobileMenu = false" class="p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="space-y-6">
+                <a href="index.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Home</a>
+                <a href="collection.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Collection</a>
+                <a href="lookbook.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Lookbook</a>
+                <a href="about.html" class="block text-lg font-medium text-deep-brown">About</a>
+                <a href="journal.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Journal</a>
+                <a href="contact.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+        <div class="relative z-10 container mx-auto px-6 h-full flex items-center">
+            <div class="max-w-3xl text-white">
+                <p class="text-sm font-medium tracking-wider uppercase mb-4 opacity-90">Our Story</p>
+                <h1 class="font-playfair text-5xl lg:text-7xl font-bold mb-6 leading-tight">Crafting Elegance Since 1985</h1>
+                <p class="text-lg lg:text-xl leading-relaxed opacity-90">
+                    For nearly four decades, Eona has been at the forefront of luxury fashion, creating timeless pieces that celebrate the modern woman's journey through life.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <p class="text-warm-gray text-sm font-medium tracking-wider uppercase mb-4">Our Philosophy</p>
+                    <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Fashion as Self-Expression</h2>
+                    <p class="text-warm-gray leading-relaxed mb-6">
+                        At Eona, we believe that fashion is more than just clothing—it's a powerful form of self-expression that allows every woman to tell her unique story. Our designs are carefully crafted to empower confidence, celebrate individuality, and honor the timeless art of elegant dressing.
+                    </p>
+                    <p class="text-warm-gray leading-relaxed mb-8">
+                        Each piece in our collection is thoughtfully designed to transcend seasonal trends, creating a wardrobe that grows with you and remains relevant for years to come. We're committed to quality craftsmanship, sustainable practices, and the belief that true style is eternal.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-medium text-lg mb-2">Quality First</h3>
+                            <p class="text-warm-gray text-sm">Premium materials and exceptional craftsmanship in every piece.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-2">Timeless Design</h3>
+                            <p class="text-warm-gray text-sm">Pieces that transcend trends and remain stylish season after season.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fashion design process" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                    <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-sand rounded-lg shadow-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20 bg-sand">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="fade-in-up stats-counter">
+                    <div class="font-playfair text-4xl lg:text-5xl font-bold text-deep-brown mb-2">39</div>
+                    <p class="text-warm-gray font-medium">Years of Excellence</p>
+                </div>
+                <div class="fade-in-up stats-counter">
+                    <div class="font-playfair text-4xl lg:text-5xl font-bold text-deep-brown mb-2">50+</div>
+                    <p class="text-warm-gray font-medium">Global Boutiques</p>
+                </div>
+                <div class="fade-in-up stats-counter">
+                    <div class="font-playfair text-4xl lg:text-5xl font-bold text-deep-brown mb-2">100k+</div>
+                    <p class="text-warm-gray font-medium">Happy Customers</p>
+                </div>
+                <div class="fade-in-up stats-counter">
+                    <div class="font-playfair text-4xl lg:text-5xl font-bold text-deep-brown mb-2">25</div>
+                    <p class="text-warm-gray font-medium">Countries Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-warm-gray text-sm font-medium tracking-wider uppercase mb-4">Our Journey</p>
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Four Decades of Innovation</h2>
+                <p class="text-lg text-warm-gray max-w-2xl mx-auto">From a small atelier to a global fashion house, our journey has been defined by passion, innovation, and an unwavering commitment to excellence.</p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <template x-for="(item, index) in timelineItems" :key="index">
+                        <div class="relative flex items-center" :class="index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'">
+                            <!-- Timeline Dot -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-beige rounded-full border-4 border-white timeline-dot" :class="activeTimelineItem === index ? 'active' : ''"></div>
+                            
+                            <!-- Content -->
+                            <div class="w-5/12 fade-in-up" :class="index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'">
+                                <div class="bg-white p-6 rounded-lg shadow-sm border border-beige/30">
+                                    <div class="font-playfair text-2xl font-bold text-deep-brown mb-2" x-text="item.year"></div>
+                                    <h3 class="font-medium text-lg mb-3" x-text="item.title"></h3>
+                                    <p class="text-warm-gray text-sm leading-relaxed" x-text="item.description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-deep-brown text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Our Values</h2>
+                <p class="text-lg opacity-90 max-w-2xl mx-auto">The principles that guide everything we do, from design to customer service.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center fade-in-up">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-xl mb-4">Passion for Excellence</h3>
+                    <p class="opacity-90 leading-relaxed">Every piece is crafted with meticulous attention to detail and an unwavering commitment to quality.</p>
+                </div>
+                
+                <div class="text-center fade-in-up">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-xl mb-4">Sustainability</h3>
+                    <p class="opacity-90 leading-relaxed">We're committed to ethical practices and environmental responsibility in all aspects of our business.</p>
+                </div>
+                
+                <div class="text-center fade-in-up">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-medium text-xl mb-4">Empowerment</h3>
+                    <p class="opacity-90 leading-relaxed">We believe in empowering women to express their individuality and confidence through fashion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-warm-gray text-sm font-medium tracking-wider uppercase mb-4">Meet Our Team</p>
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">The Creative Minds</h2>
+                <p class="text-lg text-warm-gray max-w-2xl mx-auto">Behind every Eona creation is a team of passionate individuals dedicated to bringing elegance and sophistication to life.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <template x-for="member in teamMembers" :key="member.name">
+                    <div class="text-center fade-in-up">
+                        <div class="relative mb-6 group">
+                            <img :src="member.image" :alt="member.name" class="w-full h-80 object-cover rounded-lg shadow-sm">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-lg"></div>
+                        </div>
+                        <h3 class="font-medium text-xl mb-2" x-text="member.name"></h3>
+                        <p class="text-warm-gray font-medium mb-3" x-text="member.role"></p>
+                        <p class="text-warm-gray text-sm leading-relaxed" x-text="member.bio"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-sand">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Join Our Journey</h2>
+            <p class="text-lg text-warm-gray mb-8 max-w-2xl mx-auto">Be part of the Eona story. Discover collections that celebrate your unique style and embrace timeless elegance.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="collection.html" class="bg-deep-brown text-white px-8 py-3 font-medium rounded hover:bg-warm-gray transition-colors">
+                    Explore Collections
+                </a>
+                <a href="contact.html" class="border border-deep-brown text-deep-brown px-8 py-3 font-medium rounded hover:bg-deep-brown hover:text-white transition-colors">
+                    Visit Our Stores
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-brown text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-6">Eona</h3>
+                    <p class="opacity-90 leading-relaxed mb-6">Crafting elegant fashion for the modern woman since 1985. Discover timeless pieces that celebrate your unique style.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">About Eona</h4>
+                    <ul class="space-y-3 opacity-90">
+                        <li><a href="#" class="hover:text-cream transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Press</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Investor Relations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">Customer Care</h4>
+                    <ul class="space-y-3 opacity-90">
+                        <li><a href="#" class="hover:text-cream transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Care Instructions</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">Connect</h4>
+                    <div class="space-y-3 opacity-90">
+                        <p>123 Fashion Avenue<br>New York, NY 10001</p>
+                        <p>Phone: (555) 123-4567</p>
+                        <p>Email: hello@eona.com</p>
+                        <div class="pt-4">
+                            <h5 class="font-medium mb-2">Store Hours</h5>
+                            <p class="text-sm">Mon-Sat: 10AM-8PM<br>Sunday: 12PM-6PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center opacity-75">
+                <p>&copy; 2024 Eona Fashion. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div x-show="cartOpen" x-transition class="fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" @click="cartOpen = false"></div>
+        <div class="fixed right-0 top-0 h-full w-96 bg-white shadow-xl overflow-y-auto">
+            <div class="p-6 border-b">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-playfair text-xl font-bold">Shopping Cart</h2>
+                    <button @click="cartOpen = false" class="p-2 hover:text-warm-gray">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6 text-center text-warm-gray">
+                <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
+                </svg>
+                <p>Your cart is empty</p>
+                <a href="collection.html" class="inline-block mt-4 bg-deep-brown text-white px-6 py-2 rounded hover:bg-warm-gray transition-colors">
+                    Start Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

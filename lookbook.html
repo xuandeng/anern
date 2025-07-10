@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ 
+    mobileMenu: false, 
+    cartOpen: false,
+    lightboxOpen: false,
+    currentLookbook: null,
+    selectedSeason: 'all',
+    lookbooks: [
+        {
+            id: 1,
+            title: 'Autumn Elegance',
+            season: 'autumn',
+            description: 'Sophisticated layers for the transitional season',
+            image: 'https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: true
+        },
+        {
+            id: 2,
+            title: 'Spring Renewal',
+            season: 'spring',
+            description: 'Fresh colors and light fabrics for a new beginning',
+            image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: false
+        },
+        {
+            id: 3,
+            title: 'Summer Breeze',
+            season: 'summer',
+            description: 'Effortless style for warm weather',
+            image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1467043237213-65f2da53396f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: false
+        },
+        {
+            id: 4,
+            title: 'Winter Sophistication',
+            season: 'winter',
+            description: 'Luxurious textures and rich colors',
+            image: 'https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1566479179817-c3e8e3a9d8d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: false
+        },
+        {
+            id: 5,
+            title: 'Evening Glamour',
+            season: 'all',
+            description: 'Sophisticated looks for special occasions',
+            image: 'https://images.unsplash.com/photo-1566479179817-c3e8e3a9d8d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1566479179817-c3e8e3a9d8d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: true
+        },
+        {
+            id: 6,
+            title: 'Casual Chic',
+            season: 'all',
+            description: 'Effortless everyday elegance',
+            image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            images: [
+                'https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1583339793403-3d9b001b6009?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            featured: false
+        }
+    ],
+    cart: [],
+    get filteredLookbooks() {
+        if (this.selectedSeason === 'all') {
+            return this.lookbooks;
+        }
+        return this.lookbooks.filter(lookbook => lookbook.season === this.selectedSeason);
+    },
+    get featuredLookbooks() {
+        return this.lookbooks.filter(lookbook => lookbook.featured);
+    },
+    openLightbox(lookbook) {
+        this.currentLookbook = lookbook;
+        this.lightboxOpen = true;
+        document.body.style.overflow = 'hidden';
+    },
+    closeLightbox() {
+        this.lightboxOpen = false;
+        this.currentLookbook = null;
+        document.body.style.overflow = 'auto';
+    },
+    get cartCount() {
+        return this.cart.reduce((total, item) => total + item.quantity, 0);
+    }
+}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbook - Eona Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'sand': '#F5F2ED',
+                        'cream': '#FAF8F5',
+                        'beige': '#E8DDD4',
+                        'warm-gray': '#8B7968',
+                        'deep-brown': '#3A312A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+        
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lightbox-overlay {
+            background: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body class="font-inter text-deep-brown bg-cream">
+    <!-- Header -->
+    <header class="relative z-50 bg-white/95 backdrop-blur-sm border-b border-beige/30">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-playfair text-2xl lg:text-3xl font-bold text-deep-brown">Eona</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Home</a>
+                    <a href="collection.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Collection</a>
+                    <a href="lookbook.html" class="text-sm font-medium text-deep-brown border-b-2 border-deep-brown">Lookbook</a>
+                    <a href="about.html" class="text-sm font-medium hover:text-warm-gray transition-colors">About</a>
+                    <a href="journal.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Journal</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-warm-gray transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden lg:block text-sm font-medium hover:text-warm-gray transition-colors">Search</button>
+                    <button @click="cartOpen = true" class="relative p-2 hover:text-warm-gray transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
+                        </svg>
+                        <span x-show="cartCount > 0" x-text="cartCount" class="absolute -top-1 -right-1 bg-deep-brown text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"></span>
+                    </button>
+                    <button @click="mobileMenu = true" class="lg:hidden p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenu" x-transition class="fixed inset-0 z-50 lg:hidden">
+        <div class="fixed inset-0 bg-black/50" @click="mobileMenu = false"></div>
+        <div class="fixed right-0 top-0 h-full w-80 bg-white p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-playfair text-xl font-bold">Menu</h2>
+                <button @click="mobileMenu = false" class="p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="space-y-6">
+                <a href="index.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Home</a>
+                <a href="collection.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Collection</a>
+                <a href="lookbook.html" class="block text-lg font-medium text-deep-brown">Lookbook</a>
+                <a href="about.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">About</a>
+                <a href="journal.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Journal</a>
+                <a href="contact.html" class="block text-lg font-medium hover:text-warm-gray transition-colors">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
+        <div class="relative z-10 container mx-auto px-6 h-full flex items-center">
+            <div class="max-w-2xl text-white">
+                <p class="text-sm font-medium tracking-wider uppercase mb-4 opacity-90">Style Inspiration</p>
+                <h1 class="font-playfair text-5xl lg:text-7xl font-bold mb-6 leading-tight">Lookbook</h1>
+                <p class="text-lg leading-relaxed mb-8 opacity-90">
+                    Discover our seasonal collections and styling inspiration. Each look tells a story of elegance, sophistication, and timeless beauty.
+                </p>
+                <button class="bg-white text-deep-brown px-8 py-3 font-medium hover:bg-cream transition-colors">
+                    Explore Collections
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Lookbooks -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-warm-gray text-sm font-medium tracking-wider uppercase mb-4">Featured</p>
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Editor's Choice</h2>
+                <p class="text-lg text-warm-gray max-w-2xl mx-auto">Handpicked looks that capture the essence of contemporary elegance and timeless style.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <template x-for="(lookbook, index) in featuredLookbooks" :key="lookbook.id">
+                    <div class="group cursor-pointer fade-in-up" @click="openLightbox(lookbook)" :class="index === 0 ? 'lg:col-span-2' : ''">
+                        <div class="relative overflow-hidden rounded-lg" :class="index === 0 ? 'h-96 lg:h-[500px]' : 'h-80'">
+                            <img :src="lookbook.image" :alt="lookbook.title" class="w-full h-full object-cover hover-scale">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-8 left-8 text-white">
+                                <h3 class="font-playfair text-2xl lg:text-3xl font-bold mb-2" x-text="lookbook.title"></h3>
+                                <p class="text-sm lg:text-base opacity-90" x-text="lookbook.description"></p>
+                                <div class="mt-4 inline-flex items-center space-x-2 text-sm font-medium opacity-75 group-hover:opacity-100 transition-opacity">
+                                    <span>View Gallery</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-12 bg-sand">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-2">All Collections</h3>
+                    <p class="text-warm-gray">Explore our complete range of seasonal styling guides</p>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <label class="text-sm font-medium">Filter by season:</label>
+                    <select x-model="selectedSeason" class="bg-white border border-beige px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-deep-brown/20">
+                        <option value="all">All Seasons</option>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="autumn">Autumn</option>
+                        <option value="winter">Winter</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Grid -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="masonry-grid">
+                <template x-for="lookbook in filteredLookbooks" :key="lookbook.id">
+                    <div class="masonry-item">
+                        <div class="group cursor-pointer bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow" @click="openLightbox(lookbook)">
+                            <div class="relative overflow-hidden">
+                                <img :src="lookbook.image" :alt="lookbook.title" class="w-full h-auto object-cover hover-scale">
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-deep-brown capitalize" x-text="lookbook.season"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-playfair text-xl font-bold mb-2" x-text="lookbook.title"></h3>
+                                <p class="text-warm-gray text-sm mb-4" x-text="lookbook.description"></p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-warm-gray" x-text="`${lookbook.images.length} images`"></span>
+                                    <div class="flex items-center space-x-1 text-xs font-medium text-deep-brown group-hover:text-warm-gray transition-colors">
+                                        <span>View Gallery</span>
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            
+            <!-- No Results -->
+            <div x-show="filteredLookbooks.length === 0" class="text-center py-12">
+                <svg class="w-16 h-16 mx-auto mb-4 text-warm-gray opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <h3 class="text-lg font-medium mb-2">No lookbooks found</h3>
+                <p class="text-warm-gray">Try selecting a different season filter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Tips Section -->
+    <section class="py-20 bg-deep-brown text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Style Tips</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-medium text-lg mb-2">Seasonal Transitions</h3>
+                            <p class="opacity-90 leading-relaxed">Master the art of transitional dressing with layering techniques that work seamlessly from season to season.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-2">Color Coordination</h3>
+                            <p class="opacity-90 leading-relaxed">Learn how to create cohesive looks using complementary colors and neutral tones for maximum impact.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-2">Accessory Styling</h3>
+                            <p class="opacity-90 leading-relaxed">Discover the power of accessories to transform basic outfits into statement looks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Style tip 1" class="w-full h-48 object-cover rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Style tip 2" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="space-y-4 mt-8">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Style tip 3" class="w-full h-32 object-cover rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Style tip 4" class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-sand">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-playfair text-4xl lg:text-5xl font-bold mb-6">Stay Inspired</h2>
+            <p class="text-lg text-warm-gray mb-8 max-w-2xl mx-auto">Get the latest lookbook releases and styling tips delivered to your inbox.</p>
+            
+            <form class="max-w-md mx-auto flex gap-4">
+                <input type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 border border-beige rounded focus:outline-none focus:ring-2 focus:ring-deep-brown/20">
+                <button type="submit" class="bg-deep-brown text-white px-6 py-3 font-medium rounded hover:bg-warm-gray transition-colors">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-brown text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-playfair text-2xl font-bold mb-6">Eona</h3>
+                    <p class="opacity-90 leading-relaxed mb-6">Crafting elegant fashion for the modern woman since 1985. Discover timeless pieces that celebrate your unique style.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">Lookbook</h4>
+                    <ul class="space-y-3 opacity-90">
+                        <li><a href="#" class="hover:text-cream transition-colors">Spring Collection</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Summer Essentials</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Autumn Layers</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Winter Elegance</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Style Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">Collections</h4>
+                    <ul class="space-y-3 opacity-90">
+                        <li><a href="#" class="hover:text-cream transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Evening Wear</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Casual Chic</a></li>
+                        <li><a href="#" class="hover:text-cream transition-colors">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-6">Contact Info</h4>
+                    <div class="space-y-3 opacity-90">
+                        <p>123 Fashion Avenue<br>New York, NY 10001</p>
+                        <p>Phone: (555) 123-4567</p>
+                        <p>Email: hello@eona.com</p>
+                        <p class="text-sm">Store Hours:<br>Mon-Sat: 10AM-8PM<br>Sunday: 12PM-6PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center opacity-75">
+                <p>&copy; 2024 Eona Fashion. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div x-show="lightboxOpen" x-transition class="fixed inset-0 z-50 lightbox-overlay flex items-center justify-center p-4">
+        <div class="absolute inset-0" @click="closeLightbox()"></div>
+        <div class="relative bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="absolute top-4 right-4 z-10">
+                <button @click="closeLightbox()" class="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div x-show="currentLookbook" class="p-6">
+                <div class="mb-6">
+                    <h2 class="font-playfair text-3xl font-bold mb-2" x-text="currentLookbook?.title"></h2>
+                    <p class="text-warm-gray" x-text="currentLookbook?.description"></p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <template x-for="image in currentLookbook?.images" :key="image">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <img :src="image" :alt="currentLookbook?.title" class="w-full h-auto object-cover">
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div x-show="cartOpen" x-transition class="fixed inset-0 z-50">
+        <div class="fixed inset-0 bg-black/50" @click="cartOpen = false"></div>
+        <div class="fixed right-0 top-0 h-full w-96 bg-white shadow-xl overflow-y-auto">
+            <div class="p-6 border-b">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-playfair text-xl font-bold">Shopping Cart</h2>
+                    <button @click="cartOpen = false" class="p-2 hover:text-warm-gray">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6 text-center text-warm-gray">
+                <svg class="w-16 h-16 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9z"></path>
+                </svg>
+                <p>Your cart is empty</p>
+                <a href="collection.html" class="inline-block mt-4 bg-deep-brown text-white px-6 py-2 rounded hover:bg-warm-gray transition-colors">
+                    Start Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
