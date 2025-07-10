@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eona 网站图片修复工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+                🔧 Eona 网站图片修复工具
+            </h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <button onclick="fixWithPicsum()" 
+                        class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg transition-colors">
+                    🎯 使用 Picsum Photos<br>
+                    <span class="text-sm font-normal">推荐：最稳定</span>
+                </button>
+                
+                <button onclick="fixWithPlaceholder()" 
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-colors">
+                    🎨 使用主题占位符<br>
+                    <span class="text-sm font-normal">品牌一致性</span>
+                </button>
+                
+                <button onclick="fixMixed()" 
+                        class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-lg transition-colors">
+                    ⚡ 混合方案<br>
+                    <span class="text-sm font-normal">最佳效果</span>
+                </button>
+            </div>
+            
+            <div id="log" class="bg-gray-100 rounded-lg p-4 h-96 overflow-y-auto mb-4">
+                <p class="text-gray-600">选择上面的修复方案开始...</p>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="clearLog()" 
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors">
+                    清空日志
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Eona 网站专用图片映射表
+        const imageMapping = {
+            // Hero 轮播图片
+            'https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80': {
+                picsum: 'https://picsum.photos/1920/1080?random=1',
+                placeholder: 'https://via.placeholder.com/1920x1080/F5F2ED/3A312A?text=Spring+Collection+2024',
+                mixed: 'https://picsum.photos/1920/1080?random=1'
+            },
+            'https://images.unsplash.com/photo-1467043237213-65f2da53396f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80': {
+                picsum: 'https://picsum.photos/1920/1080?random=2',
+                placeholder: 'https://via.placeholder.com/1920x1080/E8DDD4/3A312A?text=Summer+Essentials',
+                mixed: 'https://picsum.photos/1920/1080?random=2'
+            },
+            'https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80': {
+                picsum: 'https://picsum.photos/1920/1080?random=3',
+                placeholder: 'https://via.placeholder.com/1920x1080/8B7968/FFFFFF?text=Autumn+Trends',
+                mixed: 'https://picsum.photos/1920/1080?random=3'
+            },
+            
+            // 产品图片
+            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=11',
+                placeholder: 'https://via.placeholder.com/400x500/F5F2ED/3A312A?text=Silk+Blouse',
+                mixed: 'https://via.placeholder.com/400x500/F5F2ED/3A312A?text=Silk+Blouse'
+            },
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=12',
+                placeholder: 'https://via.placeholder.com/400x500/E8DDD4/3A312A?text=Designer+Handbag',
+                mixed: 'https://picsum.photos/400/500?random=12'
+            },
+            'https://images.unsplash.com/photo-1544966503-7cc6d4e3d5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=13',
+                placeholder: 'https://via.placeholder.com/400x500/8B7968/FFFFFF?text=Trench+Coat',
+                mixed: 'https://via.placeholder.com/400x500/8B7968/FFFFFF?text=Trench+Coat'
+            },
+            'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=14',
+                placeholder: 'https://via.placeholder.com/400x500/3A312A/FFFFFF?text=Statement+Earrings',
+                mixed: 'https://picsum.photos/400/500?random=14'
+            },
+            'https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=15',
+                placeholder: 'https://via.placeholder.com/400x500/F5F2ED/3A312A?text=Luxury+Scarf',
+                mixed: 'https://via.placeholder.com/400x500/F5F2ED/3A312A?text=Luxury+Scarf'
+            },
+            'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/500?random=16',
+                placeholder: 'https://via.placeholder.com/400x500/E8DDD4/3A312A?text=Chic+Sunglasses',
+                mixed: 'https://picsum.photos/400/500?random=16'
+            },
+            
+            // 大图片
+            'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80': {
+                picsum: 'https://picsum.photos/800/600?random=21',
+                placeholder: 'https://via.placeholder.com/800x600/F5F2ED/3A312A?text=About+Eona',
+                mixed: 'https://picsum.photos/800/600?random=21'
+            },
+            'https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80': {
+                picsum: 'https://picsum.photos/800/600?random=22',
+                placeholder: 'https://via.placeholder.com/800x600/E8DDD4/3A312A?text=Sophisticated+Layers',
+                mixed: 'https://via.placeholder.com/800x600/E8DDD4/3A312A?text=Sophisticated+Layers'
+            },
+            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/600?random=23',
+                placeholder: 'https://via.placeholder.com/400x600/8B7968/FFFFFF?text=Classic+Elegance',
+                mixed: 'https://picsum.photos/400/600?random=23'
+            },
+            'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80': {
+                picsum: 'https://picsum.photos/400/600?random=24',
+                placeholder: 'https://via.placeholder.com/400x600/3A312A/FFFFFF?text=Modern+Chic',
+                mixed: 'https://via.placeholder.com/400x600/3A312A/FFFFFF?text=Modern+Chic'
+            }
+        };
+
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const colors = {
+                info: 'text-blue-600',
+                success: 'text-green-600',
+                warning: 'text-yellow-600',
+                error: 'text-red-600'
+            };
+            
+            logDiv.innerHTML += `<p class="${colors[type]} mb-1">
+                <span class="text-gray-500">[${timestamp}]</span> ${message}
+            </p>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function replaceImages(strategy) {
+            log(`开始使用 ${strategy} 策略修复图片...`, 'info');
+            let replacedCount = 0;
+            let totalFound = 0;
+
+            // 替换 img 标签
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                const oldSrc = img.src;
+                if (imageMapping[oldSrc] && imageMapping[oldSrc][strategy]) {
+                    totalFound++;
+                    img.src = imageMapping[oldSrc][strategy];
+                    replacedCount++;
+                    log(`✅ 替换图片: ${oldSrc.substring(0, 60)}...`, 'success');
+                }
+            });
+
+            // 替换背景图片
+            const elementsWithBg = document.querySelectorAll('[style*="background-image"]');
+            elementsWithBg.forEach(el => {
+                const style = el.getAttribute('style');
+                let newStyle = style;
+                Object.keys(imageMapping).forEach(oldUrl => {
+                    if (style.includes(oldUrl) && imageMapping[oldUrl][strategy]) {
+                        totalFound++;
+                        newStyle = newStyle.replace(oldUrl, imageMapping[oldUrl][strategy]);
+                        replacedCount++;
+                        log(`✅ 替换背景图: ${oldUrl.substring(0, 60)}...`, 'success');
+                    }
+                });
+                if (newStyle !== style) {
+                    el.setAttribute('style', newStyle);
+                }
+            });
+
+            // 如果是在父窗口中，尝试替换父窗口的图片
+            if (window.parent && window.parent !== window) {
+                try {
+                    const parentImages = window.parent.document.querySelectorAll('img');
+                    parentImages.forEach(img => {
+                        const oldSrc = img.src;
+                        if (imageMapping[oldSrc] && imageMapping[oldSrc][strategy]) {
+                            totalFound++;
+                            img.src = imageMapping[oldSrc][strategy];
+                            replacedCount++;
+                            log(`✅ 替换父页面图片: ${oldSrc.substring(0, 60)}...`, 'success');
+                        }
+                    });
+                } catch (e) {
+                    log('⚠️ 无法访问父页面（跨域限制）', 'warning');
+                }
+            }
+
+            if (replacedCount > 0) {
+                log(`🎉 修复完成！总共替换了 ${replacedCount} 张图片`, 'success');
+            } else {
+                log('ℹ️ 未找到需要替换的图片，可能已经修复过了', 'warning');
+            }
+        }
+
+        function fixWithPicsum() {
+            log('=== 开始 Picsum Photos 修复 ===', 'info');
+            replaceImages('picsum');
+        }
+
+        function fixWithPlaceholder() {
+            log('=== 开始主题占位符修复 ===', 'info');
+            replaceImages('placeholder');
+        }
+
+        function fixMixed() {
+            log('=== 开始混合方案修复 ===', 'info');
+            replaceImages('mixed');
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '<p class="text-gray-600">日志已清空，选择修复方案开始...</p>';
+        }
+
+        // 页面加载时的欢迎信息
+        window.addEventListener('load', function() {
+            log('🚀 Eona 图片修复工具已加载', 'success');
+            log('💡 提示：此工具会替换当前页面的 Unsplash 图片为稳定的替代服务', 'info');
+            log('📱 如需修复其他页面，请在对应页面打开此工具', 'info');
+        });
+    </script>
+</body>
+</html>
