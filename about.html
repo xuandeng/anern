@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ 
+    showMobileMenu: false, 
+    showSearch: false, 
+    showCookies: true,
+    showBackToTop: false,
+    timeline: [
+        { year: '2010', title: 'Company Founded', description: 'Tecloman was established with a vision to revolutionize energy storage technology.' },
+        { year: '2013', title: 'First Commercial Product', description: 'Launched our first commercial battery energy storage system for industrial applications.' },
+        { year: '2016', title: 'International Expansion', description: 'Expanded operations to Europe and established our first international office in Germany.' },
+        { year: '2019', title: 'Innovation Breakthrough', description: 'Developed groundbreaking liquid-cooled energy storage technology.' },
+        { year: '2021', title: 'Global Recognition', description: 'Received multiple international awards for innovation in clean energy technology.' },
+        { year: '2024', title: 'Sustainable Future', description: 'Leading the global energy transition with comprehensive agrivoltaic solutions.' }
+    ],
+    stats: [
+        { number: '60,000m²+', label: 'Production Bases', icon: 'fa-industry' },
+        { number: '160+', label: 'R&D Personnel', icon: 'fa-users' },
+        { number: '158+', label: 'Developed Patents', icon: 'fa-lightbulb' },
+        { number: '50+', label: 'Countries Served', icon: 'fa-globe' },
+        { number: '1000+', label: 'Projects Completed', icon: 'fa-check-circle' },
+        { number: '15+', label: 'Years Experience', icon: 'fa-calendar' }
+    ],
+    values: [
+        { title: 'Innovation', description: 'Continuously pushing the boundaries of energy storage technology', icon: 'fa-rocket' },
+        { title: 'Sustainability', description: 'Committed to creating a cleaner, more sustainable future', icon: 'fa-leaf' },
+        { title: 'Quality', description: 'Delivering excellence in every product and service', icon: 'fa-award' },
+        { title: 'Collaboration', description: 'Working together to achieve common goals', icon: 'fa-handshake' }
+    ]
+}" x-init="
+    window.addEventListener('scroll', () => { showBackToTop = window.pageYOffset > window.innerHeight });
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tecloman Energy Storage Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tecloman-blue': '#1e40af',
+                        'tecloman-green': '#059669',
+                        'tecloman-red': '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in-left { animation: slideInLeft 1s ease-out; }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .zoom-in { animation: zoomIn 1s ease-out; }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50" x-data="{ activeDropdown: null }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-8 h-8 bg-tecloman-blue rounded text-white flex items-center justify-center mr-2">T</div>
+                        <span class="text-xl font-bold text-gray-900">Tecloman</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">Home</a>
+                        
+                        <!-- Solution Dropdown -->
+                        <div class="relative" @mouseenter="activeDropdown = 'solution'" @mouseleave="activeDropdown = null">
+                            <button class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium flex items-center">
+                                Solution <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div x-show="activeDropdown === 'solution'" x-transition class="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-lg py-2 z-50">
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Utility-scale BESS Solutions</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">C&I BESS Solution</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Medium Voltage SPS System for Mines</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Residential BESS Solutions</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cubox Solutions</a>
+                            </div>
+                        </div>
+
+                        <!-- Products Dropdown -->
+                        <div class="relative" @mouseenter="activeDropdown = 'products'" @mouseleave="activeDropdown = null">
+                            <button class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium flex items-center">
+                                Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div x-show="activeDropdown === 'products'" x-transition class="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg py-2 z-50">
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Medium Voltage SPS</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Utility-scale Energy Storage</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">C&I BESS</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Residential Energy Storage</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mobile Energy Storage</a>
+                            </div>
+                        </div>
+
+                        <a href="news.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">News</a>
+                        <a href="about.html" class="text-tecloman-blue hover:text-blue-700 px-3 py-2 text-sm font-medium border-b-2 border-tecloman-blue">About</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Search and Language -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button @click="showSearch = true" class="text-gray-500 hover:text-gray-900">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <select class="text-sm border rounded px-2 py-1">
+                        <option>EN</option>
+                        <option>中文</option>
+                        <option>Français</option>
+                        <option>Deutsch</option>
+                    </select>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="showMobileMenu = !showMobileMenu" class="text-gray-500 hover:text-gray-900">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="showMobileMenu" x-transition class="md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">Products</a>
+                <a href="news.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">News</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-tecloman-blue hover:bg-gray-100">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div x-show="showSearch" x-transition class="fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Search</h3>
+                    <button @click="showSearch = false" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="Search..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tecloman-blue">
+                <button class="w-full mt-3 bg-tecloman-blue text-white rounded-md py-2 hover:bg-blue-700">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-tecloman-blue to-blue-700 text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">About Tecloman</h1>
+                <p class="text-xl max-w-3xl mx-auto">Empowering the global energy transition with innovative energy storage solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-gray-600">
+                <a href="index.html" class="hover:text-tecloman-blue">Home</a> 
+                <span class="mx-2">></span> 
+                <span class="text-gray-900 font-medium">About</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6" x-intersect="$el.classList.add('slide-in-left')">
+                    <h2 class="text-3xl font-bold text-gray-900">Our Mission</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        At Tecloman, we are dedicated to accelerating the global transition to sustainable energy through innovative battery energy storage systems. Founded in 2010, we have grown from a visionary startup to a leading provider of comprehensive energy storage solutions.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our mission is to create a cleaner, more sustainable future by developing cutting-edge energy storage technologies that enable the widespread adoption of renewable energy sources and improve grid stability worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="products.html" class="bg-tecloman-blue text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+                            Our Products
+                        </a>
+                        <a href="contact.html" class="border-2 border-tecloman-blue text-tecloman-blue px-6 py-3 rounded-md hover:bg-tecloman-blue hover:text-white transition duration-300">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="relative" x-intersect="$el.classList.add('zoom-in')">
+                    <img src="https://via.placeholder.com/600x400/1e40af/ffffff?text=Tecloman+Facility" alt="Tecloman Facility" class="w-full rounded-lg shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Stats -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Achievements</h2>
+                <p class="text-xl text-gray-600">Numbers that speak to our commitment and success</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <template x-for="stat in stats" :key="stat.label">
+                    <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                        <div class="w-16 h-16 bg-tecloman-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i :class="'fas ' + stat.icon + ' text-white text-xl'"></i>
+                        </div>
+                        <div x-text="stat.number" class="text-2xl font-bold text-gray-900 mb-2"></div>
+                        <div x-text="stat.label" class="text-sm text-gray-600"></div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Journey</h2>
+                <p class="text-xl text-gray-600">Milestones in our quest to transform energy storage</p>
+            </div>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-300"></div>
+                
+                <div class="space-y-12">
+                    <template x-for="(event, index) in timeline" :key="event.year">
+                        <div :class="index % 2 === 0 ? 'flex-row-reverse' : ''" class="relative flex items-center">
+                            <!-- Timeline dot -->
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-tecloman-blue rounded-full"></div>
+                            
+                            <!-- Content -->
+                            <div :class="index % 2 === 0 ? 'mr-auto pr-8' : 'ml-auto pl-8'" class="w-5/12" x-intersect="$el.classList.add('fade-in')">
+                                <div class="bg-white p-6 rounded-lg shadow-lg border">
+                                    <div class="text-2xl font-bold text-tecloman-blue mb-2" x-text="event.year"></div>
+                                    <div class="text-lg font-semibold text-gray-900 mb-3" x-text="event.title"></div>
+                                    <div class="text-gray-600" x-text="event.description"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
+                <p class="text-xl text-gray-600">The principles that guide everything we do</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <template x-for="value in values" :key="value.title">
+                    <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                        <div class="w-20 h-20 bg-tecloman-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i :class="'fas ' + value.icon + ' text-white text-2xl'"></i>
+                        </div>
+                        <h3 x-text="value.title" class="text-xl font-semibold text-gray-900 mb-4"></h3>
+                        <p x-text="value.description" class="text-gray-600"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Leadership Team</h2>
+                <p class="text-xl text-gray-600">Meet the visionaries driving our innovation</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CEO -->
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-32 h-32 bg-gradient-to-br from-tecloman-blue to-blue-700 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-white text-3xl font-bold">JL</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">John Liu</h3>
+                    <p class="text-tecloman-blue mb-3">Chief Executive Officer</p>
+                    <p class="text-gray-600 text-sm">Leading Tecloman's vision for sustainable energy storage solutions with over 20 years of industry experience.</p>
+                </div>
+
+                <!-- CTO -->
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-32 h-32 bg-gradient-to-br from-tecloman-green to-green-700 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-white text-3xl font-bold">SW</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sarah Wang</h3>
+                    <p class="text-tecloman-blue mb-3">Chief Technology Officer</p>
+                    <p class="text-gray-600 text-sm">Driving innovation in battery technology and energy management systems with a PhD in Electrical Engineering.</p>
+                </div>
+
+                <!-- Head of R&D -->
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-32 h-32 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <span class="text-white text-3xl font-bold">MZ</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Michael Zhang</h3>
+                    <p class="text-tecloman-blue mb-3">Head of Research & Development</p>
+                    <p class="text-gray-600 text-sm">Leading our R&D initiatives with expertise in renewable energy systems and sustainable technology development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence -->
+    <section class="py-16 bg-tecloman-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Global Presence</h2>
+                <p class="text-xl">Serving customers worldwide with local expertise</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" x-intersect="$el.classList.add('fade-in')">
+                    <div class="text-3xl font-bold mb-2">Asia Pacific</div>
+                    <p class="text-blue-100">Headquarters in Chengdu, China with manufacturing facilities across the region</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('fade-in')">
+                    <div class="text-3xl font-bold mb-2">Europe</div>
+                    <p class="text-blue-100">Regional office in Munich, Germany serving European markets</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('fade-in')">
+                    <div class="text-3xl font-bold mb-2">Americas</div>
+                    <p class="text-blue-100">Expanding presence across North and South American markets</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('fade-in')">
+                    <div class="text-3xl font-bold mb-2">Africa & Middle East</div>
+                    <p class="text-blue-100">Growing partnerships in emerging energy markets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Awards -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Certifications & Awards</h2>
+                <p class="text-xl text-gray-600">Recognition for our commitment to quality and innovation</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <span class="text-tecloman-blue font-bold text-sm">ISO</span>
+                    </div>
+                    <p class="text-sm text-gray-600">ISO 9001</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <span class="text-tecloman-blue font-bold text-sm">CE</span>
+                    </div>
+                    <p class="text-sm text-gray-600">CE Marking</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <span class="text-tecloman-blue font-bold text-sm">UL</span>
+                    </div>
+                    <p class="text-sm text-gray-600">UL Listed</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-tecloman-blue"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Innovation Award</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-2xl text-tecloman-blue"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Best Product</p>
+                </div>
+                <div class="text-center" x-intersect="$el.classList.add('zoom-in')">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-md flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-2xl text-tecloman-blue"></i>
+                    </div>
+                    <p class="text-sm text-gray-600">Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Join Our Mission</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Be part of the energy revolution. Whether you're looking for innovative energy storage solutions or want to join our team, we'd love to hear from you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-tecloman-blue text-white px-8 py-3 rounded-md hover:bg-blue-700 transition duration-300 font-medium">
+                    Get In Touch
+                </a>
+                <a href="news.html" class="border-2 border-tecloman-blue text-tecloman-blue px-8 py-3 rounded-md hover:bg-tecloman-blue hover:text-white transition duration-300 font-medium">
+                    Latest News
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-tecloman-blue rounded text-white flex items-center justify-center mr-2">T</div>
+                        <span class="text-xl font-bold">Tecloman</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Empowering the global energy transition with comprehensive energy storage solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Solutions</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="products.html" class="hover:text-white">Utility-scale BESS</a></li>
+                        <li><a href="products.html" class="hover:text-white">C&I BESS</a></li>
+                        <li><a href="products.html" class="hover:text-white">Residential BESS</a></li>
+                        <li><a href="products.html" class="hover:text-white">Mobile Energy Storage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Download</a></li>
+                        <li><a href="#" class="hover:text-white">Video</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Technical Support</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <div class="text-gray-400 space-y-2">
+                        <p><i class="fas fa-envelope mr-2"></i> info@tecloman.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Tal 31, 80331 München</p>
+                        <p><i class="fas fa-phone mr-2"></i> +49 (0) 89 123 456</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Chengdu Tecloman Energy Storage Technology Co.,Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button x-show="showBackToTop" x-transition @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-tecloman-blue text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cookies Banner (English only) -->
+    <div x-show="showCookies && window.location.pathname.includes('en')" x-transition class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <p class="text-sm mb-4 sm:mb-0">We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
+            <div class="flex space-x-4">
+                <button @click="showCookies = false" class="bg-tecloman-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-700">Accept</button>
+                <button @click="showCookies = false" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800">Decline</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

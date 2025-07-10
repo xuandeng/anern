@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ 
+    showMobileMenu: false, 
+    showSearch: false, 
+    showCookies: true,
+    showBackToTop: false,
+    activeCategory: 'all',
+    products: [
+        { id: 1, name: 'Ymir 5k Air-cooled Prefabricated Cabin Energy Storage Battery System', category: 'utility', image: 'https://via.placeholder.com/400x300/1e40af/ffffff?text=Ymir+5k', description: 'High-performance air-cooled energy storage system for utility-scale applications.' },
+        { id: 2, name: 'TRACK Outdoor Liquid-cooled Battery Cabinet', category: 'utility', image: 'https://via.placeholder.com/400x300/059669/ffffff?text=TRACK', description: 'Advanced liquid-cooled battery storage solution for outdoor installations.' },
+        { id: 3, name: 'Eos Polar Voltage Regulation Device with Energy Storage System', category: 'medium', image: 'https://via.placeholder.com/400x300/dc2626/ffffff?text=Eos+Polar', description: 'Intelligent voltage regulation system with integrated energy storage.' },
+        { id: 4, name: 'Polar Intelligent PV+Battery Energy Storage System', category: 'residential', image: 'https://via.placeholder.com/400x300/7c3aed/ffffff?text=Polar+PV', description: 'Complete solar and battery storage solution for residential applications.' },
+        { id: 5, name: 'Vega MF4 Series', category: 'ci', image: 'https://via.placeholder.com/400x300/ea580c/ffffff?text=Vega+MF4', description: 'Commercial and industrial energy storage system with advanced features.' },
+        { id: 6, name: 'HP20 Three-Phase Residential Hybrid Inverter', category: 'residential', image: 'https://via.placeholder.com/400x300/0891b2/ffffff?text=HP20', description: 'High-efficiency three-phase hybrid inverter for residential use.' },
+        { id: 7, name: 'IDC Power Supply', category: 'idc', image: 'https://via.placeholder.com/400x300/be185d/ffffff?text=IDC+Power', description: 'Reliable power supply solutions for data center applications.' },
+        { id: 8, name: 'Power Cubox Mobile Energy Storage', category: 'mobile', image: 'https://via.placeholder.com/400x300/16a34a/ffffff?text=Power+Cubox', description: 'Portable energy storage solution for mobile applications.' }
+    ],
+    categories: [
+        { id: 'all', name: 'All Products' },
+        { id: 'utility', name: 'Utility-scale Energy Storage' },
+        { id: 'ci', name: 'C&I BESS' },
+        { id: 'residential', name: 'Residential Energy Storage' },
+        { id: 'medium', name: 'Medium Voltage SPS' },
+        { id: 'mobile', name: 'Mobile Energy Storage' },
+        { id: 'idc', name: 'IDC BESS' }
+    ]
+}" x-init="
+    window.addEventListener('scroll', () => { showBackToTop = window.pageYOffset > window.innerHeight });
+">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Tecloman Energy Storage Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tecloman-blue': '#1e40af',
+                        'tecloman-green': '#059669',
+                        'tecloman-red': '#dc2626'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .zoom-in { animation: zoomIn 1s ease-out; }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50" x-data="{ activeDropdown: null }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <div class="w-8 h-8 bg-tecloman-blue rounded text-white flex items-center justify-center mr-2">T</div>
+                        <span class="text-xl font-bold text-gray-900">Tecloman</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">Home</a>
+                        
+                        <!-- Solution Dropdown -->
+                        <div class="relative" @mouseenter="activeDropdown = 'solution'" @mouseleave="activeDropdown = null">
+                            <button class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium flex items-center">
+                                Solution <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div x-show="activeDropdown === 'solution'" x-transition class="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-lg py-2 z-50">
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Utility-scale BESS Solutions</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">C&I BESS Solution</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Medium Voltage SPS System for Mines</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Residential BESS Solutions</a>
+                                <a href="products.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cubox Solutions</a>
+                            </div>
+                        </div>
+
+                        <!-- Products Dropdown -->
+                        <div class="relative" @mouseenter="activeDropdown = 'products'" @mouseleave="activeDropdown = null">
+                            <button class="text-tecloman-blue hover:text-blue-700 px-3 py-2 text-sm font-medium flex items-center border-b-2 border-tecloman-blue">
+                                Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div x-show="activeDropdown === 'products'" x-transition class="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg py-2 z-50">
+                                <a href="#medium" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Medium Voltage SPS</a>
+                                <a href="#utility" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Utility-scale Energy Storage</a>
+                                <a href="#ci" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">C&I BESS</a>
+                                <a href="#residential" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Residential Energy Storage</a>
+                                <a href="#mobile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mobile Energy Storage</a>
+                            </div>
+                        </div>
+
+                        <a href="news.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">News</a>
+                        <a href="about.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">About</a>
+                        <a href="contact.html" class="text-gray-900 hover:text-tecloman-blue px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Search and Language -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button @click="showSearch = true" class="text-gray-500 hover:text-gray-900">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <select class="text-sm border rounded px-2 py-1">
+                        <option>EN</option>
+                        <option>中文</option>
+                        <option>Français</option>
+                        <option>Deutsch</option>
+                    </select>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="showMobileMenu = !showMobileMenu" class="text-gray-500 hover:text-gray-900">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="showMobileMenu" x-transition class="md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-tecloman-blue hover:bg-gray-100">Products</a>
+                <a href="news.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">News</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Modal -->
+    <div x-show="showSearch" x-transition class="fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Search Products</h3>
+                    <button @click="showSearch = false" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="Search products..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-tecloman-blue">
+                <button class="w-full mt-3 bg-tecloman-blue text-white rounded-md py-2 hover:bg-blue-700">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-tecloman-blue to-blue-700 text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Products</h1>
+                <p class="text-xl max-w-3xl mx-auto">Comprehensive energy storage solutions for every application</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm text-gray-600">
+                <a href="index.html" class="hover:text-tecloman-blue">Home</a> 
+                <span class="mx-2">></span> 
+                <span class="text-gray-900 font-medium">Products</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Product Categories</h2>
+                <p class="text-gray-600">Filter products by category to find the perfect solution for your needs</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <template x-for="category in categories" :key="category.id">
+                    <button 
+                        @click="activeCategory = category.id"
+                        :class="activeCategory === category.id ? 'bg-tecloman-blue text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
+                        class="px-6 py-3 rounded-lg text-sm font-medium transition duration-300"
+                        x-text="category.name">
+                    </button>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="product in products.filter(p => activeCategory === 'all' || p.category === activeCategory)" :key="product.id">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 fade-in" x-intersect="$el.classList.add('zoom-in')">
+                        <img :src="product.image" :alt="product.name" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 x-text="product.name" class="text-lg font-semibold mb-3 text-gray-900"></h3>
+                            <p x-text="product.description" class="text-gray-600 mb-4"></p>
+                            <div class="flex justify-between items-center">
+                                <a :href="`product_tpl.html?id=${product.id}`" class="text-tecloman-blue hover:text-blue-700 font-medium">
+                                    Learn More →
+                                </a>
+                                <button class="bg-tecloman-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+                                    <i class="fas fa-download mr-2"></i>Specs
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- No products message -->
+            <div x-show="products.filter(p => activeCategory === 'all' || p.category === activeCategory).length === 0" class="text-center py-16">
+                <i class="fas fa-box-open text-6xl text-gray-300 mb-4"></i>
+                <p class="text-xl text-gray-500">No products found in this category.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-tecloman-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Custom Solutions?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Our expert team can design and develop customized energy storage solutions tailored to your specific requirements.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="inline-block bg-white text-tecloman-blue px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300 font-medium">
+                    Contact Our Experts
+                </a>
+                <a href="#" class="inline-block border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-tecloman-blue transition duration-300 font-medium">
+                    Download Catalog
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-tecloman-blue rounded text-white flex items-center justify-center mr-2">T</div>
+                        <span class="text-xl font-bold">Tecloman</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Empowering the global energy transition with comprehensive energy storage solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Solutions</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#utility" class="hover:text-white">Utility-scale BESS</a></li>
+                        <li><a href="#ci" class="hover:text-white">C&I BESS</a></li>
+                        <li><a href="#residential" class="hover:text-white">Residential BESS</a></li>
+                        <li><a href="#mobile" class="hover:text-white">Mobile Energy Storage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Download</a></li>
+                        <li><a href="#" class="hover:text-white">Video</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Technical Support</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <div class="text-gray-400 space-y-2">
+                        <p><i class="fas fa-envelope mr-2"></i> info@tecloman.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Tal 31, 80331 München</p>
+                        <p><i class="fas fa-phone mr-2"></i> +49 (0) 89 123 456</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Chengdu Tecloman Energy Storage Technology Co.,Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button x-show="showBackToTop" x-transition @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-tecloman-blue text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cookies Banner (English only) -->
+    <div x-show="showCookies && window.location.pathname.includes('en')" x-transition class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <p class="text-sm mb-4 sm:mb-0">We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
+            <div class="flex space-x-4">
+                <button @click="showCookies = false" class="bg-tecloman-blue text-white px-4 py-2 rounded text-sm hover:bg-blue-700">Accept</button>
+                <button @click="showCookies = false" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800">Decline</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
