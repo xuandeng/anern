@@ -1,0 +1,68 @@
+<!-- Header Component -->
+<header class="bg-white shadow-sm" x-data="{ mobileMenuOpen: false }">
+    <!-- Top Bar -->
+    <div class="bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-10 text-sm">
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600">3538 Torrance Blvd, Torrance, CA 90503, USA</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600">+1 123 456 7890</span>
+                    <span class="text-gray-600">|</span>
+                    <span class="text-gray-600">info@kayuufurniture.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-gray-900">
+                    Kayuu Furniture Store
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="products.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Products</a>
+                <a href="rooms.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Rooms</a>
+                <a href="about.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="contact.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact Us</a>
+            </nav>
+
+            <!-- Shopping Cart & Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <!-- Shopping Cart -->
+                <button class="relative p-2 text-gray-700 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8L6 5H4m2 8v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-2a2 2 0 012-2h6a2 2 0 012 2v2"></path>
+                    </svg>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Home</a>
+            <a href="products.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Products</a>
+            <a href="rooms.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Rooms</a>
+            <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">About Us</a>
+            <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Contact Us</a>
+        </div>
+    </div>
+</header>
