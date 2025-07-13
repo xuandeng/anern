@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Kayuu Furniture Store</title>
+    <meta name="description" content="Make Yourself At Home with Kayuu Furniture Store. Discover premium furniture collection for your living room, bedroom, kitchen and more.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Animation Styles -->
+    <link rel="stylesheet" href="../css/transitions.css">
+</head>
+<body class="bg-white">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="text-xl font-semibold">Loading...</h2>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="absolute top-0 left-0 right-0 z-50 bg-transparent" x-data="{ mobileMenuOpen: false }">
+        <!-- Top Bar -->
+        <div class="bg-black bg-opacity-20 backdrop-blur-sm border-b border-white border-opacity-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-10 text-sm">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white opacity-90">3538 Torrance Blvd, Torrance, CA 90503, USA</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-white opacity-90">+1 123 456 7890</span>
+                        <span class="text-white opacity-60">|</span>
+                        <span class="text-white opacity-90">info@kayuufurniture.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center fade-in-left delay-100">
+                    <a href="index.html" class="text-2xl font-bold text-white scale-in-hover">
+                        Kayuu Furniture Store
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 fade-in-down delay-300">
+                    <a href="index.html" class="nav-link text-white font-medium px-3 py-2 text-sm hover:text-gray-200 transition">Home</a>
+                    <a href="products.html" class="nav-link text-white opacity-90 hover:text-white px-3 py-2 text-sm font-medium transition">Products</a>
+                    <a href="rooms.html" class="nav-link text-white opacity-90 hover:text-white px-3 py-2 text-sm font-medium transition">Rooms</a>
+                    <a href="about.html" class="nav-link text-white opacity-90 hover:text-white px-3 py-2 text-sm font-medium transition">About Us</a>
+                    <a href="contact.html" class="nav-link text-white opacity-90 hover:text-white px-3 py-2 text-sm font-medium transition">Contact Us</a>
+                </nav>
+
+                <!-- Shopping Cart & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Shopping Cart -->
+                    <button class="relative p-2 text-white hover:text-gray-200 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8L6 5H4m2 8v6a2 2 0 002 2h8a2 2 0 002-2v-6m-10 0v-2a2 2 0 012-2h6a2 2 0 012 2v2"></path>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-black bg-opacity-90 backdrop-blur-sm border-t border-white border-opacity-20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-white">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-white opacity-90 hover:text-white">Products</a>
+                <a href="rooms.html" class="block px-3 py-2 text-base font-medium text-white opacity-90 hover:text-white">Rooms</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-white opacity-90 hover:text-white">About Us</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-white opacity-90 hover:text-white">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight fade-in-up delay-500">
+                Make Yourself<br>At Home
+            </h1>
+            <p class="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto leading-relaxed opacity-90 fade-in-up delay-700">
+                Vestibulum, diam vulputate amet cras in diam quis turpis curabitur tellus aliquet tellus iaculis tempus, sollicitudin massa duis eleifend egestas turpis sit etiam commodo viverra lacinia ipsum convallis sed augue purus scelerisque non vestibulum elementum mi, pellentesque leo tincidunt integer.
+            </p>
+            <button class="bg-white text-gray-900 px-10 py-4 text-lg font-semibold hover:bg-gray-100 transition duration-200 mb-16 btn-animate scale-in delay-800">
+                SHOP NOW
+            </button>
+            
+            <!-- Scroll Down & Social Links -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 fade-in-up delay-1000">
+                <p class="text-sm text-white opacity-80 mb-4">Scroll Down</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-white opacity-70 hover:opacity-100 transition scale-in-hover">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white opacity-70 hover:opacity-100 transition scale-in-hover">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white opacity-70 hover:opacity-100 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white opacity-70 hover:opacity-100 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Collection Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-sm text-gray-500 uppercase tracking-wider mb-4 fade-in-up">New Collection</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-up delay-200">A Perfect Set For Your Living Room</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8 fade-in-up delay-400">
+                    Massa cras egestas laoreet montes, dapibus eu sit etiam curabitur faucibus habitasse lectus vestibulum leo, odio dolor quis maecenas faucibus vulputate pharetra nunc sed maecenas diam quisque habitasse.
+                </p>
+                <button class="bg-gray-900 text-white px-8 py-3 font-semibold hover:bg-gray-800 transition btn-animate fade-in-up delay-600">
+                    Shop This Collection
+                </button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="group card-hover fade-in-up delay-100">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brown Living Room Sofa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Living Room</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Brown Living Room Sofa</h3>
+                    <p class="text-lg font-bold text-gray-900">$1,200.00</p>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group card-hover fade-in-up delay-200">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Egyptian Vase" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Home Office</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Egyptian Vase</h3>
+                    <p class="text-lg font-bold text-gray-900">$400.00</p>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group card-hover fade-in-up delay-300">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Green Living Room Sofa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs font-semibold pulse">Sale!</div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Living Room</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Green Living Room Sofa</h3>
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg font-bold text-gray-900">$1,200.00</p>
+                        <p class="text-sm text-gray-500 line-through">$1,840.00</p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Emerald Fabric Chair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Chair</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Modern Emerald Fabric Chair</h3>
+                    <p class="text-lg font-bold text-gray-900">$860.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Categories -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Living Room -->
+                <div class="text-center group cursor-pointer">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                        <svg class="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21l4-4 4 4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Living Room</h3>
+                </div>
+
+                <!-- Bedroom -->
+                <div class="text-center group cursor-pointer">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                        <svg class="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Bedroom</h3>
+                </div>
+
+                <!-- Kitchen -->
+                <div class="text-center group cursor-pointer">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                        <svg class="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Kitchen</h3>
+                </div>
+
+                <!-- Bath Room -->
+                <div class="text-center group cursor-pointer">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                        <svg class="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Bath Room</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Seller Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-sm text-gray-500 uppercase tracking-wider mb-4 fade-in-up">Best Seller</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 fade-in-up delay-200">Discover Our<br>Most Selling Products</h2>
+                <a href="products.html" class="text-gray-900 font-semibold hover:text-gray-700 transition nav-link fade-in-up delay-400">View all Best Sellers</a>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Best Seller Products - 8 products -->
+                <div class="group card-hover fade-in-up delay-100">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kitchen Cabinet" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Cabinet</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Kitchen Cabinet</h3>
+                    <p class="text-lg font-bold text-gray-900">$1,150.25</p>
+                </div>
+
+                <div class="group card-hover fade-in-up delay-200">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bedroom Single Chair" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Bedroom</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Bedroom Single Chair</h3>
+                    <p class="text-lg font-bold text-gray-900">$504.00</p>
+                </div>
+
+                <div class="group card-hover fade-in-up delay-300">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bathroom Golden Ring Mirror" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Bathroom</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Bathroom Golden Ring Mirror</h3>
+                    <p class="text-lg font-bold text-gray-900">$124.25</p>
+                </div>
+
+                <div class="group card-hover fade-in-up delay-400">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4 image-hover">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brown Living Room Sofa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100 btn-animate">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Living Room</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Brown Living Room Sofa</h3>
+                    <p class="text-lg font-bold text-gray-900">$1,200.00</p>
+                </div>
+
+                <div class="group">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Green Living Room Sofa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 text-xs font-semibold">Sale!</div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Living Room</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Green Living Room Sofa</h3>
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg font-bold text-gray-900">$1,200.00</p>
+                        <p class="text-sm text-gray-500 line-through">$1,840.00</p>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wall Hanging Cabinet" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Cabinet</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Wall Hanging Cabinet</h3>
+                    <p class="text-lg font-bold text-gray-900">$840.00</p>
+                </div>
+
+                <div class="group">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wooden Bath Room Stool" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Bathroom</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Wooden Bath Room Stool</h3>
+                    <p class="text-lg font-bold text-gray-900">$220.50</p>
+                </div>
+
+                <div class="group">
+                    <div class="relative overflow-hidden bg-gray-100 mb-4">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Egyptian Vase" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <div class="space-x-2">
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Add to cart</button>
+                                <button class="bg-white text-gray-900 px-4 py-2 text-sm font-medium hover:bg-gray-100">Quick View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-1">Home Office</p>
+                    <h3 class="font-semibold text-gray-900 mb-2">Egyptian Vase</h3>
+                    <p class="text-lg font-bold text-gray-900">$400.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Banner -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">Sales up to 50% OFF</h2>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                Molestie amet tempor, diam id magna ridiculus tincidunt cursus curabitur non ipsum mattis in vel venenatis nam enim facilisis mi, egestas metus, nunc at.
+            </p>
+            <button class="bg-white text-gray-900 px-8 py-4 text-lg font-semibold hover:bg-gray-100 transition">
+                Shop Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-sm text-gray-500 uppercase tracking-wider mb-4">Testimonials</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What People Say</h2>
+                <a href="#" class="text-gray-900 font-semibold hover:text-gray-700 transition">View All Testimonial</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <p class="text-gray-700 mb-6 italic">
+                        "Enim, interdum vulputate netus quis sapien malesuada neque, nec enim at urna gravida accumsan nunc, mi eu id ullamcorper amet commodo pulvinar tortor, augue donec placerat."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Anna Cynthia" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Anna Cynthia</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <p class="text-gray-700 mb-6 italic">
+                        "Porttitor diam porta eu, id et vestibulum quam vestibulum facilisis nulla ornare eu pretium dictum quam pharetra, nisl maecenas pretium sed eget interdum auctor et, aliquam sem lectus."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Jim Taylor" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Jim Taylor</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-sm text-gray-500 uppercase tracking-wider mb-4">If you wonder</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Why Choose Us</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Big Discounts</h3>
+                    <p class="text-gray-600">
+                        Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Free Shipping</h3>
+                    <p class="text-gray-600">
+                        Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Secure Payments</h3>
+                    <p class="text-gray-600">
+                        Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Order Tracking</h3>
+                    <p class="text-gray-600">
+                        Integer euismod blandit nunc sit amet sollicitudin. Fusce quis orci viverra, cursus justo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <!-- Newsletter Section -->
+        <div class="bg-gray-800 py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-2">See The Latest Collection & Get Special Offer</h3>
+                        <p class="text-gray-400">Subscribe to our newsletter for updates and exclusive deals</p>
+                    </div>
+                    <div class="flex w-full md:w-auto">
+                        <input type="email" placeholder="Enter your email" class="flex-1 md:w-64 px-4 py-2 bg-white text-gray-900 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-r-lg font-medium transition duration-200">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer -->
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div class="md:col-span-1">
+                        <h3 class="text-2xl font-bold mb-4">Kayuu Furniture Store</h3>
+                        <p class="text-gray-400 mb-4">Cras interdum lectus velit nibh senectus fringilla ut.</p>
+                        <div class="space-y-2 text-sm">
+                            <p class="flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                3538 Torrance Blvd, Torrance, CA 90503, USA
+                            </p>
+                            <p class="flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                +1 123 456 7890
+                            </p>
+                            <p class="flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                info@kayuufurniture.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Useful Links -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Useful Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="products.html" class="text-gray-400 hover:text-white transition">Products</a></li>
+                            <li><a href="rooms.html" class="text-gray-400 hover:text-white transition">Rooms</a></li>
+                            <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Rooms -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Rooms</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="rooms.html#living-room" class="text-gray-400 hover:text-white transition">Living Room</a></li>
+                            <li><a href="rooms.html#bedroom" class="text-gray-400 hover:text-white transition">Bedroom</a></li>
+                            <li><a href="rooms.html#kitchen" class="text-gray-400 hover:text-white transition">Kitchen</a></li>
+                            <li><a href="rooms.html#bathroom" class="text-gray-400 hover:text-white transition">Bath Room</a></li>
+                            <li><a href="rooms.html#home-office" class="text-gray-400 hover:text-white transition">Home Office</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stay In Touch -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Stay In Touch</h4>
+                        <p class="text-gray-400 text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-800 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">Copyright © 2025 Online Furniture Store</p>
+                    <p class="text-gray-400 text-sm">Powered by Online Furniture Store</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Scripts -->
+    <script src="../js/transitions.js"></script>
+</body>
+</html>
