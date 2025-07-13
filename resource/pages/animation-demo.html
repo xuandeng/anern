@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo - Kayuu Furniture Store</title>
+    <meta name="description" content="Animation demo page showcasing all transition effects">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Animation Styles -->
+    <link rel="stylesheet" href="../css/transitions.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="text-xl font-semibold">Loading Animation Demo...</h2>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center fade-in-left delay-100">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900 scale-in-hover">
+                        Animation Demo
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 fade-in-down delay-300">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Back to Home</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-6 fade-in-up delay-500">
+                动画效果演示
+            </h1>
+            <p class="text-xl mb-8 fade-in-up delay-700">
+                Discover all the beautiful transition animations implemented in our website
+            </p>
+            <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition btn-animate scale-in delay-800">
+                Explore Animations
+            </button>
+        </div>
+    </section>
+
+    <!-- Fade In Animations -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in-up">Fade In Animations</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-100">
+                    <h3 class="text-xl font-semibold mb-4">Fade In Up</h3>
+                    <p class="text-gray-600">Elements slide up with fade effect</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-left delay-200">
+                    <h3 class="text-xl font-semibold mb-4">Fade In Left</h3>
+                    <p class="text-gray-600">Elements slide from left with fade</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-right delay-300">
+                    <h3 class="text-xl font-semibold mb-4">Fade In Right</h3>
+                    <p class="text-gray-600">Elements slide from right with fade</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-down delay-400">
+                    <h3 class="text-xl font-semibold mb-4">Fade In Down</h3>
+                    <p class="text-gray-600">Elements slide down with fade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scale and Rotate Animations -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in-up">Scale & Rotate Animations</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center scale-in delay-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Scale In</h3>
+                    <p class="text-gray-600">Elements scale up from center</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center rotate-in delay-200">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Rotate In</h3>
+                    <p class="text-gray-600">Elements rotate while fading in</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center bounce-in delay-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Bounce In</h3>
+                    <p class="text-gray-600">Elements bounce into view</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hover Effects -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in-up">Hover Effects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover fade-in-up delay-100">
+                    <div class="image-hover rounded-lg overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Furniture" class="w-full h-48 object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Card Hover</h3>
+                    <p class="text-gray-600">Hover to see lift effect</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-200">
+                    <div class="mb-4">
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg btn-animate mr-4 mb-2">
+                            Button Animation
+                        </button>
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg scale-in-hover">
+                            Scale Hover
+                        </button>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Button Effects</h3>
+                    <p class="text-gray-600">Interactive button animations</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md fade-in-up delay-300">
+                    <div class="mb-4">
+                        <a href="#" class="nav-link text-blue-600 font-semibold">Navigation Link</a>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Nav Link</h3>
+                    <p class="text-gray-600">Underline animation on hover</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Effects -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in-up">Special Effects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in-left delay-200">
+                    <h3 class="text-2xl font-semibold mb-6">Counter Animation</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400 counter" data-target="150" data-duration="2000">0</div>
+                            <p class="text-gray-400">Products</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400 counter" data-target="2500" data-duration="3000">0</div>
+                            <p class="text-gray-400">Customers</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400 counter" data-target="50" data-duration="1500">0</div>
+                            <p class="text-gray-400">Stores</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right delay-400">
+                    <h3 class="text-2xl font-semibold mb-6">Typewriter Effect</h3>
+                    <p class="text-lg typewriter" data-speed="100">
+                        This text appears with a typewriter effect...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Animations -->
+    <section class="py-20 bg-blue-50">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in-up">Form Animations</h2>
+            
+            <div class="bg-white p-8 rounded-lg shadow-md fade-in-up delay-200">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                        <input type="text" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your name">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your email">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea rows="4" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter your message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold btn-animate">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animation Controls -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8 fade-in-up">Animation Controls</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <button onclick="AnimationUtils.shake(this)" class="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold">
+                    Shake Me
+                </button>
+                
+                <button onclick="AnimationUtils.pulse(this)" class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold">
+                    Pulse Me
+                </button>
+                
+                <button onclick="AnimationUtils.bounce(this)" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold">
+                    Bounce Me
+                </button>
+            </div>
+            
+            <p class="text-gray-600 fade-in-up delay-300">
+                These animations are triggered by JavaScript and can be used for user interactions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 fade-in-up">Animation Demo - All effects implemented successfully!</p>
+        </div>
+    </footer>
+
+    <!-- Animation Scripts -->
+    <script src="../js/transitions.js"></script>
+    
+    <!-- Demo-specific scripts -->
+    <script>
+        // Add special effects for demo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup cursor follower
+            if (window.SpecialEffects) {
+                SpecialEffects.setupCursorFollower();
+            }
+            
+            // Add scroll indicator
+            const scrollIndicator = document.createElement('div');
+            scrollIndicator.className = 'scroll-indicator';
+            document.body.appendChild(scrollIndicator);
+        });
+    </script>
+</body>
+</html>

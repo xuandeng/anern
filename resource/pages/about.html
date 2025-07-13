@@ -11,8 +11,18 @@
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Animation Styles -->
+    <link rel="stylesheet" href="../css/transitions.css">
 </head>
 <body class="bg-gray-50">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="text-xl font-semibold">Loading...</h2>
+        </div>
+    </div>
     <!-- Header -->
     <header class="bg-white shadow-sm" x-data="{ mobileMenuOpen: false }">
         <!-- Top Bar -->
@@ -421,5 +431,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Animation Scripts -->
+    <script src="../js/transitions.js"></script>
 </body>
 </html>

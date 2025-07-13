@@ -11,8 +11,18 @@
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Animation Styles -->
+    <link rel="stylesheet" href="../css/transitions.css">
 </head>
 <body class="bg-gray-50">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="text-xl font-semibold">Loading...</h2>
+        </div>
+    </div>
     <!-- Header -->
     <header class="bg-white shadow-sm" x-data="{ mobileMenuOpen: false }">
         <!-- Top Bar -->
@@ -35,19 +45,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-gray-900">
+                <div class="flex items-center fade-in-left delay-100">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900 scale-in-hover">
                         Kayuu Furniture Store
                     </a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="products.html" class="text-gray-900 font-medium px-3 py-2 text-sm">Products</a>
-                    <a href="rooms.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Rooms</a>
-                    <a href="about.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About Us</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact Us</a>
+                <nav class="hidden md:flex space-x-8 fade-in-down delay-300">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="products.html" class="nav-link text-gray-900 font-medium px-3 py-2 text-sm">Products</a>
+                    <a href="rooms.html" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Rooms</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact Us</a>
                 </nav>
 
                 <!-- Shopping Cart & Mobile Menu Button -->
@@ -449,5 +459,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Animation Scripts -->
+    <script src="../js/transitions.js"></script>
 </body>
 </html>
