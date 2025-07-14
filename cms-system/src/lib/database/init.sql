@@ -200,9 +200,8 @@ INSERT OR IGNORE INTO role_permissions (role_id, permission_id) VALUES
 -- 编辑拥有内容管理权限
 (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8),
 -- 作者拥有基本编辑权限
-(3, 3), (3, 4), (3, 8),
--- 订阅者无特殊权限
-(4, 0);
+(3, 3), (3, 4), (3, 8);
+-- 订阅者无特殊权限，不需要插入记录
 
 -- 插入默认设置
 INSERT OR IGNORE INTO settings (key, value, type, description) VALUES
@@ -212,7 +211,8 @@ INSERT OR IGNORE INTO settings (key, value, type, description) VALUES
 ('posts_per_page', '10', 'number', '每页文章数量'),
 ('allow_registration', 'false', 'boolean', '允许用户注册'),
 ('default_role', '4', 'number', '默认用户角色ID'),
-('timezone', 'Asia/Shanghai', 'string', '时区设置');
+('timezone', 'Asia/Shanghai', 'string', '时区设置'),
+('active_theme', 'default', 'string', '当前激活的主题');
 
 -- 插入默认主题
 INSERT OR IGNORE INTO themes (name, display_name, description, version, author, is_active) VALUES

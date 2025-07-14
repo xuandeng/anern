@@ -1,0 +1,34 @@
+{
+  "name": "minimal",
+  "displayName": "简约主题",
+  "version": "1.0.0",
+  "author": "CMS Team",
+  "description": "极简设计风格，专注内容展示，减少视觉干扰",
+  "primaryColor": "#000000",
+  "secondaryColor": "#666666",
+  "accentColor": "#ff6b6b",
+  "textColor": "#333333",
+  "backgroundColor": "#ffffff",
+  "fontFamily": "Georgia, serif",
+  "borderRadius": "0",
+  "boxShadow": "none",
+  "variables": {
+    "headerHeight": "80px",
+    "sidebarWidth": "240px",
+    "contentMaxWidth": "800px",
+    "cardPadding": "2rem",
+    "borderColor": "#e0e0e0",
+    "mutedColor": "#888888",
+    "linkColor": "#000000",
+    "linkHoverColor": "#ff6b6b",
+    "lineHeight": "1.8",
+    "fontSize": "18px",
+    "headingFontFamily": "Helvetica, Arial, sans-serif"
+  },
+  "features": [
+    "极简设计",
+    "专注阅读",
+    "优雅排版",
+    "经典配色"
+  ]
+}

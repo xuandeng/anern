@@ -1,0 +1,31 @@
+{
+  "name": "default",
+  "displayName": "默认主题",
+  "version": "1.0.0",
+  "author": "CMS Team",
+  "description": "系统默认主题，简洁大方的设计风格",
+  "primaryColor": "#3b82f6",
+  "secondaryColor": "#64748b",
+  "accentColor": "#10b981",
+  "textColor": "#111827",
+  "backgroundColor": "#ffffff",
+  "fontFamily": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+  "borderRadius": "0.5rem",
+  "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
+  "variables": {
+    "headerHeight": "64px",
+    "sidebarWidth": "256px",
+    "contentMaxWidth": "1200px",
+    "cardPadding": "1.5rem",
+    "borderColor": "#e5e7eb",
+    "mutedColor": "#6b7280",
+    "linkColor": "#3b82f6",
+    "linkHoverColor": "#2563eb"
+  },
+  "features": [
+    "响应式设计",
+    "现代化界面",
+    "无障碍支持",
+    "深色模式兼容"
+  ]
+}
