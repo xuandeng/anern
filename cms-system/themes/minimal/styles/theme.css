@@ -1,0 +1,403 @@
+/* 简约主题样式 */
+.theme-minimal {
+  --theme-primary: var(--theme-primaryColor, #000000);
+  --theme-secondary: var(--theme-secondaryColor, #666666);
+  --theme-accent: var(--theme-accentColor, #ff6b6b);
+  --theme-text: var(--theme-textColor, #333333);
+  --theme-background: var(--theme-backgroundColor, #ffffff);
+  --theme-border: var(--theme-borderColor, #e0e0e0);
+  --theme-muted: var(--theme-mutedColor, #888888);
+  --theme-link: var(--theme-linkColor, #000000);
+  --theme-link-hover: var(--theme-linkHoverColor, #ff6b6b);
+  --theme-line-height: var(--theme-lineHeight, 1.8);
+  --theme-font-size: var(--theme-fontSize, 18px);
+  --theme-heading-font: var(--theme-headingFontFamily, 'Helvetica, Arial, sans-serif');
+}
+
+/* 全局样式覆盖 */
+.theme-minimal body {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  font-family: var(--theme-fontFamily);
+  font-size: var(--theme-font-size);
+  line-height: var(--theme-line-height);
+  letter-spacing: 0.01em;
+}
+
+/* 标题字体 */
+.theme-minimal h1,
+.theme-minimal h2,
+.theme-minimal h3,
+.theme-minimal h4,
+.theme-minimal h5,
+.theme-minimal h6 {
+  font-family: var(--theme-heading-font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.theme-minimal h1 {
+  font-size: 2.5em;
+  line-height: 1.2;
+}
+
+.theme-minimal h2 {
+  font-size: 2em;
+  line-height: 1.3;
+}
+
+.theme-minimal h3 {
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+/* 链接样式 */
+.theme-minimal a {
+  color: var(--theme-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.theme-minimal a:hover {
+  color: var(--theme-link-hover);
+  border-bottom-color: var(--theme-link-hover);
+}
+
+/* 按钮样式 */
+.theme-minimal .btn-primary {
+  background-color: var(--theme-primary);
+  border: 2px solid var(--theme-primary);
+  color: var(--theme-background);
+  padding: 0.75rem 2rem;
+  font-family: var(--theme-heading-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.theme-minimal .btn-primary:hover {
+  background-color: transparent;
+  color: var(--theme-primary);
+}
+
+.theme-minimal .btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--theme-secondary);
+  color: var(--theme-secondary);
+  padding: 0.75rem 2rem;
+  font-family: var(--theme-heading-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.theme-minimal .btn-secondary:hover {
+  background-color: var(--theme-secondary);
+  color: var(--theme-background);
+}
+
+.theme-minimal .btn-accent {
+  background-color: var(--theme-accent);
+  border: 2px solid var(--theme-accent);
+  color: var(--theme-background);
+  padding: 0.75rem 2rem;
+  font-family: var(--theme-heading-font);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.theme-minimal .btn-accent:hover {
+  background-color: transparent;
+  color: var(--theme-accent);
+}
+
+/* 卡片样式 */
+.theme-minimal .card {
+  background-color: var(--theme-background);
+  border: 1px solid var(--theme-border);
+  border-radius: 0;
+  box-shadow: none;
+  padding: var(--theme-cardPadding);
+  margin-bottom: 3rem;
+}
+
+/* 表单样式 */
+.theme-minimal .form-input {
+  border: none;
+  border-bottom: 2px solid var(--theme-border);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--theme-text);
+  padding: 0.75rem 0;
+  font-family: var(--theme-fontFamily);
+  font-size: var(--theme-font-size);
+  transition: border-color 0.3s ease;
+}
+
+.theme-minimal .form-input:focus {
+  border-bottom-color: var(--theme-primary);
+  box-shadow: none;
+  outline: none;
+}
+
+.theme-minimal .form-input::placeholder {
+  color: var(--theme-muted);
+  font-style: italic;
+}
+
+/* 导航样式 */
+.theme-minimal .navbar {
+  background-color: var(--theme-background);
+  border-bottom: 1px solid var(--theme-border);
+  padding: 2rem 0;
+}
+
+.theme-minimal .nav-link {
+  color: var(--theme-text);
+  font-family: var(--theme-heading-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+}
+
+.theme-minimal .nav-link:hover {
+  color: var(--theme-primary);
+}
+
+.theme-minimal .nav-link.active {
+  color: var(--theme-primary);
+  background-color: transparent;
+}
+
+/* 头部样式 */
+.theme-minimal header {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  padding: 4rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.theme-minimal header h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.theme-minimal header p {
+  font-size: 1.125rem;
+  color: var(--theme-muted);
+  margin: 1rem 0 0 0;
+  font-style: italic;
+}
+
+/* 侧边栏样式 */
+.theme-minimal .sidebar {
+  background-color: var(--theme-background);
+  border-left: 1px solid var(--theme-border);
+  padding: 2rem;
+}
+
+/* 文章样式 */
+.theme-minimal .post-title {
+  color: var(--theme-text);
+  font-family: var(--theme-heading-font);
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.theme-minimal .post-excerpt {
+  color: var(--theme-muted);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 1rem 0 2rem 0;
+  font-style: italic;
+}
+
+.theme-minimal .post-meta {
+  color: var(--theme-muted);
+  font-family: var(--theme-heading-font);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-top: 1px solid var(--theme-border);
+  border-bottom: 1px solid var(--theme-border);
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
+
+.theme-minimal .post-content {
+  max-width: var(--theme-contentMaxWidth);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.theme-minimal .post-content p {
+  margin: 1.5rem 0;
+  text-align: justify;
+}
+
+.theme-minimal .post-content blockquote {
+  border-left: 4px solid var(--theme-accent);
+  background-color: transparent;
+  padding: 1rem 0 1rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--theme-muted);
+}
+
+.theme-minimal .post-content code {
+  background-color: #f5f5f5;
+  color: var(--theme-primary);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+.theme-minimal .post-content pre {
+  background-color: #f8f8f8;
+  color: var(--theme-text);
+  padding: 1.5rem;
+  border-radius: 0;
+  overflow-x: auto;
+  border: 1px solid var(--theme-border);
+  margin: 2rem 0;
+}
+
+.theme-minimal .post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  display: block;
+}
+
+/* 标签样式 */
+.theme-minimal .tag {
+  background-color: transparent;
+  color: var(--theme-muted);
+  padding: 0.25rem 0;
+  border-radius: 0;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 1rem 0 0;
+  font-family: var(--theme-heading-font);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid transparent;
+}
+
+.theme-minimal .tag:hover {
+  color: var(--theme-accent);
+  border-bottom-color: var(--theme-accent);
+}
+
+/* 分页样式 */
+.theme-minimal .pagination {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--theme-border);
+}
+
+.theme-minimal .pagination a {
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 0;
+  color: var(--theme-text);
+  text-decoration: none;
+  font-family: var(--theme-heading-font);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.theme-minimal .pagination a:hover {
+  color: var(--theme-primary);
+  border-bottom-color: var(--theme-primary);
+}
+
+.theme-minimal .pagination .current {
+  color: var(--theme-primary);
+  border-bottom-color: var(--theme-primary);
+}
+
+/* 特殊布局 */
+.theme-minimal .container {
+  max-width: var(--theme-contentMaxWidth);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.theme-minimal .content-wrapper {
+  padding: 4rem 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .theme-minimal body {
+    font-size: 16px;
+  }
+  
+  .theme-minimal .container {
+    padding: 0 1rem;
+  }
+  
+  .theme-minimal .post-title {
+    font-size: 2rem;
+  }
+  
+  .theme-minimal header h1 {
+    font-size: 2rem;
+  }
+  
+  .theme-minimal .card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .theme-minimal .content-wrapper {
+    padding: 2rem 0;
+  }
+}
+
+/* 动画效果 */
+.theme-minimal .fade-in {
+  animation: minimalFadeIn 0.8s ease-out;
+}
+
+@keyframes minimalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 选择文本样式 */
+.theme-minimal ::selection {
+  background-color: var(--theme-accent);
+  color: var(--theme-background);
+}

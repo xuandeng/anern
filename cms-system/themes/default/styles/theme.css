@@ -1,0 +1,237 @@
+/* 默认主题样式 */
+.theme-default {
+  --theme-primary: var(--theme-primaryColor, #3b82f6);
+  --theme-secondary: var(--theme-secondaryColor, #64748b);
+  --theme-accent: var(--theme-accentColor, #10b981);
+  --theme-text: var(--theme-textColor, #111827);
+  --theme-background: var(--theme-backgroundColor, #ffffff);
+  --theme-border: var(--theme-borderColor, #e5e7eb);
+  --theme-muted: var(--theme-mutedColor, #6b7280);
+  --theme-link: var(--theme-linkColor, #3b82f6);
+  --theme-link-hover: var(--theme-linkHoverColor, #2563eb);
+}
+
+/* 全局样式覆盖 */
+.theme-default body {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  font-family: var(--theme-fontFamily);
+}
+
+/* 链接样式 */
+.theme-default a {
+  color: var(--theme-link);
+  transition: color 0.2s ease;
+}
+
+.theme-default a:hover {
+  color: var(--theme-link-hover);
+}
+
+/* 按钮样式 */
+.theme-default .btn-primary {
+  background-color: var(--theme-primary);
+  border-color: var(--theme-primary);
+  color: white;
+}
+
+.theme-default .btn-primary:hover {
+  background-color: var(--theme-link-hover);
+  border-color: var(--theme-link-hover);
+}
+
+.theme-default .btn-secondary {
+  background-color: var(--theme-secondary);
+  border-color: var(--theme-secondary);
+  color: white;
+}
+
+.theme-default .btn-accent {
+  background-color: var(--theme-accent);
+  border-color: var(--theme-accent);
+  color: white;
+}
+
+/* 卡片样式 */
+.theme-default .card {
+  background-color: var(--theme-background);
+  border: 1px solid var(--theme-border);
+  border-radius: var(--theme-borderRadius);
+  box-shadow: var(--theme-boxShadow);
+}
+
+/* 表单样式 */
+.theme-default .form-input {
+  border-color: var(--theme-border);
+  border-radius: var(--theme-borderRadius);
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+}
+
+.theme-default .form-input:focus {
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 导航样式 */
+.theme-default .navbar {
+  background-color: var(--theme-background);
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.theme-default .nav-link {
+  color: var(--theme-text);
+}
+
+.theme-default .nav-link:hover {
+  color: var(--theme-primary);
+}
+
+.theme-default .nav-link.active {
+  color: var(--theme-primary);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* 头部样式 */
+.theme-default header {
+  background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-accent) 100%);
+  color: white;
+}
+
+/* 侧边栏样式 */
+.theme-default .sidebar {
+  background-color: var(--theme-background);
+  border-right: 1px solid var(--theme-border);
+}
+
+/* 文章样式 */
+.theme-default .post-title {
+  color: var(--theme-text);
+}
+
+.theme-default .post-excerpt {
+  color: var(--theme-muted);
+}
+
+.theme-default .post-meta {
+  color: var(--theme-muted);
+  font-size: 0.875rem;
+}
+
+.theme-default .post-content h1,
+.theme-default .post-content h2,
+.theme-default .post-content h3,
+.theme-default .post-content h4,
+.theme-default .post-content h5,
+.theme-default .post-content h6 {
+  color: var(--theme-text);
+}
+
+.theme-default .post-content blockquote {
+  border-left: 4px solid var(--theme-primary);
+  background-color: rgba(59, 130, 246, 0.05);
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.theme-default .post-content code {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--theme-accent);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.theme-default .post-content pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1rem;
+  border-radius: var(--theme-borderRadius);
+  overflow-x: auto;
+}
+
+/* 标签样式 */
+.theme-default .tag {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--theme-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--theme-borderRadius);
+  font-size: 0.75rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.125rem;
+}
+
+.theme-default .tag:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+/* 分页样式 */
+.theme-default .pagination {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.theme-default .pagination a {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--theme-border);
+  border-radius: var(--theme-borderRadius);
+  color: var(--theme-text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.theme-default .pagination a:hover {
+  background-color: var(--theme-primary);
+  color: white;
+  border-color: var(--theme-primary);
+}
+
+.theme-default .pagination .current {
+  background-color: var(--theme-primary);
+  color: white;
+  border-color: var(--theme-primary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .theme-default .container {
+    padding: 0 1rem;
+  }
+  
+  .theme-default .card {
+    margin: 0.5rem 0;
+  }
+}
+
+/* 动画效果 */
+.theme-default .fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-default .slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "cms-system",
+  "version": "1.0.0",
+  "description": "现代化 CMS 系统，基于 Next.js 构建",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "db:init": "node scripts/init-db.js",
+    "db:backup": "node scripts/backup-db.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop cms-system",
+    "pm2:restart": "pm2 restart cms-system",
+    "pm2:logs": "pm2 logs cms-system",
+    "pm2:status": "pm2 status",
+    "pm2:delete": "pm2 delete cms-system",
+    "setup": "npm install && npm run db:init && npm run build",
+    "clean": "rm -rf .next && rm -rf node_modules/.cache",
+    "analyze": "cross-env ANALYZE=true npm run build"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "^11.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/multer": "^2.0.0",
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^12.2.0",
+    "ckeditor5": "^46.0.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.1",
+    "next": "15.3.5",
+    "next-auth": "^4.24.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "cross-env": "^7.0.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4"
+  },
+  "keywords": [
+    "cms",
+    "nextjs",
+    "react",
+    "nodejs",
+    "sqlite",
+    "content-management"
+  ],
+  "author": "CMS Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/cms-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/cms-system/issues"
+  },
+  "homepage": "https://github.com/your-username/cms-system#readme"
+}
