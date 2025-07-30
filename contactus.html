@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - RPT Battery Solutions | Get in Touch for Energy Storage Solutions</title>
+    <meta name="description" content="Contact RPT Battery Solutions for expert consultation on lithium battery energy storage systems. Multiple ways to reach our team for sales, support, and partnerships.">
+    <meta name="keywords" content="contact RPT battery, lithium battery consultation, energy storage support, battery solutions inquiry, Shenzhen battery company">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contact Us - RPT Battery Solutions">
+    <meta property="og:description" content="Get in touch with our energy storage experts for personalized solutions">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./dist/output.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 transition-all duration-300"
+         x-data="{ isOpen: false, isScrolled: false }"
+         x-init="window.addEventListener('scroll', () => { isScrolled = window.scrollY > 50 })"
+         :class="{ 'shadow-lg': isScrolled }">
+        <div class="container-custom">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+                        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gradient-primary">RPT</span>
+                            <div class="text-xs text-neutral-500 font-medium">Battery Solutions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="solutions.html" class="nav-link">Solutions</a>
+                    <a href="aboutus.html" class="nav-link">About Us</a>
+                    <a href="factory.html" class="nav-link">Factory Tour</a>
+                    <a href="quality.html" class="nav-link">Quality Control</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="contactus.html" class="nav-link text-primary-600">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contactnow.html" class="btn-primary">
+                        Get Quote
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button @click="isOpen = !isOpen" class="p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200">
+                        <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg x-show="isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="isOpen" 
+                 x-transition:enter="transition duration-200 ease-out"
+                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition duration-100 ease-in"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="lg:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-neutral-200">
+                    <a href="index.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Home</a>
+                    <a href="products.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Products</a>
+                    <a href="solutions.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Solutions</a>
+                    <a href="aboutus.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">About Us</a>
+                    <a href="factory.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Factory Tour</a>
+                    <a href="quality.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Quality Control</a>
+                    <a href="news.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">News</a>
+                    <a href="contactus.html" class="block px-3 py-2 text-base font-medium text-primary-600 bg-primary-50 rounded-lg">Contact</a>
+                    <a href="contactnow.html" class="btn-primary w-full justify-center mt-4">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-hero relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 tech-grid-bg opacity-30"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="animate-fade-in-up">
+                    <h1 class="heading-xl text-neutral-900 mb-6">
+                        Get in <span class="text-gradient-primary">Touch</span>
+                    </h1>
+                    <p class="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        Ready to power your future with advanced energy storage solutions? Our experts are here to help you find the perfect battery system for your needs.
+                    </p>
+                </div>
+
+                <!-- Quick Contact Options -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in-up animation-delay-200">
+                    <a href="tel:+86xxxxxxxxx" class="card p-6 text-center hover-lift group">
+                        <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-neutral-900 mb-2">Call Us</h3>
+                        <p class="text-sm text-neutral-600">+86 xxx-xxxx-xxxx</p>
+                    </a>
+
+                    <a href="mailto:info@rpt-battery.com" class="card p-6 text-center hover-lift group">
+                        <div class="w-12 h-12 bg-gradient-secondary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-neutral-900 mb-2">Email Us</h3>
+                        <p class="text-sm text-neutral-600">info@rpt-battery.com</p>
+                    </a>
+
+                    <a href="contactnow.html" class="card p-6 text-center hover-lift group">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-neutral-900 mb-2">Quick Quote</h3>
+                        <p class="text-sm text-neutral-600">Get instant pricing</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Details -->
+                <div>
+                    <h2 class="heading-lg text-neutral-900 mb-8">
+                        Contact <span class="text-gradient-primary">Information</span>
+                    </h2>
+
+                    <!-- Main Office -->
+                    <div class="space-y-8">
+                        <div class="card p-6 animate-on-scroll">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-semibold text-neutral-900 mb-2">Headquarters</h3>
+                                    <div class="space-y-2 text-neutral-600">
+                                        <p>Building A, Innovation Park</p>
+                                        <p>Nanshan District, Shenzhen</p>
+                                        <p>Guangdong Province, China 518000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Methods -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Phone -->
+                            <div class="card p-6 animate-on-scroll">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center shadow-glow">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900">Phone</h4>
+                                        <p class="text-neutral-600">+86 xxx-xxxx-xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Fax -->
+                            <div class="card p-6 animate-on-scroll">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center shadow-glow">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v11a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1V4zM7 9h10M7 13h10M7 17h10"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900">Fax</h4>
+                                        <p class="text-neutral-600">+86 xxx-xxxx-xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="card p-6 animate-on-scroll">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-glow">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900">Email</h4>
+                                        <p class="text-neutral-600">info@rpt-battery.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Website -->
+                            <div class="card p-6 animate-on-scroll">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center shadow-glow">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900">Website</h4>
+                                        <p class="text-neutral-600">www.rpt-battery.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Business Hours -->
+                        <div class="card p-6 animate-on-scroll">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-glow">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-semibold text-neutral-900 mb-4">Business Hours</h3>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between text-neutral-600">
+                                            <span>Monday - Friday:</span>
+                                            <span class="font-medium">9:00 AM - 6:00 PM</span>
+                                        </div>
+                                        <div class="flex justify-between text-neutral-600">
+                                            <span>Saturday:</span>
+                                            <span class="font-medium">9:00 AM - 4:00 PM</span>
+                                        </div>
+                                        <div class="flex justify-between text-neutral-600">
+                                            <span>Sunday:</span>
+                                            <span class="font-medium">Closed</span>
+                                        </div>
+                                        <div class="mt-3 pt-3 border-t border-neutral-200">
+                                            <p class="text-sm text-neutral-500">
+                                                <span class="font-medium">Time Zone:</span> China Standard Time (CST)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="heading-lg text-neutral-900 mb-8">
+                        Send us a <span class="text-gradient-primary">Message</span>
+                    </h2>
+
+                    <div class="card p-8">
+                        <form x-data="contactForm()" @submit.prevent="submitForm()" class="space-y-6">
+                            <!-- Form Row 1 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        First Name *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="firstName"
+                                        x-model="form.firstName"
+                                        required
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        Last Name *
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="lastName"
+                                        x-model="form.lastName"
+                                        required
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                </div>
+                            </div>
+
+                            <!-- Form Row 2 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        Email Address *
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="email"
+                                        x-model="form.email"
+                                        required
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        Phone Number
+                                    </label>
+                                    <input 
+                                        type="tel" 
+                                        id="phone"
+                                        x-model="form.phone"
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                </div>
+                            </div>
+
+                            <!-- Company & Subject -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="company" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        Company/Organization
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="company"
+                                        x-model="form.company"
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-neutral-700 mb-2">
+                                        Subject *
+                                    </label>
+                                    <select 
+                                        id="subject"
+                                        x-model="form.subject"
+                                        required
+                                        class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200">
+                                        <option value="">Select a subject</option>
+                                        <option value="product-inquiry">Product Inquiry</option>
+                                        <option value="technical-support">Technical Support</option>
+                                        <option value="partnership">Partnership Opportunity</option>
+                                        <option value="quotation">Request Quotation</option>
+                                        <option value="general">General Information</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">
+                                    Message *
+                                </label>
+                                <textarea 
+                                    id="message"
+                                    x-model="form.message"
+                                    required
+                                    rows="6"
+                                    placeholder="Please describe your requirements or questions in detail..."
+                                    class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 resize-none"></textarea>
+                            </div>
+
+                            <!-- Consent -->
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="consent"
+                                    x-model="form.consent"
+                                    required
+                                    class="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-2 focus:ring-primary-500">
+                                <label for="consent" class="text-sm text-neutral-600">
+                                    I agree to receive communications from RPT Battery Solutions and consent to the processing of my personal data according to the 
+                                    <a href="privacy.html" class="text-primary-600 hover:text-primary-700 underline">Privacy Policy</a>.
+                                </label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="pt-4">
+                                <button 
+                                    type="submit"
+                                    :disabled="isSubmitting"
+                                    :class="isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover-lift'"
+                                    class="w-full btn-primary text-lg py-4 transition-all duration-200">
+                                    <span x-show="!isSubmitting">Send Message</span>
+                                    <span x-show="isSubmitting" class="flex items-center justify-center">
+                                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Sending...
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Success Message -->
+                            <div x-show="showSuccess" 
+                                 x-transition:enter="transition duration-300 ease-out"
+                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 class="p-4 bg-green-50 border border-green-200 rounded-lg">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <p class="text-green-800 font-medium">Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Contacts -->
+    <section class="py-20 bg-neutral-50">
+        <div class="container-custom">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Department <span class="text-gradient-primary">Contacts</span>
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Reach out to the right department for faster assistance and specialized support.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Sales Department -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">Sales Department</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Product inquiries, quotations, and new orders</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> sales@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 9:00 AM - 6:00 PM CST</p>
+                    </div>
+                </div>
+
+                <!-- Technical Support -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-secondary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">Technical Support</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Installation, troubleshooting, and technical assistance</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> support@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 24/7 Support Available</p>
+                    </div>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">Customer Service</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Account management, warranties, and general inquiries</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> service@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 9:00 AM - 6:00 PM CST</p>
+                    </div>
+                </div>
+
+                <!-- Partnership -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V5a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2V4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">Partnership</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Business partnerships, distributorships, and collaborations</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> partners@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 9:00 AM - 6:00 PM CST</p>
+                    </div>
+                </div>
+
+                <!-- Media & Press -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">Media & Press</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Press inquiries, media relations, and news</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> media@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 9:00 AM - 6:00 PM CST</p>
+                    </div>
+                </div>
+
+                <!-- R&D -->
+                <div class="card p-6 text-center hover-lift animate-on-scroll">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3">R&D Department</h3>
+                    <p class="text-neutral-600 text-sm mb-4">Research collaborations and innovation projects</p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-neutral-700"><strong>Email:</strong> research@rpt-battery.com</p>
+                        <p class="text-neutral-700"><strong>Phone:</strong> +86 xxx-xxxx-xxxx</p>
+                        <p class="text-neutral-700"><strong>Hours:</strong> 9:00 AM - 6:00 PM CST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Find <span class="text-gradient-primary">Our Location</span>
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Visit our headquarters in Shenzhen's Innovation District, at the heart of China's technology hub.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Location Info -->
+                <div class="lg:col-span-1">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-semibold text-neutral-900 mb-6">Office Location</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 mb-2">Address</h4>
+                                    <p class="text-neutral-600 leading-relaxed">
+                                        Building A, Innovation Park<br>
+                                        Nanshan District, Shenzhen<br>
+                                        Guangdong Province, China 518000
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center shadow-glow">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l6 6 6-6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 mb-2">Transportation</h4>
+                                    <p class="text-neutral-600 leading-relaxed">
+                                        • Metro Line 1: High-tech Park Station<br>
+                                        • Bus Routes: 21, 42, 81, 101<br>
+                                        • Parking: Available on-site
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-accent-500 to-accent-600 rounded-lg flex items-center justify-center shadow-glow">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 mb-2">Visitor Information</h4>
+                                    <p class="text-neutral-600 leading-relaxed">
+                                        Please schedule your visit in advance.<br>
+                                        Security clearance required for factory tours.<br>
+                                        ID required for entry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-neutral-200">
+                            <a href="factory.html" class="btn-primary w-full justify-center">
+                                Schedule Factory Tour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="lg:col-span-2">
+                    <div class="card overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-10 bg-gradient-to-br from-neutral-100 to-neutral-200 relative">
+                            <div class="flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center shadow-glow">
+                                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-semibold text-neutral-900 mb-2">Interactive Map</h3>
+                                    <p class="text-neutral-600 mb-6">
+                                        Shenzhen Innovation District<br>
+                                        Nanshan District, China
+                                    </p>
+                                    <a href="https://maps.google.com/maps?q=Shenzhen+Nanshan+Innovation+Park" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="btn-secondary">
+                                        Open in Google Maps
+                                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Map overlay elements -->
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                                <span class="text-xs font-medium text-neutral-700">Headquarters</span>
+                            </div>
+                            <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                                <span class="text-xs font-medium text-neutral-700">High-tech District</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-neutral-50">
+        <div class="container-custom">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Frequently Asked <span class="text-gradient-primary">Questions</span>
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Find quick answers to common questions about our products, services, and support.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div x-data="faqAccordion()" class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="card overflow-hidden">
+                        <button @click="toggle(0)" 
+                                class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-neutral-50 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-neutral-900">What types of battery solutions do you offer?</h3>
+                            <svg :class="openItems.includes(0) ? 'rotate-45' : ''" 
+                                 class="w-5 h-5 text-neutral-500 transition-transform duration-200" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <div x-show="openItems.includes(0)" 
+                             x-transition:enter="transition duration-200 ease-out"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="px-6 pb-4">
+                            <p class="text-neutral-600 leading-relaxed">
+                                We offer comprehensive lithium battery solutions including residential energy storage systems, commercial & industrial ESS, telecom backup batteries, UPS batteries, lead acid replacements, and specialized batteries for electric wheelchairs and mobility applications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="card overflow-hidden">
+                        <button @click="toggle(1)" 
+                                class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-neutral-50 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-neutral-900">How can I get a quote for my project?</h3>
+                            <svg :class="openItems.includes(1) ? 'rotate-45' : ''" 
+                                 class="w-5 h-5 text-neutral-500 transition-transform duration-200" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <div x-show="openItems.includes(1)" 
+                             x-transition:enter="transition duration-200 ease-out"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="px-6 pb-4">
+                            <p class="text-neutral-600 leading-relaxed">
+                                You can request a quote through our <a href="contactnow.html" class="text-primary-600 hover:text-primary-700 underline">quick quote form</a>, email us at sales@rpt-battery.com, or call our sales team directly. We typically respond within 24 hours with detailed pricing and technical specifications.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="card overflow-hidden">
+                        <button @click="toggle(2)" 
+                                class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-neutral-50 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-neutral-900">What certifications do your products have?</h3>
+                            <svg :class="openItems.includes(2) ? 'rotate-45' : ''" 
+                                 class="w-5 h-5 text-neutral-500 transition-transform duration-200" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <div x-show="openItems.includes(2)" 
+                             x-transition:enter="transition duration-200 ease-out"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="px-6 pb-4">
+                            <p class="text-neutral-600 leading-relaxed">
+                                Our products are certified to international standards including ISO 9001:2015, CE marking, UL 1973, IEC 62619, and various other regional safety and performance certifications. Visit our <a href="quality.html" class="text-primary-600 hover:text-primary-700 underline">quality control page</a> for detailed certification information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="card overflow-hidden">
+                        <button @click="toggle(3)" 
+                                class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-neutral-50 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-neutral-900">Do you provide technical support after purchase?</h3>
+                            <svg :class="openItems.includes(3) ? 'rotate-45' : ''" 
+                                 class="w-5 h-5 text-neutral-500 transition-transform duration-200" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <div x-show="openItems.includes(3)" 
+                             x-transition:enter="transition duration-200 ease-out"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="px-6 pb-4">
+                            <p class="text-neutral-600 leading-relaxed">
+                                Yes, we provide comprehensive technical support including 24/7 emergency support, installation guidance, troubleshooting assistance, and maintenance services. Our support team can be reached at support@rpt-battery.com or through our dedicated support hotline.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="card overflow-hidden">
+                        <button @click="toggle(4)" 
+                                class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-neutral-50 transition-colors duration-200">
+                            <h3 class="text-lg font-semibold text-neutral-900">What is your typical delivery time?</h3>
+                            <svg :class="openItems.includes(4) ? 'rotate-45' : ''" 
+                                 class="w-5 h-5 text-neutral-500 transition-transform duration-200" 
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <div x-show="openItems.includes(4)" 
+                             x-transition:enter="transition duration-200 ease-out"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="px-6 pb-4">
+                            <p class="text-neutral-600 leading-relaxed">
+                                Standard products typically ship within 2-4 weeks. Custom solutions may require 6-8 weeks depending on specifications. We work closely with our logistics partners to ensure timely delivery worldwide and provide tracking information throughout the shipping process.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Ready to Start Your <span class="text-gradient-primary">Energy Journey?</span>
+                </h2>
+                <p class="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto">
+                    Our team of experts is standing by to help you find the perfect energy storage solution for your specific needs.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="contactnow.html" class="btn-primary text-lg px-8 py-4 hover-lift">
+                        Get Quick Quote
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="tel:+86xxxxxxxxx" class="btn-secondary text-lg px-8 py-4 hover-lift">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white">
+        <div class="container-custom">
+            <!-- Main Footer -->
+            <div class="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gradient-primary">RPT</span>
+                            <div class="text-xs text-neutral-400 font-medium">Battery Solutions</div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 leading-relaxed mb-6">
+                        Leading provider of advanced lithium battery energy storage solutions, powering a sustainable future with innovative technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="residential-energy-storage.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Residential Energy Storage</a></li>
+                        <li><a href="ci-energy-storage.html" class="text-neutral-400 hover:text-white transition-colors duration-300">C&I Energy Storage</a></li>
+                        <li><a href="telecom-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Telecom Batteries</a></li>
+                        <li><a href="ups-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">UPS Batteries</a></li>
+                        <li><a href="lead-acid-replacement.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Lead Acid Replacement</a></li>
+                        <li><a href="electric-wheel-chair-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Electric Wheelchair Batteries</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="aboutus.html" class="text-neutral-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="factory.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Factory Tour</a></li>
+                        <li><a href="quality.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Quality Control</a></li>
+                        <li><a href="solutions.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Solutions</a></li>
+                        <li><a href="news.html" class="text-neutral-400 hover:text-white transition-colors duration-300">News & Media</a></li>
+                        <li><a href="contactus.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="text-neutral-400">Shenzhen, China</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="text-neutral-400">+86 xxx-xxxx-xxxx</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-neutral-400">info@rpt-battery.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="py-6 border-t border-neutral-800">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-neutral-400 text-sm mb-4 md:mb-0">
+                        © 2024 RPT Battery Solutions. All rights reserved.
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="privacy.html" class="text-neutral-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
+                        <a href="sitemap.html" class="text-neutral-400 hover:text-white text-sm transition-colors duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function contactForm() {
+            return {
+                form: {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    subject: '',
+                    message: '',
+                    consent: false
+                },
+                isSubmitting: false,
+                showSuccess: false,
+
+                async submitForm() {
+                    if (!this.form.consent) {
+                        alert('Please accept the privacy policy to continue.');
+                        return;
+                    }
+
+                    this.isSubmitting = true;
+
+                    // Simulate form submission
+                    try {
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                        
+                        // Reset form
+                        this.form = {
+                            firstName: '',
+                            lastName: '',
+                            email: '',
+                            phone: '',
+                            company: '',
+                            subject: '',
+                            message: '',
+                            consent: false
+                        };
+                        
+                        this.showSuccess = true;
+                        setTimeout(() => {
+                            this.showSuccess = false;
+                        }, 5000);
+                        
+                    } catch (error) {
+                        alert('There was an error sending your message. Please try again.');
+                    } finally {
+                        this.isSubmitting = false;
+                    }
+                }
+            }
+        }
+
+        function faqAccordion() {
+            return {
+                openItems: [],
+
+                toggle(index) {
+                    if (this.openItems.includes(index)) {
+                        this.openItems = this.openItems.filter(item => item !== index);
+                    } else {
+                        this.openItems.push(index);
+                    }
+                }
+            }
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add animation delays
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 200}ms`;
+            });
+        });
+    </script>
+</body>
+</html>

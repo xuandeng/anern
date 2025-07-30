@@ -1,0 +1,23 @@
+{
+  "name": "rpt-battery-website",
+  "version": "1.0.0",
+  "description": "Modern Battery Energy Storage Website with Tailwind CSS and Alpine.js",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/aspect-ratio": "^0.4.2"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.0"
+  },
+  "keywords": ["battery", "energy-storage", "lithium", "renewable-energy", "web-design"],
+  "author": "RPT Battery Solutions",
+  "license": "MIT"
+}
