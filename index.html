@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPT Battery Solutions - Advanced Lithium Energy Storage Systems</title>
+    <meta name="description" content="Leading provider of advanced lithium battery energy storage solutions for residential, commercial, and industrial applications. Safe, reliable, and powerful energy storage technology.">
+    <meta name="keywords" content="lithium battery, energy storage, battery systems, residential ESS, commercial ESS, LiFePO4, renewable energy">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="RPT Battery Solutions - Advanced Energy Storage">
+    <meta property="og:description" content="Revolutionary lithium battery technology powering the future of sustainable energy">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rpt-battery.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./dist/output.css">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RPT Battery Solutions",
+        "url": "https://rpt-battery.com",
+        "description": "Advanced lithium battery energy storage solutions",
+        "industry": "Energy Storage Technology"
+    }
+    </script>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 transition-all duration-300"
+         x-data="{ isOpen: false, isScrolled: false }"
+         x-init="window.addEventListener('scroll', () => { isScrolled = window.scrollY > 50 })"
+         :class="{ 'shadow-lg': isScrolled }">
+        <div class="container-custom">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+                        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gradient-primary">RPT</span>
+                            <div class="text-xs text-neutral-500 font-medium">Battery Solutions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <div class="relative group">
+                        <button class="nav-link flex items-center space-x-1">
+                            <span>Products</span>
+                            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-card-hover border border-neutral-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                            <div class="p-2">
+                                <a href="residential-energy-storage.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">Residential Energy Storage</div>
+                                    <div class="text-xs text-neutral-500">Home battery solutions</div>
+                                </a>
+                                <a href="ci-energy-storage.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">C&I Energy Storage</div>
+                                    <div class="text-xs text-neutral-500">Commercial & industrial systems</div>
+                                </a>
+                                <a href="telecom-batteries.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">Telecom Batteries</div>
+                                    <div class="text-xs text-neutral-500">Backup power solutions</div>
+                                </a>
+                                <a href="ups-batteries.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">UPS Batteries</div>
+                                    <div class="text-xs text-neutral-500">Uninterruptible power supply</div>
+                                </a>
+                                <a href="lead-acid-replacement.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">Lead Acid Replacement</div>
+                                    <div class="text-xs text-neutral-500">Modern lithium alternatives</div>
+                                </a>
+                                <a href="electric-wheel-chair-batteries.html" class="block px-4 py-3 text-sm text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">
+                                    <div class="font-medium">Electric Wheelchair Batteries</div>
+                                    <div class="text-xs text-neutral-500">Mobility power solutions</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="solutions.html" class="nav-link">Solutions</a>
+                    <a href="aboutus.html" class="nav-link">About Us</a>
+                    <a href="factory.html" class="nav-link">Factory Tour</a>
+                    <a href="quality.html" class="nav-link">Quality Control</a>
+                    <a href="news.html" class="nav-link">News</a>
+                    <a href="contactus.html" class="nav-link">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="contactnow.html" class="btn-primary">
+                        Get Quote
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button @click="isOpen = !isOpen" class="p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200">
+                        <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg x-show="isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="isOpen" 
+                 x-transition:enter="transition duration-200 ease-out"
+                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition duration-100 ease-in"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="lg:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-neutral-200">
+                    <a href="products.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Products</a>
+                    <a href="solutions.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Solutions</a>
+                    <a href="aboutus.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">About Us</a>
+                    <a href="factory.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Factory Tour</a>
+                    <a href="quality.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Quality Control</a>
+                    <a href="news.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">News</a>
+                    <a href="contactus.html" class="block px-3 py-2 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors duration-200">Contact</a>
+                    <a href="contactnow.html" class="btn-primary w-full justify-center mt-4">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 tech-grid-bg opacity-30"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Hero Content -->
+                <div class="animate-fade-in-up">
+                    <h1 class="heading-xl text-neutral-900 mb-6">
+                        Powering the Future with
+                        <span class="text-gradient-primary">Advanced Battery</span>
+                        <span class="text-gradient-secondary">Energy Storage</span>
+                    </h1>
+                    <p class="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        Revolutionary lithium battery technology delivering safe, reliable, and powerful energy storage solutions for residential, commercial, and industrial applications worldwide.
+                    </p>
+                </div>
+
+                <!-- Hero Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12 animate-fade-in-up animation-delay-200">
+                    <a href="products.html" class="btn-primary text-lg px-8 py-4 hover-lift">
+                        Explore Products
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#video-section" class="btn-secondary text-lg px-8 py-4 hover-lift flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- Hero Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in-up animation-delay-400">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gradient-primary mb-2">15+</div>
+                        <div class="text-sm text-neutral-600 font-medium">Years Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gradient-primary mb-2">200K+</div>
+                        <div class="text-sm text-neutral-600 font-medium">Units Deployed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gradient-primary mb-2">50+</div>
+                        <div class="text-sm text-neutral-600 font-medium">Countries Served</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gradient-primary mb-2">99.9%</div>
+                        <div class="text-sm text-neutral-600 font-medium">Reliability Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#features" class="block p-2 text-neutral-400 hover:text-primary-600 transition-colors duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Why Choose <span class="text-gradient-primary">RPT Battery Solutions?</span>
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Leading innovation in lithium battery technology with unmatched safety, performance, and reliability standards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">Ultimate Safety</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Advanced BMS protection, LiFePO4 chemistry, and rigorous testing ensure maximum safety and reliability in all operating conditions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-secondary rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">High Performance</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Superior energy density, fast charging capabilities, and exceptional cycle life delivering optimal performance for every application.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">Smart Technology</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Intelligent monitoring, remote diagnostics, and AI-powered optimization for maximum efficiency and predictive maintenance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">Eco-Friendly</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Sustainable manufacturing processes, recyclable materials, and reduced carbon footprint supporting a greener future.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">Modular Design</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Scalable and flexible architecture allowing easy expansion and customization to meet specific energy requirements.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="card hover-lift animate-on-scroll">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-4">Global Support</h3>
+                        <p class="text-neutral-600 leading-relaxed">
+                            Comprehensive technical support, worldwide service network, and dedicated customer success teams ensuring optimal performance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase -->
+    <section class="py-20 bg-neutral-50">
+        <div class="container-custom">
+            <div class="text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    Our <span class="text-gradient-primary">Product Portfolio</span>
+                </h2>
+                <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                    Comprehensive range of lithium battery solutions designed for diverse applications and energy requirements.
+                </p>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Residential ESS -->
+                <a href="residential-energy-storage.html" class="card hover-lift group animate-on-scroll">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-primary-100 to-primary-200 rounded-t-xl overflow-hidden">
+                        <div class="flex items-center justify-center">
+                            <div class="w-24 h-24 bg-gradient-primary rounded-xl flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Residential Energy Storage
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Home battery systems for energy independence, backup power, and solar optimization.
+                        </p>
+                        <div class="flex items-center text-primary-600 font-medium">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Commercial & Industrial -->
+                <a href="ci-energy-storage.html" class="card hover-lift group animate-on-scroll">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-t-xl overflow-hidden">
+                        <div class="flex items-center justify-center">
+                            <div class="w-24 h-24 bg-gradient-secondary rounded-xl flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-3 group-hover:text-secondary-600 transition-colors duration-200">
+                            C&I Energy Storage
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Commercial and industrial scale solutions for peak shaving, load management, and grid services.
+                        </p>
+                        <div class="flex items-center text-secondary-600 font-medium">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Telecom Batteries -->
+                <a href="telecom-batteries.html" class="card hover-lift group animate-on-scroll">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-accent-100 to-accent-200 rounded-t-xl overflow-hidden">
+                        <div class="flex items-center justify-center">
+                            <div class="w-24 h-24 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neutral-900 mb-3 group-hover:text-accent-600 transition-colors duration-200">
+                            Telecom Batteries
+                        </h3>
+                        <p class="text-neutral-600 leading-relaxed mb-4">
+                            Reliable backup power for telecommunications infrastructure and critical communication systems.
+                        </p>
+                        <div class="flex items-center text-accent-600 font-medium">
+                            <span>Learn More</span>
+                            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- View All Products Button -->
+            <div class="text-center">
+                <a href="products.html" class="btn-primary text-lg px-8 py-4 hover-lift">
+                    View All Products
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section id="video-section" class="py-20 bg-white">
+        <div class="container-custom">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="heading-lg text-neutral-900 mb-6">
+                    See Our Technology in <span class="text-gradient-primary">Action</span>
+                </h2>
+                <p class="text-xl text-neutral-600">
+                    Discover how RPT battery solutions are transforming energy storage across different applications.
+                </p>
+            </div>
+
+            <!-- Video Player -->
+            <div class="max-w-5xl mx-auto">
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-card-hover bg-neutral-900">
+                    <div class="flex items-center justify-center bg-gradient-to-br from-neutral-800 to-neutral-900">
+                        <button class="group flex items-center justify-center w-24 h-24 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                            <svg class="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-xl font-semibold mb-2">RPT Battery Manufacturing Excellence</h3>
+                        <p class="text-white/80">Advanced production facilities and quality control processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-tech relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 tech-grid-bg opacity-20"></div>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="heading-lg text-white mb-6">
+                    Ready to Power Your Future?
+                </h2>
+                <p class="text-xl text-neutral-300 mb-8 max-w-3xl mx-auto">
+                    Join thousands of satisfied customers worldwide who trust RPT Battery Solutions for their energy storage needs.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="contactnow.html" class="btn-primary text-lg px-8 py-4 hover-lift">
+                        Get Started Today
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="contactus.html" class="btn-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 text-lg px-8 py-4 hover-lift">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-white">
+        <div class="container-custom">
+            <!-- Main Footer -->
+            <div class="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gradient-primary">RPT</span>
+                            <div class="text-xs text-neutral-400 font-medium">Battery Solutions</div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 leading-relaxed mb-6">
+                        Leading provider of advanced lithium battery energy storage solutions, powering a sustainable future with innovative technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="residential-energy-storage.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Residential Energy Storage</a></li>
+                        <li><a href="ci-energy-storage.html" class="text-neutral-400 hover:text-white transition-colors duration-300">C&I Energy Storage</a></li>
+                        <li><a href="telecom-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Telecom Batteries</a></li>
+                        <li><a href="ups-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">UPS Batteries</a></li>
+                        <li><a href="lead-acid-replacement.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Lead Acid Replacement</a></li>
+                        <li><a href="electric-wheel-chair-batteries.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Electric Wheelchair Batteries</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="aboutus.html" class="text-neutral-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="factory.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Factory Tour</a></li>
+                        <li><a href="quality.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Quality Control</a></li>
+                        <li><a href="solutions.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Solutions</a></li>
+                        <li><a href="news.html" class="text-neutral-400 hover:text-white transition-colors duration-300">News & Media</a></li>
+                        <li><a href="contactus.html" class="text-neutral-400 hover:text-white transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-primary-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="text-neutral-400">Shenzhen, China</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="text-neutral-400">+86 xxx-xxxx-xxxx</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-neutral-400">info@rpt-battery.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="py-6 border-t border-neutral-800">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-neutral-400 text-sm mb-4 md:mb-0">
+                        © 2024 RPT Battery Solutions. All rights reserved.
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="privacy.html" class="text-neutral-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
+                        <a href="sitemap.html" class="text-neutral-400 hover:text-white text-sm transition-colors duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation delays
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 100}ms`;
+            });
+        });
+    </script>
+</body>
+</html>

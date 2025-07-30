@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote - RPT Battery Solutions | Quick Contact Form</title>
+    <meta name="description" content="Get instant quote for advanced lithium battery energy storage solutions. Fast response, professional consultation, and customized solutions for all your energy needs.">
+    <meta name="keywords" content="battery quote, energy storage quote, lithium battery pricing, RPT battery contact, quick quote">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Get Quote - RPT Battery Solutions">
+    <meta property="og:description" content="Request instant quote for advanced battery energy storage solutions">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./dist/output.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="antialiased bg-gradient-hero">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200/50 transition-all duration-300">
+        <div class="container-custom">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+                        <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center shadow-glow">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-gradient-primary">RPT</span>
+                            <div class="text-xs text-neutral-500 font-medium">Battery Solutions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Back to Home -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="btn-ghost">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-24 pb-16 min-h-screen">
+        <div class="container-custom">
+            <div class="max-w-6xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-16 animate-fade-in-up">
+                    <h1 class="heading-lg text-neutral-900 mb-6">
+                        Get Your <span class="text-gradient-primary">Instant Quote</span>
+                    </h1>
+                    <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+                        Tell us about your energy storage needs and receive a customized solution within 24 hours. Our experts are ready to help you power your future.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-2">
+                        <div class="card-glow p-8 animate-fade-in-up">
+                            <form 
+                                x-data="contactForm()" 
+                                @submit.prevent="submitForm()"
+                                class="space-y-6">
+                                
+                                <!-- Form Progress -->
+                                <div class="mb-8">
+                                    <div class="flex items-center justify-between text-sm text-neutral-500 mb-4">
+                                        <span>Step <span x-text="currentStep"></span> of 3</span>
+                                        <span x-text="Math.round((currentStep / 3) * 100) + '%'"></span>
+                                    </div>
+                                    <div class="w-full bg-neutral-200 rounded-full h-2">
+                                        <div class="bg-gradient-primary h-2 rounded-full transition-all duration-500" 
+                                             :style="`width: ${(currentStep / 3) * 100}%`"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 1: Basic Information -->
+                                <div x-show="currentStep === 1" 
+                                     x-transition:enter="transition ease-out duration-300"
+                                     x-transition:enter-start="opacity-0 transform translate-x-6"
+                                     x-transition:enter-end="opacity-100 transform translate-x-0"
+                                     class="space-y-6">
+                                    
+                                    <h3 class="text-2xl font-semibold text-neutral-900 mb-6">Tell us about yourself</h3>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                First Name <span class="text-red-500">*</span>
+                                            </label>
+                                            <input 
+                                                type="text" 
+                                                x-model="formData.firstName"
+                                                required
+                                                class="input-field" 
+                                                placeholder="Enter your first name">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                Last Name <span class="text-red-500">*</span>
+                                            </label>
+                                            <input 
+                                                type="text" 
+                                                x-model="formData.lastName"
+                                                required
+                                                class="input-field" 
+                                                placeholder="Enter your last name">
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                            Email Address <span class="text-red-500">*</span>
+                                        </label>
+                                        <input 
+                                            type="email" 
+                                            x-model="formData.email"
+                                            required
+                                            class="input-field" 
+                                            placeholder="your.email@company.com">
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                Phone Number
+                                            </label>
+                                            <input 
+                                                type="tel" 
+                                                x-model="formData.phone"
+                                                class="input-field" 
+                                                placeholder="+1 (555) 123-4567">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                Company
+                                            </label>
+                                            <input 
+                                                type="text" 
+                                                x-model="formData.company"
+                                                class="input-field" 
+                                                placeholder="Your company name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Project Details -->
+                                <div x-show="currentStep === 2" 
+                                     x-transition:enter="transition ease-out duration-300"
+                                     x-transition:enter-start="opacity-0 transform translate-x-6"
+                                     x-transition:enter-end="opacity-100 transform translate-x-0"
+                                     class="space-y-6">
+                                    
+                                    <h3 class="text-2xl font-semibold text-neutral-900 mb-6">Your energy storage needs</h3>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-neutral-700 mb-3">
+                                            Application Type <span class="text-red-500">*</span>
+                                        </label>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <template x-for="(app, index) in applications" :key="index">
+                                                <label class="relative">
+                                                    <input 
+                                                        type="radio" 
+                                                        name="application" 
+                                                        :value="app.value"
+                                                        x-model="formData.application"
+                                                        class="sr-only peer">
+                                                    <div class="card cursor-pointer border-2 border-transparent peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-primary-300 transition-all duration-200">
+                                                        <div class="p-4 flex items-center space-x-3">
+                                                            <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+                                                                 :class="app.bgColor">
+                                                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="app.icon"/>
+                                                                </svg>
+                                                            </div>
+                                                            <div>
+                                                                <div class="font-medium text-neutral-900" x-text="app.title"></div>
+                                                                <div class="text-sm text-neutral-500" x-text="app.description"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                Required Capacity (kWh)
+                                            </label>
+                                            <select x-model="formData.capacity" class="input-field">
+                                                <option value="">Select capacity range</option>
+                                                <option value="under-10">Under 10 kWh</option>
+                                                <option value="10-50">10-50 kWh</option>
+                                                <option value="50-100">50-100 kWh</option>
+                                                <option value="100-500">100-500 kWh</option>
+                                                <option value="500-1000">500-1000 kWh</option>
+                                                <option value="over-1000">Over 1000 kWh</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                                Timeline
+                                            </label>
+                                            <select x-model="formData.timeline" class="input-field">
+                                                <option value="">Select timeline</option>
+                                                <option value="immediate">Immediate (1-30 days)</option>
+                                                <option value="short">Short term (1-3 months)</option>
+                                                <option value="medium">Medium term (3-6 months)</option>
+                                                <option value="long">Long term (6+ months)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                            Budget Range (Optional)
+                                        </label>
+                                        <select x-model="formData.budget" class="input-field">
+                                            <option value="">Select budget range</option>
+                                            <option value="under-10k">Under $10,000</option>
+                                            <option value="10k-50k">$10,000 - $50,000</option>
+                                            <option value="50k-100k">$50,000 - $100,000</option>
+                                            <option value="100k-500k">$100,000 - $500,000</option>
+                                            <option value="over-500k">Over $500,000</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Additional Information -->
+                                <div x-show="currentStep === 3" 
+                                     x-transition:enter="transition ease-out duration-300"
+                                     x-transition:enter-start="opacity-0 transform translate-x-6"
+                                     x-transition:enter-end="opacity-100 transform translate-x-0"
+                                     class="space-y-6">
+                                    
+                                    <h3 class="text-2xl font-semibold text-neutral-900 mb-6">Additional details</h3>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-neutral-700 mb-2">
+                                            Project Description
+                                        </label>
+                                        <textarea 
+                                            x-model="formData.description"
+                                            rows="4" 
+                                            class="textarea-field" 
+                                            placeholder="Please describe your project requirements, specific needs, or any questions you have..."></textarea>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-neutral-700 mb-3">
+                                            Preferred Contact Method
+                                        </label>
+                                        <div class="flex flex-wrap gap-4">
+                                            <template x-for="method in contactMethods" :key="method.value">
+                                                <label class="flex items-center">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        :value="method.value"
+                                                        x-model="formData.contactMethods"
+                                                        class="w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
+                                                    <span class="ml-2 text-sm text-neutral-700" x-text="method.label"></span>
+                                                </label>
+                                            </template>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="flex items-center">
+                                            <input 
+                                                type="checkbox" 
+                                                x-model="formData.newsletter"
+                                                class="w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500">
+                                            <span class="ml-2 text-sm text-neutral-700">
+                                                Subscribe to our newsletter for latest updates on battery technology and industry insights
+                                            </span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="bg-neutral-50 rounded-lg p-4">
+                                        <div class="flex">
+                                            <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                            <div class="text-sm text-neutral-600">
+                                                <p class="font-medium mb-1">What happens next?</p>
+                                                <ul class="space-y-1 text-neutral-500">
+                                                    <li>• Our experts will review your requirements within 4 hours</li>
+                                                    <li>• You'll receive a detailed quote within 24 hours</li>
+                                                    <li>• Free consultation call to discuss your specific needs</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <div class="flex items-center justify-between pt-6 border-t border-neutral-200">
+                                    <button 
+                                        type="button"
+                                        @click="prevStep()"
+                                        x-show="currentStep > 1"
+                                        class="btn-ghost">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                                        </svg>
+                                        Previous
+                                    </button>
+                                    
+                                    <div x-show="currentStep < 3">
+                                        <button 
+                                            type="button"
+                                            @click="nextStep()"
+                                            class="btn-primary">
+                                            Next Step
+                                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div x-show="currentStep === 3">
+                                        <button 
+                                            type="submit"
+                                            :disabled="isSubmitting"
+                                            class="btn-primary"
+                                            :class="{ 'opacity-50 cursor-not-allowed': isSubmitting }">
+                                            <span x-show="!isSubmitting">Get My Quote</span>
+                                            <span x-show="isSubmitting" class="flex items-center">
+                                                <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                                Submitting...
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information Sidebar -->
+                    <div class="lg:col-span-1">
+                        <div class="space-y-8">
+                            <!-- Quick Contact -->
+                            <div class="card p-6 animate-fade-in-up">
+                                <h3 class="text-xl font-semibold text-neutral-900 mb-4">Need immediate assistance?</h3>
+                                <div class="space-y-4">
+                                    <a href="tel:+86-xxx-xxxx-xxxx" class="flex items-center p-3 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
+                                        <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-neutral-900">Call Us</div>
+                                            <div class="text-sm text-neutral-600">+86 xxx-xxxx-xxxx</div>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="mailto:sales@rpt-battery.com" class="flex items-center p-3 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
+                                        <div class="w-10 h-10 bg-secondary-500 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-neutral-900">Email Us</div>
+                                            <div class="text-sm text-neutral-600">sales@rpt-battery.com</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Why Choose Us -->
+                            <div class="card p-6 animate-fade-in-up">
+                                <h3 class="text-xl font-semibold text-neutral-900 mb-4">Why choose RPT?</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-neutral-600">15+ years of experience in battery technology</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-neutral-600">200,000+ battery units deployed worldwide</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-neutral-600">99.9% reliability rate</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-neutral-600">24/7 global technical support</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-primary-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        <span class="text-sm text-neutral-600">Custom solutions for every application</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Testimonial -->
+                            <div class="card p-6 animate-fade-in-up">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-amber-400">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <blockquote class="text-sm text-neutral-600 italic mb-3">
+                                    "RPT delivered exactly what we needed for our commercial solar project. The team was responsive, professional, and the battery system has exceeded our expectations."
+                                </blockquote>
+                                <div class="text-sm font-medium text-neutral-900">Sarah Chen</div>
+                                <div class="text-xs text-neutral-500">Energy Manager, Green Tech Solutions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div x-show="showSuccessModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 overflow-y-auto"
+         style="display: none;">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-neutral-500 bg-opacity-75 transition-opacity"></div>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Quote Request Submitted!</h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500">
+                                    Thank you for your interest in RPT Battery Solutions. Our team will review your requirements and get back to you within 24 hours with a detailed quote.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button @click="showSuccessModal = false; window.location.href = 'index.html'" 
+                            class="btn-primary w-full sm:w-auto">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function contactForm() {
+            return {
+                currentStep: 1,
+                isSubmitting: false,
+                showSuccessModal: false,
+                formData: {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    company: '',
+                    application: '',
+                    capacity: '',
+                    timeline: '',
+                    budget: '',
+                    description: '',
+                    contactMethods: [],
+                    newsletter: false
+                },
+                applications: [
+                    {
+                        value: 'residential',
+                        title: 'Residential',
+                        description: 'Home energy storage',
+                        icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+                        bgColor: 'bg-gradient-primary'
+                    },
+                    {
+                        value: 'commercial',
+                        title: 'Commercial & Industrial',
+                        description: 'Large scale systems',
+                        icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+                        bgColor: 'bg-gradient-secondary'
+                    },
+                    {
+                        value: 'telecom',
+                        title: 'Telecom',
+                        description: 'Backup power systems',
+                        icon: 'M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0',
+                        bgColor: 'bg-gradient-to-br from-accent-500 to-accent-600'
+                    },
+                    {
+                        value: 'ups',
+                        title: 'UPS Systems',
+                        description: 'Uninterruptible power',
+                        icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+                        bgColor: 'bg-gradient-to-br from-purple-500 to-purple-600'
+                    }
+                ],
+                contactMethods: [
+                    { value: 'email', label: 'Email' },
+                    { value: 'phone', label: 'Phone Call' },
+                    { value: 'whatsapp', label: 'WhatsApp' },
+                    { value: 'video', label: 'Video Call' }
+                ],
+                
+                nextStep() {
+                    if (this.validateCurrentStep()) {
+                        this.currentStep++;
+                    }
+                },
+                
+                prevStep() {
+                    this.currentStep--;
+                },
+                
+                validateCurrentStep() {
+                    if (this.currentStep === 1) {
+                        return this.formData.firstName && this.formData.lastName && this.formData.email;
+                    }
+                    if (this.currentStep === 2) {
+                        return this.formData.application;
+                    }
+                    return true;
+                },
+                
+                async submitForm() {
+                    this.isSubmitting = true;
+                    
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Here you would normally send the data to your backend
+                    console.log('Form data:', this.formData);
+                    
+                    this.isSubmitting = false;
+                    this.showSuccessModal = true;
+                }
+            }
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add animation delays
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 200}ms`;
+            });
+        });
+    </script>
+</body>
+</html>

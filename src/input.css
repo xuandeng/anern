@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 导入现代字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* 基础样式 */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-neutral-800 leading-relaxed;
+  }
+  
+  * {
+    @apply border-neutral-200;
+  }
+  
+  /* 选择文本颜色 */
+  ::selection {
+    @apply bg-primary-500 text-white;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+/* 组件样式 */
+@layer components {
+  /* 按钮样式 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 border border-transparent rounded-lg shadow-sm hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary-600 bg-white border border-primary-200 rounded-lg shadow-sm hover:bg-primary-50 hover:border-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-accent-500 to-accent-600 border border-transparent rounded-lg shadow-sm hover:from-accent-600 hover:to-accent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-500 transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-neutral-700 bg-transparent border border-transparent rounded-lg hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 transition-all duration-200;
+  }
+  
+  /* 卡片样式 */
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-neutral-300;
+  }
+  
+  .card-glow {
+    @apply bg-white rounded-xl shadow-xl border border-primary-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-primary-300;
+  }
+  
+  .card-dark {
+    @apply bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-neutral-600;
+  }
+  
+  /* 渐变背景 */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700;
+  }
+  
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-br from-secondary-500 via-secondary-600 to-secondary-700;
+  }
+  
+  .bg-gradient-tech {
+    @apply bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900;
+  }
+  
+  .bg-gradient-hero {
+    @apply bg-gradient-to-br from-primary-50 via-white to-secondary-50;
+  }
+  
+  /* 文本渐变 */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent-600 to-accent-500 bg-clip-text text-transparent;
+  }
+  
+  /* 输入框样式 */
+  .input-field {
+    @apply block w-full px-4 py-3 text-neutral-900 placeholder-neutral-500 border border-neutral-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200;
+  }
+  
+  .textarea-field {
+    @apply block w-full px-4 py-3 text-neutral-900 placeholder-neutral-500 border border-neutral-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200;
+    resize: vertical;
+  }
+  
+  /* 容器样式 */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* 标题样式 */
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+  
+  .heading-sm {
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold;
+  }
+  
+  /* 导航样式 */
+  .nav-link {
+    @apply text-neutral-700 hover:text-primary-600 font-medium transition-colors duration-200 relative;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300;
+  }
+  
+  /* 动画效果 */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* 悬浮效果 */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-xl;
+  }
+  
+  /* 闪光效果 */
+  .shimmer-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer-effect::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full animate-pulse;
+  }
+  
+  /* 特殊效果 */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .tech-border {
+    @apply relative;
+  }
+  
+  .tech-border::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg opacity-75 blur-sm;
+    z-index: -1;
+  }
+}
+
+/* 工具类 */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* 文本阴影 */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 渐变边框 */
+  .gradient-border {
+    @apply relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 p-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg;
+    z-index: -1;
+  }
+  
+  .gradient-border > * {
+    @apply bg-white rounded-lg;
+  }
+  
+  /* 网格效果 */
+  .tech-grid-bg {
+    @apply bg-neutral-100;
+    background-image: linear-gradient(45deg, rgba(0,0,0,.1) 25%, transparent 25%), 
+                      linear-gradient(-45deg, rgba(0,0,0,.1) 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, rgba(0,0,0,.1) 75%), 
+                      linear-gradient(-45deg, transparent 75%, rgba(0,0,0,.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+}
