@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stainless Steel Needle Roller Bearing — Precision Bearings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{ink:'#0b1020'}}}}</script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
+  </head>
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
+    <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="/static_website/index.html" class="inline-flex items-center gap-3">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-blue-500 to-blue-300 ring-1 ring-white/10"></div>
+            <span class="text-lg font-extrabold">Precision Bearings</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+            <a href="/static_website/index.html" class="hover:text-blue-300">Home</a>
+            <a href="/static_website/chanpinzhanshi.html" class="hover:text-blue-300">Products</a>
+            <a href="/static_website/xinwenzixun.html" class="hover:text-blue-300">News</a>
+            <a href="/static_website/guanyuwomen.html" class="hover:text-blue-300">About</a>
+            <a href="/static_website/lianxiwomen.html" class="hover:text-blue-300">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24" x-data="product()">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-start" data-reveal data-reveal-stagger="120">
+          <div class="sticky top-24 space-y-4">
+            <img :src="activeImage" class="rounded-2xl ring-1 ring-white/10" alt="Needle roller bearing"/>
+            <div class="grid grid-cols-4 gap-3">
+              <template x-for="img in images">
+                <img :src="img" @click="activeImage=img" :class="{'ring-2 ring-blue-400': activeImage===img}" class="cursor-pointer rounded-xl ring-1 ring-white/10" />
+              </template>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-3xl font-extrabold">Stainless Steel Needle Roller Bearing</h1>
+            <p class="text-white/70 mt-2">High load capacity, compact structure, and corrosion resistance for tight spaces and harsh environments.</p>
+            <div class="mt-4 grid grid-cols-3 gap-3 text-sm">
+              <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-3">Material: SUS440C</div>
+              <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-3">Cage: Stainless Steel</div>
+              <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-3">Seals: Optional</div>
+            </div>
+
+            <div class="mt-8">
+              <h2 class="font-bold">Key Features</h2>
+              <ul class="mt-2 list-disc list-inside text-white/70 space-y-1">
+                <li>Excellent corrosion resistance with stainless steel components</li>
+                <li>High radial load capacity in minimal radial space</li>
+                <li>Low friction with precision-ground raceways</li>
+                <li>Suitable for automation, robotics, and medical equipment</li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <h2 class="font-bold">Specifications</h2>
+              <div class="mt-3 overflow-x-auto">
+                <table class="min-w-full text-sm">
+                  <thead class="text-white/60">
+                    <tr>
+                      <th class="text-left py-2 pr-6">Model</th>
+                      <th class="text-left py-2 pr-6">d (mm)</th>
+                      <th class="text-left py-2 pr-6">D (mm)</th>
+                      <th class="text-left py-2 pr-6">B (mm)</th>
+                      <th class="text-left py-2 pr-6">Load (kN)</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/10">
+                    <tr>
+                      <td class="py-2 pr-6">NRB-1012</td>
+                      <td class="py-2 pr-6">10</td>
+                      <td class="py-2 pr-6">14</td>
+                      <td class="py-2 pr-6">12</td>
+                      <td class="py-2 pr-6">6.5</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-6">NRB-1520</td>
+                      <td class="py-2 pr-6">15</td>
+                      <td class="py-2 pr-6">21</td>
+                      <td class="py-2 pr-6">20</td>
+                      <td class="py-2 pr-6">9.2</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-6">NRB-2026</td>
+                      <td class="py-2 pr-6">20</td>
+                      <td class="py-2 pr-6">26</td>
+                      <td class="py-2 pr-6">26</td>
+                      <td class="py-2 pr-6">14.8</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a href="/static_website/lianxiwomen.html#quote" class="inline-flex items-center rounded-full bg-white text-ink px-6 py-3 font-bold">Request a Quote</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-16 border-t border-white/10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-white/60">© <script>document.write(new Date().getFullYear())</script> Precision Bearings Co., Ltd.</div>
+    </footer>
+
+    <script>
+      function product(){
+        return {
+          images: [
+            'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1610641818989-43e1c7f3fdfb?q=80&w=1600&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1520609798519-2e1e8c18df96?q=80&w=1600&auto=format&fit=crop'
+          ],
+          activeImage: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop'
+        }
+      }
+    </script>
+  </body>
+</html>
