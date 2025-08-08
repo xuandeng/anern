@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products — Precision Bearings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { 500: '#0A94FF' }, ink: '#0b1020' } } } };
+    </script>
+  </head>
+  <body class="bg-ink text-white">
+    <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <a href="/static_website/index.html" class="inline-flex items-center gap-3">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-brand-500 to-blue-300 ring-1 ring-white/10"></div>
+            <span class="text-lg font-extrabold">Precision Bearings</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+            <a href="/static_website/index.html" class="hover:text-blue-300">Home</a>
+            <a href="/static_website/chanpinzhanshi.html" class="hover:text-blue-300">Products</a>
+            <a href="/static_website/xinwenzixun.html" class="hover:text-blue-300">News</a>
+            <a href="/static_website/guanyuwomen.html" class="hover:text-blue-300">About</a>
+            <a href="/static_website/lianxiwomen.html" class="hover:text-blue-300">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-24">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" x-data="productPage()">
+        <h1 class="text-4xl font-extrabold">Products</h1>
+        <p class="text-white/70 mt-2">Needle roller bearings, ball bearings, and custom assemblies.</p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <button :class="btnClass('all')" @click="filter='all'">All</button>
+          <button :class="btnClass('needle')" @click="filter='needle'">Needle Roller</button>
+          <button :class="btnClass('ball')" @click="filter='ball'">Ball</button>
+          <button :class="btnClass('custom')" @click="filter='custom'">Custom</button>
+          <div class="ml-auto relative">
+            <input x-model="q" type="search" placeholder="Search products..." class="w-64 px-3 py-2 rounded-lg bg-white/10 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-400 outline-none placeholder:text-white/40" />
+          </div>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <template x-for="p in filtered">
+            <a :href="p.href" class="group rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-white/30 transition">
+              <img :src="p.img" :alt="p.title" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500"/>
+              <div class="p-5">
+                <div class="text-xs uppercase tracking-wide text-white/60" x-text="p.category"></div>
+                <div class="mt-1 text-lg font-bold" x-text="p.title"></div>
+                <div class="mt-1 text-white/70" x-text="p.snippet"></div>
+              </div>
+            </a>
+          </template>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-16 border-t border-white/10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-white/60">© <script>document.write(new Date().getFullYear())</script> Precision Bearings Co., Ltd.</div>
+    </footer>
+
+    <script>
+      function productPage(){
+        return {
+          q: '',
+          filter: 'all',
+          products: [
+            { title: 'Stainless Steel Needle Roller Bearing', category: 'Needle Roller', type:'needle', snippet: 'High load, compact, corrosion-resistant.', href: '/static_website/product_1545.html', img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop' },
+            { title: 'Deep Groove Ball Bearing 6204', category: 'Ball', type:'ball', snippet: 'Versatile, low noise, long life.', href: '#', img: 'https://images.unsplash.com/photo-1520609798519-2e1e8c18df96?q=80&w=1200&auto=format&fit=crop' },
+            { title: 'Angular Contact Bearing 7205', category: 'Ball', type:'ball', snippet: 'High speed, axial load capability.', href: '#', img: 'https://images.unsplash.com/photo-1610641818989-43e1c7f3fdfb?q=80&w=1200&auto=format&fit=crop' },
+            { title: 'Custom Bearing Assembly', category: 'Custom', type:'custom', snippet: 'Tailored to your application.', href: '#', img: 'https://images.unsplash.com/photo-1581093458791-9d09ade98889?q=80&w=1200&auto=format&fit=crop' },
+            { title: 'Needle Roller Cage Assembly', category: 'Needle Roller', type:'needle', snippet: 'Compact needle cage set.', href: '#', img: 'https://images.unsplash.com/photo-1520609798519-2e1e8c18df96?q=80&w=1200&auto=format&fit=crop' },
+            { title: 'Stainless Miniature Ball Bearing', category: 'Ball', type:'ball', snippet: 'Miniature size, precise.', href: '#', img: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop' }
+          ],
+          get filtered(){
+            return this.products.filter(p => (this.filter==='all' || p.type===this.filter) && (this.q==='' || (p.title+p.snippet+p.category).toLowerCase().includes(this.q.toLowerCase())) )
+          },
+          btnClass(k){
+            return `px-3 py-2 rounded-full text-sm font-bold ${this.filter===k? 'bg-white text-ink':'bg-white/10 hover:bg-white/20'} `
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
