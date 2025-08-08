@@ -9,8 +9,9 @@
     <script>
       tailwind.config = { theme: { extend: { colors: { brand: { 500: '#0A94FF' }, ink: '#0b1020' } } } };
     </script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
   </head>
-  <body class="bg-ink text-white">
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
     <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -44,7 +45,7 @@
           </div>
         </div>
 
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal data-reveal-stagger="80">
           <template x-for="p in filtered">
             <a :href="p.href" class="group rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-white/30 transition">
               <img :src="p.img" :alt="p.title" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500"/>

@@ -7,8 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>tailwind.config={theme:{extend:{colors:{ink:'#0b1020'}}}}</script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
   </head>
-  <body class="bg-ink text-white">
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
     <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -29,7 +30,7 @@
 
     <main class="pt-24" x-data="product()">
       <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div class="grid lg:grid-cols-2 gap-10 items-start" data-reveal data-reveal-stagger="120">
           <div class="sticky top-24 space-y-4">
             <img :src="activeImage" class="rounded-2xl ring-1 ring-white/10" alt="Needle roller bearing"/>
             <div class="grid grid-cols-4 gap-3">

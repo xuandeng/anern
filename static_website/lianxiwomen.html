@@ -7,8 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script>tailwind.config={theme:{extend:{colors:{ink:'#0b1020'}}}}</script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
   </head>
-  <body class="bg-ink text-white">
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
     <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -32,7 +33,7 @@
         <h1 class="text-4xl font-extrabold">Contact Us</h1>
         <p class="text-white/70 mt-2">We reply within 24 hours. For immediate assistance, call our hotline.</p>
 
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="mt-10 grid md:grid-cols-3 gap-6" data-reveal data-reveal-stagger="80">
           <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
             <div class="text-white/60 text-sm">Phone</div>
             <div class="font-bold">+86 (000) 1234 5678</div>
@@ -47,7 +48,7 @@
           </div>
         </div>
 
-        <div id="quote" class="mt-16 grid md:grid-cols-2 gap-10 items-start">
+        <div id="quote" class="mt-16 grid md:grid-cols-2 gap-10 items-start" data-reveal data-reveal-stagger="120">
           <div>
             <h2 class="text-2xl font-bold">Request a Quote</h2>
             <p class="text-white/70 mt-2">Tell us about your application. We will propose a solution and pricing.</p>

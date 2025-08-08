@@ -6,8 +6,9 @@
     <title>About — Precision Bearings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config={theme:{extend:{colors:{ink:'#0b1020'}}}}</script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
   </head>
-  <body class="bg-ink text-white">
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
     <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -31,7 +32,7 @@
         <h1 class="text-4xl font-extrabold">About Us</h1>
         <p class="text-white/70 mt-3 max-w-3xl">Precision Bearings Co., Ltd. specializes in stainless steel needle roller bearings, deep groove ball bearings, and custom bearing solutions. Our mission is to deliver reliable motion components that power the world’s machinery.</p>
 
-        <div class="grid md:grid-cols-3 gap-6 mt-10">
+        <div class="grid md:grid-cols-3 gap-6 mt-10" data-reveal data-reveal-stagger="80">
           <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
             <div class="text-4xl font-extrabold">20+</div>
             <div class="text-white/60">Years of experience</div>
@@ -46,7 +47,7 @@
           </div>
         </div>
 
-        <div class="mt-16 grid md:grid-cols-2 gap-12 items-center">
+        <div class="mt-16 grid md:grid-cols-2 gap-12 items-center" data-reveal data-reveal-stagger="120">
           <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" class="rounded-2xl ring-1 ring-white/10" alt="Factory"/>
           <div>
             <h2 class="text-2xl font-bold">Quality at the core</h2>
@@ -61,7 +62,7 @@
 
         <div class="mt-16">
           <h2 class="text-2xl font-bold">Milestones</h2>
-          <div class="mt-6 grid md:grid-cols-4 gap-6 text-sm">
+          <div class="mt-6 grid md:grid-cols-4 gap-6 text-sm" data-reveal data-reveal-stagger="80">
             <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-4">
               <div class="text-white/60">2008</div>
               <div class="font-bold mt-1">Company founded</div>

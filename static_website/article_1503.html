@@ -6,8 +6,9 @@
     <title>The 6th Linqing · China Bearing Expo opens on April 20 — Precision Bearings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config={theme:{extend:{colors:{ink:'#0b1020'}}}}</script>
+    <script defer src="/static_website/assets/js/transitions.js"></script>
   </head>
-  <body class="bg-ink text-white">
+  <body class="bg-ink text-white opacity-0 transition-opacity duration-300">
     <header class="fixed inset-x-0 top-0 z-50 bg-ink/80 backdrop-blur">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -31,7 +32,7 @@
         <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Expo"/>
       </div>
 
-      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 grid lg:grid-cols-3 gap-10">
+      <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 grid lg:grid-cols-3 gap-10" data-reveal data-reveal-stagger="120">
         <article class="lg:col-span-2">
           <h1 class="text-3xl font-extrabold">The 6th Linqing · China Bearing Expo opens on April 20</h1>
           <div class="text-white/60 mt-1 text-sm">Published on 2024-04-05 • Expo</div>
